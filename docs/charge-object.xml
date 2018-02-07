@@ -1,0 +1,98 @@
+{
+	object:
+	{
+		id: ch_188Hc8GZRBZULFGkOXgFm8h4
+		object: "charge"
+		amount: 250
+		amount_refunded: 0
+		application_fee: null
+		balance_transaction: "txn_188Hc9GZRBZULFGkcNEooZXS"
+		captured: true
+		card:
+		{
+			id: card_188GqnGZRBZULFGkVRdrD9lt
+			object: "card"
+			address_city: null
+			address_country: null
+			address_line1: null
+			address_line1_check: null
+			address_line2: null
+			address_state: null
+			address_zip: null
+			address_zip_check: null
+			brand: "Visa"
+			country: "US"
+			customer: cus_8P50VFGdy906XJ
+			cvc_check: null
+			dynamic_last4: null
+			exp_month: 5
+			exp_year: 2019
+			fingerprint: "ntyCJjLZycHCE7fa"
+			funding: "debit"
+			last4: "9505"
+			metadata:
+			{ },
+			name: "kimmi1211@gmail.com"
+			tokenization_method: null
+		},
+		created: 1462574404
+		currency: "usd"
+		customer: cus_8P50VFGdy906XJ
+		description: "Single Sheet purchase"
+		destination: null
+		dispute: null
+		failure_code: null
+		failure_message: null
+		fraud_details:
+		{ },
+		invoice: null
+		livemode: true
+		metadata:
+		{ },
+		order: null
+		paid: true
+		receipt_email: "kimmi1211@gmail.com"
+		receipt_number: "1301-0096"
+		refunded: false
+		refunds:
+		{
+			object: "list"
+			data:
+			[ ],
+			has_more: false
+			total_count: 0
+			url: "/v1/charges/ch_188Hc8GZRBZULFGkOXgFm8h4/refunds"
+		},
+		shipping: null
+		source:
+		{
+			id: card_188GqnGZRBZULFGkVRdrD9lt
+			object: "card"
+			address_city: null
+			address_country: null
+			address_line1: null
+			address_line1_check: null
+			address_line2: null
+			address_state: null
+			address_zip: null
+			address_zip_check: null
+			brand: "Visa"
+			country: "US"
+			customer: cus_8P50VFGdy906XJ
+			cvc_check: null
+			dynamic_last4: null
+			exp_month: 5
+			exp_year: 2019
+			fingerprint: "ntyCJjLZycHCE7fa"
+			funding: "debit"
+			last4: "9505"
+			metadata:
+			{ },
+			name: "kimmi1211@gmail.com"
+			tokenization_method: null
+		},
+		source_transfer: null
+		statement_descriptor: null
+		status: "paid"
+	}
+}

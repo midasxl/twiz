@@ -1,0 +1,979 @@
+/*Import Global Compulsory CSS Files*/
+
+@import url(app.css); /* Unify - Responsive Bootstrap Template */
+
+/*Import CSS Plugins*/
+
+@import url(plugins.css);
+
+@import url(plugins/animate.css);`
+
+@import url(plugins/box-shadows.css);
+
+.wrapper {
+
+  background: #fff;
+
+}
+
+/*Top Bar (login, search etc.)
+
+------------------------------------*/
+
+.topbar {
+
+	z-index: 12;
+
+	padding: 8px 0;
+
+	position: relative;
+
+}
+
+
+
+.topbar ul.loginbar { /* log in, resources, not for gambling */
+
+	margin: 0;
+
+}
+
+
+
+.topbar ul.loginbar > li {
+
+	display: inline;
+
+	list-style: none;
+
+	position: relative;
+
+	padding-bottom: 15px;
+
+}
+
+
+
+.topbar ul.loginbar > li > a, .topbar ul.loginbar > li > a:hover {
+
+	color: #fff;
+
+	font-size: 11px;
+
+	text-transform: uppercase;
+
+}
+
+
+
+.topbar ul.loginbar li i.fa { 
+
+	color: #bbb;
+
+}
+
+
+
+.topbar ul.loginbar li.topbar-divider { 
+
+	top: -1px;
+
+	padding: 0;
+
+	font-size: 8px;
+
+	position: relative;
+
+	margin: 0 9px 0 5px;
+
+	font-family: Tahoma;
+
+	border-right: solid 1px #bbb;
+
+}
+
+/*Header Default
+
+------------------------------------*/
+
+.header {
+
+	z-index: 99;
+
+	position: relative;
+	
+	background: #3e4753;
+
+}
+
+
+
+.header .navbar {
+
+	margin: 0;
+
+	min-height: inherit;
+
+}
+
+
+
+.header .navbar-default {
+
+	border: none;
+
+	background: none;
+
+}
+
+
+
+.header .navbar-collapse { /* wrapper for all main nav links to accept collapse function */
+
+	position: relative;
+
+	/*max-height: inherit;*/
+
+}
+
+
+
+/*Brand*/
+
+.header .navbar-brand { /* anchor around twiz logo */
+
+	z-index: 1;
+
+	top: -10px;
+
+	position: relative;
+
+	padding: 0 10px 10px;
+
+}
+
+.header .navbar-default .navbar-nav > li > a {
+	
+	color: #fff;
+
+	font-size: 15px;
+
+	font-weight:400;
+
+	text-transform: uppercase;
+
+}
+
+.header .navbar-default .navbar-nav > li > a:hover {
+	
+	qcolor: #72c02c;
+	color: #ccc;
+		
+}
+
+
+
+.header .navbar-default .navbar-nav > .active > a {
+
+	color: #72c02c;
+
+}
+
+/*Navbar Toggle*/
+
+.navbar-toggle,
+
+.navbar-default .navbar-toggle:hover, 
+
+.navbar-default .navbar-toggle:focus { /* this is the burger menu after collapse */
+
+	background: #72c02c;
+
+	padding: 6px 10px 2px;
+
+}
+
+
+
+.navbar-toggle:hover {
+
+	background: #5fb611 !important;
+
+}
+
+
+
+.navbar-default .navbar-toggle {
+
+	border-color: #5fb611;
+
+}
+
+
+
+.navbar-default .navbar-toggle .fa {
+
+	color: #fff;
+
+	font-size: 19px;
+
+}
+
+/*Responsive code for max-width: 1000px*/
+
+/* nav collapse to burger menu will happen at 1000px and less */
+	
+@media (max-width: 1199px) { /* these rule sets will work UP TO 1000px in width.  That's the maximum at which these will work.  Anything greater than 1000 will not honor these rule sets */
+
+/* These are the rule sets for the collapsed burger menu when the viewport is a maximum of 1000px or less */
+
+    .header .navbar-header {
+
+        float: none;
+
+    }
+
+    .header .navbar-toggle {
+
+        display: block;
+
+    }
+
+	.top-burger.navbar-toggle {
+			margin-top: -3px;
+			margin-right: 0px;
+	}
+	
+	.navbar-default .navbar-toggle {
+			margin-right: 0px;
+	}
+
+    .header .navbar-collapse.collapse {
+
+        display: none !important;
+
+    }
+
+    
+
+    .header .navbar-collapse.collapse.in {
+
+        display: block !important;
+
+  		overflow-y: auto !important;
+
+    }
+
+
+    .header .navbar-nav {
+
+        margin: 7px 0;
+
+        float: none !important;
+
+    }
+
+
+    .header .navbar-nav > li {
+
+        float: none;
+
+    }
+
+    
+
+    .header .navbar-nav > li > a {
+
+        padding-top: 30px;
+
+        padding-bottom: 40px;
+
+    }
+
+
+    .header .navbar-collapse,
+
+	.header .navbar-collapse .container {
+
+		qpadding-left: 0 !important;
+
+		qpadding-right: 0 !important;
+
+	}
+
+
+	.header .navbar-default .navbar-nav > li > a {
+
+		font-size: 14px;
+
+		padding: 9px 10px;
+
+	}
+
+
+
+	.header .navbar-default .navbar-nav > li > a:focus {
+
+		background: none;
+
+	}
+
+
+
+	.header .navbar-default .navbar-nav > li > a:hover {
+
+		qcolor: #72c02c;
+		color: #ccc;
+
+	}
+
+
+
+	.header .navbar-default .navbar-nav > .active > a,
+
+	.header .navbar-default .navbar-nav > .active > a:hover,
+
+	.header .navbar-default .navbar-nav > .active > a:focus {
+
+		color: #fff !important;
+
+		background: #72c02c;
+
+	}
+
+}
+
+
+
+@media (min-width: 1200px) { /* These rule sets will work while the viewport is AT LEAST 1000px or higher */
+
+/* These are the rule sets for the visible horizontal navigation system; not the mobile burger menu */
+
+	/*Navbar Collapse*/
+
+	.header .navbar-collapse { /* holds the main navigation links in header.php */
+
+		padding: 0;
+
+	}
+
+	/*Navbar*/
+
+	.header .navbar-nav { /* <ul> tag that holds the main navigation links */
+
+		top: 2px;
+
+		position: relative;
+
+	}
+
+
+
+	.header .navbar-default .navbar-nav > li > a {
+
+		padding: 9px 30px 9px 20px;		
+
+	}
+
+
+
+	.header .navbar-default .navbar-nav > li > a,
+
+	.header .navbar-default .navbar-nav > li > a:focus {	
+
+		border-bottom: solid 2px transparent;
+
+	}
+
+
+
+	.header .navbar-default .navbar-nav > li > a:hover,
+
+	.header .navbar-default .navbar-nav > .active > a {
+
+		border-bottom: solid 2px #72c02c;
+
+	}
+
+	
+
+	.header .navbar-default .navbar-nav > li > a,
+
+	.header .navbar-default .navbar-nav > li > a:hover,
+
+	.header .navbar-default .navbar-nav > li > a:focus,	
+
+	.header .navbar-default .navbar-nav > .active > a, 
+
+	.header .navbar-default .navbar-nav > .active > a:hover, 
+
+	.header .navbar-default .navbar-nav > .active > a:focus {
+
+		background: none;
+
+	}
+
+
+
+	.header .navbar-default .navbar-nav > .open > a,
+
+	.header .navbar-default .navbar-nav > .open > a:hover,
+
+	.header .navbar-default .navbar-nav > .open > a:focus {
+
+		color: #72c02c;
+
+	}
+
+} /* ----- close min-width 1000px media query ----- */
+
+/*Main Styles
+
+------------------------------------*/
+
+/*Purchase Block*/
+
+.purchase {
+
+	padding: 25px 0 30px;
+
+	border-bottom: solid 1px #eee;
+	
+	background: #585f69 url(../../img/twiz-homepage.jpg) no-repeat center top;
+	
+	color:#fff;
+
+}
+
+@media (min-width: 1001px) and (max-width: 1199px) {
+	
+	.purchase {
+	
+		background: #585f69 url(../../img/twiz-homepage-1200.jpg) no-repeat center top;
+	
+	}
+	
+}
+
+@media (max-width: 1000px) {
+
+	.purchase {
+	
+		background: #585f69 url(../../img/twiz-homepage-992.jpg) no-repeat left top;
+	
+	}
+	
+}
+
+.purchase p {
+
+	color:#fff;
+
+	margin-bottom: 0;
+
+}
+
+.purchase p#opener span { /* this is the member login title for the index page log in form */
+
+	color: #fff;
+
+	display: block;
+
+	font-size: 24px;
+
+	line-height: 35px;
+
+	font-weight: normal;
+
+	margin-bottom: 12px;
+
+	font-family: 'Open Sans', sans-serif; 	
+
+}
+
+/* this is for the free demo test drive feature if we ever bring it back */
+
+/*.purchase .btn-buy {
+
+	text-align: center;
+
+}
+
+.purchase .btn-buy {
+
+	text-align: center;
+
+}
+
+.purchase .btn-buy a {
+
+	margin-top: 27px;
+
+}
+
+.purchase .btn-buy a i {
+
+	margin-right: 5px;
+
+}*/
+
+
+
+/*Service*/
+
+/* This is the how to use the site step containers */
+
+.service {
+
+	overflow: hidden; 
+
+	margin-bottom: 10px;
+
+	padding: 15px 15px 10px;
+
+}
+
+.service:hover {
+
+	background: #fcfcfc;
+
+	box-shadow: 0 0 5px #ddd;
+
+    -webkit-transition: box-shadow 0.2s ease-in-out;
+
+    -moz-transition: box-shadow 0.2s ease-in-out;
+
+    -o-transition: box-shadow 0.2s ease-in-out;
+
+    transition: box-shadow 0.2s ease-in-out;
+
+}
+
+.service:hover i {
+
+	color: #656565;
+
+}
+
+
+
+.service .desc {
+
+	padding: 0 15px; 
+
+	overflow: hidden;
+
+}
+
+.service .desc h4 {
+
+	font-size: 22px;
+
+	line-height: 25px;
+
+}
+
+
+
+.service .service-icon {
+
+	float: left;
+
+	padding: 10px;
+
+	color: #72c02c;
+
+	font-size: 35px;  
+
+	text-align: center;
+
+    -webkit-transition: all 0.4s ease-in-out;
+
+    -moz-transition: all 0.4s ease-in-out;
+
+    -o-transition: all 0.4s ease-in-out;
+
+    transition: all 0.4s ease-in-out;
+
+}
+
+.service .service-icon.icon-cogs {
+
+	font-size: 37px;
+
+}
+
+.service .service-icon.icon-plane {
+
+	font-size: 43px;
+
+}
+
+/*Footer*/
+
+.footer {
+
+	color: #dadada;
+
+	background: #585f69;
+
+	padding: 20px 0 30px;
+
+}
+
+
+/* not used */
+/*.footer.margin-top-0 {
+
+	margin-top: 0;
+
+}*/
+
+
+
+.footer p,
+
+.footer a {
+
+	font-size: 14px;
+
+} 
+
+.footer p {
+
+	color: #dadada;
+
+} 
+
+
+
+.footer a {
+
+	color: #72c02c;
+
+}
+
+.footer a:hover {
+
+	color: #a8f85f;
+
+    -webkit-transition: all 0.4s ease-in-out;
+
+    -moz-transition: all 0.4s ease-in-out;
+
+    -o-transition: all 0.4s ease-in-out;
+
+    transition: all 0.4s ease-in-out;
+
+}
+
+
+
+.footer h2 {
+
+	color: #e4e4e4;
+
+	background: none;
+
+	text-shadow: none;
+
+}
+
+/*Copyright*/
+
+.copyright {
+
+	font-size: 12px;
+
+	padding: 11px 0 7px;
+
+	background: #3e4753;
+
+	border-top: solid 1px #777;	
+
+}
+
+
+
+.copyright p {
+
+	color: #dadada;
+
+	margin-top: 12px;
+
+}
+
+
+
+.copyright a {
+
+	margin: 0 5px;
+
+	color: #72c02c;
+
+}
+
+.copyright a:hover {
+
+	color: #a8f85f;
+
+}
+
+
+
+.copyright a img {
+
+	margin-top: 5px;
+
+}
+
+
+
+/*Breadcrumbs
+
+------------------------------------*/ 
+
+/*Default Breadcrumbs*/
+
+.breadcrumbs {
+
+	overflow: hidden;
+
+	padding: 10px 0 6px;
+
+	border-bottom: solid 1px #eee;
+
+	qbackground: url(../img/breadcrumbs.png) repeat;
+	
+	background: #585f69;
+
+
+}
+
+.breadcrumbs h1 {
+
+	color: #fff;
+
+	font-size: 22px;
+
+	margin-top: 8px;
+
+}
+
+
+
+.breadcrumb { 
+
+	top: 10px;
+
+	padding-right: 0;
+
+	background: none;
+
+	position: relative;
+
+}
+
+.breadcrumb a {
+
+	color: #fff;
+
+}
+
+.breadcrumb li.active,
+
+.breadcrumb li a:hover {
+
+	color: #72c02c;
+
+	text-decoration: none;
+
+}
+
+
+
+@media (max-width: 550px) {
+
+	.breadcrumbs h1.pull-left,
+
+	.breadcrumbs ul.pull-right {
+
+		width: 100%;
+
+		text-align: center;
+
+	}
+
+
+
+	.breadcrumbs h1.pull-left {
+
+		margin-bottom: 0;
+
+	}
+
+
+
+	.breadcrumbs .breadcrumb {
+
+		top: 0;
+
+		margin-bottom: 10px;
+
+	}
+
+}
+
+/*Privacy Page
+
+------------------------------------*/
+
+.privacy a {
+
+	text-decoration: underline;
+
+}
+
+.privacy a:hover {
+
+	color: #72c02c;
+
+	text-decoration: none;
+
+}
+
+
+
+/* About Us company profile markup
+
+------------------------------------*/
+
+.portfolio-item h2 {
+
+	color: #555;
+
+	font-size: 24px;
+
+	margin: 0 0 15px;
+
+}
+
+.portfolio-item li {
+
+	padding: 3px 0;
+
+} 
+
+.portfolio-item p a {
+
+	text-decoration: underline;
+
+}
+
+.portfolio-item p a:hover {
+
+	text-decoration: none;
+
+}
+
+.portfolio-item1 ul {
+
+	margin: 10px 0 20px;
+
+}
+
+
+
+.portfolio-item1 li {
+
+	font-size: 16px;
+
+	margin-bottom: 3px;
+
+}
+
+
+
+.portfolio-item1 li i {
+
+	font-size: 18px;
+
+	margin-right: 4px;
+
+}
+
+/* List items under company data */
+
+.who li { 
+
+	margin-bottom: 6px;
+
+}
+
+.who li i { 
+
+	color: #72c02c; 
+
+	font-size: 13px;
+
+	min-width: 15px;
+
+	margin-right: 8px;
+
+	text-align: center;
+
+	position: relative; 
+
+}
+
+.who li:hover i, 
+
+.who li:hover a { 
+
+	color: #777;
+
+}
+
+.who li:hover a:hover {
+
+	text-decoration: none;
+
+}
+
+img.pp{
+
+	width:363px;margin:0 auto;
+
+}
+
+@media (max-width: 767px) {
+	
+	.container>.navbar-header {
+		margin-right:0px;	
+	}
+
+}
+
+/*Social Icons*/
+
+.social-icons {
+
+	margin-top: 5px;
+
+}
+
+
+
+.social-icons li {
+
+	margin: 0; 
+
+}
+
+
+
+.social-icons li a {
+
+	margin: 0 3px;
+
+}

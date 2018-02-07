@@ -1,0 +1,39 @@
+Thoroughwiz.
+
+On the FAQ page:
+After "Ready to do this", provide link to register, or log in for existing
+members.
+
+Move the stripe banner to the right column below social networks.
+
+Work on sticky footer for all pages.
+
+Beef up company data somehow?
+
+Log In button on index.php does not match the one on login.php
+
+Work on hover and focus states of links on white background
+
+<done>Member area horizontal nav is floating right.  Should be left.  And it
+should also collapse at the same breakpoint as the main site navigation
+
+Perhaps a nice background color when hovering over member area nav items?
+
+<done>How about a log in and log out modal progress bar?
+
+Ability to choose an avatar or upload a picture to associate with your
+account.
+
+Ability to create a username and use that OR an email to log in?
+
+First breakpoint have main nav float all the way left?
+
+<done>First breakpoint and beyond do something with the feature list.
+
+<done>First breakpoint do something with the sign in options (forgot password,
+resend activation email)
+
+<done>Get rid of the very brief second breakpoint.
+
+<done>Check the 767 768 breakpoint.  Size seems to get bigger instead of smaller
+for a brief several pixels.

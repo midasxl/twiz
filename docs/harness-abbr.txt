@@ -1,0 +1,1532 @@
+Abbr:
+
+Aces
+AD
+Adrn
+Aftn
+Agawm
+Ahsk
+Albn
+Aldo
+Allgn
+Alp
+Alsn
+Altmt
+Amst
+Amt
+Anca
+And
+Angel
+Anna
+Arnp
+AsD
+Ashl
+Athns
+Atl
+Atmt
+Attc
+Aud
+Aust
+Avmr
+AxBy
+AyrCl
+
+pg
+BalSp
+Bang
+Bar
+Barn
+Bath
+BB
+BdAx
+Bdfd
+Bdr
+Bdstn
+Beams
+Bedf
+Bef
+Bent
+Ber
+Besj
+Bftn
+BgD
+BgRpd
+BgZ
+Bklyn
+BlHl
+Blmf
+Blom
+Blue 
+Blvl
+BmlPf
+BmlP
+Bnbk
+Bnvl
+Bona
+Bott
+BR
+Brd
+Brk
+Brkvi
+Brom
+Brtn
+Bthwl
+Btva
+Bucy
+Burf
+Burt
+Butlr
+BvDm
+Bvdr
+BwlG
+ByCy
+Byd
+Cald
+CalX
+Camb
+Canon
+Cantn
+Carlt
+Carmi
+Caro
+Carr
+Cass
+CaTwp
+Cbls
+CbsJn
+Cby
+Cdiz
+Cdlc
+Cdna
+CdRp
+Cel
+CHF
+Char
+Chey
+Chhs
+Chil
+Chino
+Chlt
+ChP
+Chrtn
+Circ
+Clark
+Cldn
+Clear
+Clgy
+Clna
+Clntn
+Clov
+Cmdn
+Cmros
+Cnfld
+Cnl
+CnrCy
+Cnsv
+Cntck
+Cntrv
+Cnvr
+Cols
+Conn
+Cort
+Cosh
+Crab
+Crav
+Crb
+Crlvl
+Crm
+Crot
+Crswl
+Crydn
+Csty
+Ctm
+Cum
+Cvll
+Cwtn
+Darl
+Daup
+Dayt
+Dctr
+DD
+Dela
+DelM
+Deper
+Det
+DLrn
+DLSgn
+DLSp
+DMV
+Dndlk
+Dnkrk
+Dnlsn
+Dnsn
+Dorch
+Dover
+Dres
+DsMns
+DTN
+Dund
+DuQ
+Dytn
+EA
+EAng
+Eaton
+Edm
+ELF
+Eldon
+Elkrn
+Elmra
+Emira
+Emo
+Enoch
+EPR
+EsxJn
+Fairb
+Fair
+Frgo
+Farm
+Fat
+Faye
+Fda
+FeD
+Fhld
+Find
+FlmD
+Fox
+FP
+FrD
+Frdtn
+Fred
+Frept
+Frfld
+Frgo
+FrmCy
+Frnft
+Frept
+Frst
+Frybg
+FsR
+Fwvl
+GCTC
+GeoD
+Glbr
+Gldwn
+Godr
+Gosh
+Gouv
+Grebr
+Green
+Grig
+Grnfd
+GrnPr
+Grnup
+Grnvl
+Grot
+GrR
+GRvr
+Grtz
+Gshn
+GSP
+GthC
+Gtwy
+Gty
+Gwy
+Gyld
+Had
+Hale
+Ham
+Har
+Hart
+Haw
+HAy
+Hdwk
+Hend
+HhTC
+Hick
+Hill
+Hin
+Hksv
+Hldn
+Hlnd
+Hlsdl
+HM
+Hmlok
+Hmt
+Hndn
+Hnry
+Hnvr
+Hol
+Holln
+Hone
+HoP
+Hopk
+HP
+HR
+Hrsn
+Hstng
+Hugh
+Humb
+Hutch
+Imad
+Imlay
+Ind
+Indna
+Indpn
+Invrn
+Ionia
+Ipls
+Iron
+Ithca
+Jack
+Jcksn
+Jeff
+Jksvl
+Jrsv
+KD
+Kendl
+Kent
+Keos
+Khka
+KHP
+Klmzo
+Klrny
+Knox
+Knrs
+Knton
+KPR
+LA
+LaCht
+Lanc
+LaPoc
+Laprt
+Lat
+LB
+Lbn
+Lcnt
+Leam
+Lehgh
+Leth
+Lever
+Lewbg
+Lew
+Lex
+Lima
+Linc
+LkOds
+Lncln
+Lndn
+Lnsdw
+Logan
+Lomb
+Lon
+LouD
+Low
+Lrn
+Lsbn
+LSM
+LtlVy
+Lud
+Lux
+LvD
+Lwstn
+Lyd
+Lydvl
+M
+Malon
+Manit
+Maq
+Mar
+Mari
+Marsh
+Mart
+Mary
+Mason
+Mass
+May
+Mayfd
+McCnl
+McCr
+Mdlnd
+Mea
+Meadv
+Med
+Melb
+Melv
+Memp
+Mend
+Miami
+Milt
+Minn
+Mkg
+Mnch
+MnlPt
+Mnsf
+Mntcl
+Mntpl
+Mntwc
+Moh
+Montp
+Mor
+Mphs
+MqD
+MR
+MRc
+Mrion
+Mris
+Mrisn
+Mrkh
+Mrlb
+Mrn
+Mroe
+Mrsfd
+Mrshl
+Mrtvl
+Msfld
+MsJw
+MSU
+MtGil
+MtJP
+Mtplr
+MtStr
+MtVer
+Mun
+MVR
+Napa
+Nash
+NBD
+NcR
+Neil
+NewH
+Nfld
+Nhtn
+Nor
+Nouvl
+NP
+Npln
+Nrwd
+NtSD
+Nway
+Nwch
+Nwlk
+Nwng
+Nwton
+Oak
+Ocla
+OD
+OHbr
+Ohs
+Onkma
+Oreg
+Orill
+Orl
+Orlnd
+Ormst
+Ornvl
+Orono
+Oskls
+Ott
+Ovdo
+OWash
+Owat
+Owego
+Owen
+Oxfd
+Pabos
+Pad
+Pain
+Pana
+Par
+Paris
+Park
+Pauld
+PcD
+Peca
+PER
+Perth
+Pet
+Phila
+Phl
+Pike
+Pilot
+Pine
+Pink
+Pisc
+PkCy
+Plmya
+PlnCy
+Plnvl
+Pltbg
+Ply
+Pom
+Port
+PPk
+Ppvl
+PRc
+Pres
+PrM
+Prnc
+Prntn
+Proc
+PrRoy
+PrtPy
+Ptlnd
+Ptsbg
+PV
+Qby
+QCD
+Que
+Quyon
+Ral
+Rchln
+Rchst
+Rchwd
+Rcmnd
+RcR
+RdDr
+Rdvl
+Reg
+Rhin
+Rich
+RicLk
+RidC
+Ridg
+RidL
+Rksp
+ROC
+Roch
+Rock
+Rod
+RP
+RR
+RSD
+Rshvl
+RTC
+Russ
+Rutln
+SA
+Sack
+Sacr
+Sagy
+Salm
+Sand
+Sar
+Sart
+SBLG
+Sbyvl
+Scar
+ScD
+SD
+Sedal
+Sed
+SFTC
+SgHr
+SgVy
+SGR
+Shedd
+Shedd
+Sherb
+Shpl
+Sid
+Sim
+Skow
+Smeth
+Smld
+Smth
+Smtvl
+SndCr
+Sndwh
+SnJos
+Snsh
+SOTC
+SpCk
+Spen
+Spenc
+Spfld
+SPk
+Spncr
+Spr
+Sprng
+Squt
+Srl
+Srry
+SSV
+SsM
+StAM
+StAP
+StAug
+StBx
+StEd
+StGlm
+Stga
+StHgs
+StHL
+SthMt
+STJ
+StJDl
+StJhn
+StJns
+Stkn
+Stnd
+Stock
+Ston
+StP
+StPtr
+Strgs
+Stroy
+Sturg
+Sudby
+Summ
+Sund
+Sutt
+Swan
+SxC
+SxFl
+Sycs
+Sydny
+Tara
+Tayvl
+Tees
+TeM
+TgDn
+Tiff
+Till
+TinFl
+Tops
+TRD
+Troy
+TRR
+TrRvs
+TrSp
+Trum
+Truro
+Trvs
+Try
+Tunbr
+Twnr
+Union
+UpSan
+Urb
+Urbna
+Vass
+Vctvl
+VD
+Viro
+VkM
+VnWrt
+Vrdn
+Wake
+Wapak
+Wapel
+War
+Warrn
+WasCH
+Wash
+Wat
+Water
+Watt
+Wausa
+Waw
+Wayn
+Wdb
+Wdna
+Wdsfd
+Wdstk
+Well
+West
+Wey
+What
+Whtn
+Whtny
+Wilm
+Wind
+Wint
+Wlctn
+Wlngt
+Wlstn
+Wodst
+Wood
+Wostr
+Wseon
+Wtfd
+Wtma
+Wtrl
+Xenia
+York
+YR
+Yrktn
+Zane
+
+Locations:
+
+Running Aces Harness Park MN
+Alberta Downs, ALTA
+Adrian, MI
+Afton, NY
+Agawam, MA
+Ahoskie, NC
+Albion, IL
+Aledo, IL
+Allegan, MI
+Alpena, MI
+Allison, IA
+Altamont, IL
+Amherst, WI
+Amulet Farm, PA
+Ancaster, ONT
+Anderson, IN
+Angelica, NY
+Anna, IL
+Arnprior, ONT
+Assiniboia Downs, MAN
+Ashland, OH 
+Athens, OH
+Atlanta, GA
+Altamont, NY
+Attica, OH
+Audubon Downs, KY
+Austin, MN
+Avonmore, ONT
+Alexandria Bay, NY
+Ayers Cliff, QUE
+Ballston Spa, NY
+Bangor Raceway, ME
+Barrie Raceway, ONT
+Barnum, MN
+Bath, NY
+Blue Bonnets, QUE
+Bad Axe, MI
+Bedford, PA
+Bedrock, ALTA
+Bardstown, KY
+Beamsville, ONT 
+Bedford, QUE
+Bedford, IA
+Benton, KY
+Berea, OH
+Beausejour, MAN
+Bellefontaine, OH
+Players’ Bluegrass Downs, KY
+Big Rapids, MI
+Big Z Farms, NJ
+Brooklyn, CT
+Blue Hill, ME
+Bloomfield, IA
+Bloomsburg, PA
+Blue Earth, MN
+Quinte Raceway, ONT
+Balmoral Park, IL
+Balmoral Park, IL
+Binbrook, ONT
+Boonville, NY
+Bonaventure, QUE
+Bottineau, ND
+Buffalo Raceway, NY
+Brandywine Raceway, DE
+Brooklin, ONT
+Brockville, ONT
+Brome, QUE
+Barton, VT
+Bothwell, ONT
+Batavia Downs, NY
+Bucyrus, OH
+Burford, ONT
+Burton, OH
+Butler, PA
+Beaver Dam, WI
+Belvidere, IL
+Bowling Green, OH
+Bay City, MI
+Buckyland Stables, PA
+Caldwell, OH
+Cal-Expo Raceway, CA
+Cambridge, IL
+Cannon Falls, MN
+Canton, OH 
+Carrollton, IL
+Carmi, IL
+Caro, MI
+Carrollton, OH
+Cassopolis, MI
+Vorum’s Stables, PA
+Cobleskill, NY
+Columbus Junction, IA
+Canterbury Downs, MN
+Cadiz, OH
+Cadillac, MI
+Caledonia, NY
+Cedar Rapids, IA
+Celina, OH
+Capital Hill Farms, NJ
+Charleston, IL
+Cheboygan, MI
+Chehalis, WA
+Chillicothe, OH 
+Chino, CA
+Charlotte, MI
+New Brunswick Downs, NB
+Charlottetown, PEI
+Circleville, OH
+Clarksburg, NJ
+Caledon, ONT
+Clearfield, PA
+Stampede Park, ALTA
+Caledonia, ONT
+Clinton Raceway, ONT
+Cloverdale Raceway, BC
+Camden, MS
+Camrose, ALTA
+Canfield, OH
+Colonial Downs, VA
+Central City, IA
+Connersville, IN
+Contoocook, NH
+Centreville, MI
+Converse, IN
+Ohio State Fair, OH
+Connaught Park, QUE
+Cortland, OH
+Coshocton, OH
+Crabwell, QUE
+Craven, SASK
+Carberry, MAN
+Carlinville, IL
+Carman, MAN
+Croton, OH
+Croswell, MI
+Corydon, IN
+Castletiny Farm, FL
+Chatham, NY
+Cumberland, ME
+Centreville, ONT
+Cowtown, NJ
+Darlington, WI
+Dauphine, MAN
+Dayton, OH
+Decatur, IL 
+Dover Downs, DE
+Delaware, OH
+Del Mar, CA
+Depere, WI
+Wolverine Raceway, MI
+DeLoraine, MAN
+DeLeon Springs, FL
+DeLeon Springs, FL
+Delmarva Downs, Berlin, MD
+Dundalk, ONT
+Dunkirk, NY
+Donnellson, IA
+Denison, IA
+Dorchester, ONT
+Dover, OH
+Dresden Raceway, ONT
+Des Moines, IA
+Dayton, OH
+Dundee, NY
+DuQuoin, IL
+Dayton, PA 
+Egyptian Acres, NJ
+East Angus, QUE
+Eaton, OH
+Northlands Park, ALTA
+East Lynne Farms, NJ
+Eldon, IA
+Elkhorn, WI
+Elmira, NY
+Elmira Raceway, ONT
+Emo, ONT
+Enoch, ALTA
+Exhibition Park, NB
+Essex Junction, VT
+Fairbault, MN
+Fairbury, IL
+Fargo, ND
+Farmington, ME
+Fatima, QUE
+Fayetteville, TN
+Fonda, NY
+Dovington Training Center, MD
+Freehold Raceway, NJ
+Findlay, OH
+Flamboro Downs, ONT
+Foxboro Raceway, MA
+Fairmount Park, IL
+Fraser Downs, BC
+Fredericton, NB
+Frederick, MD
+Freeport, IL
+Fairfield, IL
+Fargo, ND
+Farmer City, IL
+Frankfort, IN
+Freeport, IL
+Forest, ONT
+Fryeburg, ME
+Freestate Raceway, MD
+Fowlerville, MI
+Gil Crest Training Center, FL
+Georgian Downs, ON
+Glenboro, MAN
+Gladwin, MI
+Goderich Raceway, ONT
+Historic Track, NY
+Gouverneur, NY
+Greenbrier Farms, CA 
+Greenville, OH
+Griggsville, IL
+Greenfield, MA
+Grand Prairie, ALTA
+Greenup, IL
+Greenville, IL
+Groton, MA
+Greenwood Raceway, ONT
+Grand River Raceway, ONT
+Gratz, PA
+Goshen, IN
+Garden State Park, NJ
+Gutherie Center, IA
+Gaitway Farms, NJ
+Gaitway Farms, NJ
+Gaitway Farms, NJ
+Gaylord, MI
+Hadley, MA
+Hale, MI
+Hamilton, ND
+Harrington Raceway, DE 
+Hart, MI
+Hawthorne Park, IL
+Hippodrome Gatineau, QUE
+Hardwick Farms, NJ
+Western Kentucky Raceway, KY
+Hollyhurst Training Center, PA
+Hicksville, OH
+Hilliard, OH
+Hinsdale Raceway, NH
+Hawkinsville, GA
+Holdens Raceway, MS
+Holland, MI
+Hillsdale, MI
+Hippodrome du Montreal, QUE
+Hemlock, NY
+Hemet, CA
+Huntingdon, PA
+Henry, IL
+Hanover Raceway, ONT
+Hollywood Park, CA
+Holland, MAN
+Honesdale, PA
+Hoosier Park, Anderson, IN
+Hopkinsville, KY
+Hazel Park, MI
+Hamilton, OH
+Harrison, MI
+Hastings, MI
+Hughesville, PA
+Humboldt, IA
+Hutchinson, MN
+Havre aux Maisons, QUE
+Imlay City, MI
+Indiana State Fair, IN
+Indiana, PA
+Independence, IA
+Inverness, NS
+Ionia, MI
+Indianapolis, IN
+Ironwood, MI
+Ithaca, MI
+Jackson Raceway, MI
+Jackson, MS
+Jefferson, OH 
+Jacksonville, IL
+Jerseyville, IL
+Kawartha Downs, ONT
+Kendallville, IN
+Kentland, IN
+Keosauqua, IA
+Kahokia, MO
+Kentucky Horse Park, KY
+Kalamazoo, MI
+Killarney, MAN
+Knoxville, IL
+Kinross, MI
+Kenton, OH
+Kingston Park Raceway, ONT
+Los Alamitos, CA
+LaChute, QUE
+Lancaster, OH
+La Pocatiere, QUE
+Laporte, IN
+Latonia Raceway, KY
+Liberty Bell Park, PA
+Lebanon, KY 
+Lacenter, KY
+Leamington Raceway, ONT
+Lehighton, PA
+Lethbridge, ALTA
+Leverett, MA
+Lewisburg, WV
+Lewiston Raceway, ME
+The Red Mile, KY
+Lima, OH
+Lincoln, IL
+Lake Odessa, MI
+Lincoln, MI
+London, OH
+Lansdowne, ONT
+Logan, OH
+Lombardy, ONT
+Western Fair Raceway, ONT
+Louisville Downs, KY
+Lowville, NY
+Laura Lan Farm, NJ
+Lisbon, OH
+Lake Shore Meadows, PA
+Little Valley, NY
+Ludington, MI
+Luxemburg, WI
+Lakeview Downs, NFL
+Lewistown, IL
+Lloydminster, SASK
+Lyndonville, VT
+The Meadowlands, NJ
+Malone, NY
+Manitowaning, ONT
+Maquoketa, IA
+Marion, IL
+Marietta, OH
+Marshall, IL
+Martinsville, IL
+Marysville, OH
+Mason, MI
+Massena, NY
+Maywood Park, IL
+Mayfield, KY 
+McConnelsville, OH
+McCreary, MAN
+Midland, MI
+The Meadows, PA
+Meadville, PA
+Medina, OH
+Melbourne, ONT
+Melville, SASK
+Memphis, MO
+Mendota, IL
+Miami, MAN
+Milton, ONT
+Minnedosa, MAN
+Muskegon, MI
+Manchester, VT
+Mineral Point, WI
+Mansfield, OH
+Monticello, IA
+Mt. Pleasant, MI
+Manitowoc, WI 
+Mohawk Racetrack, ONT
+Montpelier, IN
+Morris, NY
+Memphis, TN
+Marquis Downs, SASK
+Monticello Raceway, NY
+Muskegon Racecourse, MI
+Marion, OH
+Morris, MAN
+Morrison, IL
+Markham, ONT
+Marlborough, MA
+Marion, MI
+Monroe, WI
+Marshfield, MA
+Marshall, MI
+Martinville, ONT
+Marshfield, WI
+Moose Jaw, SASK
+Mississippi St. U., MS
+Mount Gilead, OH
+Mt. Joli Price, QUE
+Montpelier, OH
+Mount Sterling, IL
+Mount Vernon, OH
+Muncie, IN
+Miami Valley Raceway, OH
+Napanee, ONT
+Nashua, IA
+New Brunswick Downs, NB
+Northcoast Raceway, MI
+Neillsville, WI
+New Hamburg, ON
+Northfield Park, OH
+Northhampton, MA
+Northville Downs, MI
+Nouvelle, QUE
+Northlands Park, ALTA
+Napoleon, OH
+Norwood, ONT
+North Side Downs, NS
+Norway, MI
+Norwich, NY
+Norwalk, OH 
+Newington, ONT
+Newton, IL
+Oakridge Racecourse, VA
+Golden Cross Farm, FL
+Ocean Downs, MD
+Oak Harbor, OH
+Ohsweken, ONT
+Onekama, MI
+Oregon, IL
+Orillia, ONT
+Orlando, FL
+Orlando, FL
+Ormstown, ONT
+Orangeville Raceway, ONT
+Orono, ONT
+Oskaloosa, IA
+Ottawa, OH
+Oviedo, FL
+Old Washington, OH
+Owatonna, MN 
+Owego, NY
+Owensville, OH
+Oxford, ME
+Pabos, QUE
+Paducah, KY
+Painesville, OH
+Pana, IL
+Paris, ONT
+Paris, IL
+Parkhill, ONT
+Paulding, OH
+Pocono Downs, PA
+Pecatonica, IL
+Pt. Elgin Raceway, NB
+Perth, ONT
+Petosky, MI
+Philadelphia, MS
+Harrah’s Philadelpha, PA
+Piketon, OH
+Pilot Mound, MAN
+Pinehurst, NC
+Pinckneyville, IL
+Piscataway, NJ
+Pocomoke City, MD
+Palmyra, NY
+Plain City, OH
+Plainville, MA
+Plattsburg, NY
+Plymouth, NH
+Fairplex Park, CA
+Portage LaPrairie, MAN
+Pompano Park, FL
+Papineauille, QUE
+Plainridge Racecourse, MA
+Presque Isle, ME
+Prairie Meadows, IA
+Princeton, IL
+Princeton, IN
+Proctorville, OH
+Port Royal, PA
+Port Perry, ONT
+Portland, IN
+Petersburg, IL
+Pre Vert Raceway (Hipp. Sorella), QUE
+Queensbury Downs, SASK
+Quad City Downs, IL
+Sulky Quebec, QUE
+Quyon, QUE 
+Raleigh, NC
+Richland Center, WI
+Rochester, NH
+Richwood, OH
+Richmond, QUE
+Rosecroft Raceway, MD
+Red Deer, ALTA
+Readville, MA
+Queensbury Downs, SASK
+Rhinebeck, NY
+Richelieu Park, QUE
+Rice Lake, WI
+Rideau Carleton, ONT
+Ridgetown, ONT
+Riviere du Loup, QUE
+Rocksprings, OH
+Delmarva Downs, MD
+Rochester, MN
+Rockingham Park, NH
+Rodney, ONT
+Raceway Park, OH
+Roosevelt Raceway, NY
+Riverside Downs, KY 
+Rushville, IL
+Ridge Training Center, NJ
+Russell, MAN
+Rutland, VT
+Santa Anita, CA
+Sackville Downs, NS
+Cal-Expo Raceway, CA
+Hippodrome Saguenay, QUE
+Salem, IL
+Sandown Park Raceway, BC
+Hiawatha Horse Park, ONT
+Sartigan, QUE
+St. Basile le Grand, QUE
+Shelbyville, IN
+Scarborough Downs, ME
+Scioto Downs, OH
+Suffolk Downs, MA
+Sedalia, MO
+Sedalia, MO
+South Florida Trotting Center, FL
+Saginaw Valley Downs, MI
+Saginaw Valley Downs, MI
+Spring Garden Ranch, FL
+Shedden Center, ONT
+Shedden, ONT
+Sherbrooke, QUE
+Showplace Farms, NJ
+Sidney, OH
+Simcoe, ONT
+Skowhegan, ME
+Smethport, PA
+Smithland, KY
+Smithfield, OH
+Smithville, ONT
+Sandy Creek, NY
+Sandwich, IL
+San Jose, CA
+Sunshine Meadows, FL
+Southern Oaks Training Center, FL
+Sports Creek Raceway, MI
+Spencerville, ON
+Spencer, MA
+Springfield, ME
+Sportsman’s Park, IL
+Spencer, IA 
+Springfield, IL
+Springfield, OH
+Squatec, QUE
+Hipp. Sorella, QUE
+Surrey, BC
+St.-Syl Vere, QUE
+Sunshine Meadows, FL
+Ste. Amie des Lacs, QUE
+Ste. Anne des Plaines, QUE
+St. Augustine, QUE
+Ste. Beatrix, QUE
+St. Edouard, QUE
+St. Guillaume, QUE
+Saratoga Harness, NY
+St. Hughes, QUE
+St. Henri de Levis, QUE
+South Mountain, ONT
+St. Thomas de Joliette, QUE
+St. Joseph Delepage, QUE
+Lakeview Downs, St. John’s, NFL
+St. John’s Racing & Ent., St. John’s, NFL
+Stockton, CA
+Standish, MI
+Stockton, KS
+Stoneboro, PA
+Stampede Park, ALTA
+Saint Peter, MN 
+Sturgis, KY
+Strathroy, ONT
+Sturgeon Bay, WI
+Sudbury Downs, ONT
+Summerside, PEI
+Sunderland, ONT
+Sutton, ONT
+Swan River, MAN
+Sioux Center, IA
+Sioux Falls, SD
+Syracuse Mile, NY
+Sydney, NS
+Tara, ONT
+Taylorville, IL
+Teeswater, ONT
+Terry, MS
+Tioga Downs, NY
+Tiffin, OH
+Tillsonburg, ONT
+Tinton Falls, NJ
+Topsham, ME
+Twin Rivers Downs, NFL
+Troy, OH
+Thunder Ridge, KY
+SulkyTrois Rivieres, QUE
+Trout Springs, ALTA
+Trumansburg, NY
+Truro Raceway, NS
+Traverse City, MI
+Troy, PA
+Tunbridge, VT
+Towner, MD
+Union, ME
+Upper Sandusky, OH
+Urbana, IL
+Urbana, OH
+Vassar, MI
+Victorville, CA
+Vernon Downs, NY
+Viroqua, WI
+Viking Meadows, IN
+Van Wert, OH
+Virden, MAN
+Wakeeney, KS
+Wapakoneta, OH
+Wapello, IA
+Warren, IL
+Warren, OH
+Washington Court House, OH
+Washington, PA
+Waterford,WI
+Waterloo, IA
+Wattsburg, PA
+Wausau, WI
+Wawanesa, MAN
+Waynesburg, PA
+Woodbine, ONT
+Wadena, MN
+Woodsfield, OH
+Woodstock, VA
+Welland, ONT
+Westport, NY
+Weyauwega, WI
+What Cheer, IA
+Wheaton, MN
+Whitney Point, NY
+Wilmington, OH
+Windsor, ME
+Winterburn, ALTA
+Wallacetown, ONT
+Wellington, OH
+Wellstown, OH
+Woodstock, NB
+Woodstock, IL
+Wooster, OH
+Wauseon, OH
+Westfield, WI
+Wautoma, WI
+Waterloo, NY
+Xenia, OH
+York, PA
+Yonkers Raceway, NY
+Yorkton, SASK
+Zanesville, OH
+
+--------------------------------
+
+ACE
+Running Aces
+ADX
+Alberta Downs
+BAN
+Bangor Raceway
+BAR
+Barrie Raceway
+BBX
+Blue Bonnets
+BGD
+Blue Grass Downs
+BLV
+Quinte Raceway
+BML
+Balmoral Park
+BRX
+Buffalo Raceway
+BTV
+Batavia Downs
+CAL
+Cal-Expo
+CHR
+Charlottetown
+CHS
+Harrah's Chester Casino and Racetrack
+CLN
+Clinton Raceway
+CLT
+Clinton Raceway
+CNL
+Colonial Downs
+CON
+Cannaught Park
+CUM
+Cumberland
+DDX
+Dover Downs
+DEL
+Delaware County Fair
+DLA
+Delaware Afternoon Races
+DRE
+Dresden Raceway
+DUQ
+Du Quion State Fair
+EMI
+Elmira Raceway
+EPR
+Exhibition Park
+FAR
+Farmington
+FHL
+Freehold Raceway
+FLM
+Flamboro Downs
+FOX
+Foxboro Park
+FPX
+Fairmount Park
+FRD
+Fraser Downs
+FRR
+Fredericton Raceway
+FRY
+Fryeburg Fair
+GEO
+Georgian Downs
+GOD
+Historic Track-Goshen
+GSP
+Garden State Park
+GRN
+Grand Prairie
+GRV
+Grand River
+HAR
+Harrington Raceway
+HAW
+Hawthorne Park
+HAY
+Hippodrome d'Alymer
+HMX
+Hippodrome de Montreal
+HNV
+Hanover Raceway
+HOP
+Hoosier Park
+HPX
+Hazel Park Harness
+IND
+Indiana State Fair
+INY
+Indianapolis Downs
+INV
+Inverness Raceway
+JAC
+Jackson Raceway
+KDX
+Kawartha Downs
+LAX
+Los Alamitos Harness
+LEB
+Lebanon Raceway
+LET
+Lethbridge
+LEX
+The Red Mile
+LON
+Western Fair Raceway
+LVD
+Lakeview Downs
+MAY
+Maywood Park
+MEA
+The Meadows
+MOH
+Mohawk Racetrack
+MRC
+Muskegon Racecourse
+MRX
+Monticello Raceway
+MXX
+The Meadowlands
+NFL
+Northfield Park
+NOR
+Northville Downs
+NPX
+Northlands Park
+NTS
+Northside Downs
+OAK
+Oak Ridge Race Course
+ODX
+Ocean Downs
+OXF
+Oxford Fair
+PCD
+Pocono Downs
+PPK
+Pompano Park
+PRC
+Plainridge Racecourse
+PRE
+Presque Isle
+PRM
+Prairie Meadows
+QBY
+Queensbury Downs
+QUE
+Sulky Quebec
+RCH
+Rochester Fair
+RCR
+Rosecroft Raceway
+RID
+Rideau Carleton
+ROK
+Rockingham Park
+RPX
+Raceway Park
+SAN
+Sandown Raceway
+SAR
+Hiawatha Horse Park
+SCA
+Scarborough Downs
+SCD
+Scioto Downs
+SGH
+Saginaw Harness Raceway
+SKO
+Skowhegan
+SPC
+Sports Creek Raceway
+SPK
+Sportsman's Park
+SPR
+Springfield, Illinois
+STG
+Saratoga Harness
+STP
+Stampede Park
+SUD
+Sudbury Downs
+SUM
+Summerside Raceway
+SYC
+The Syracuse Mile
+SYD
+Tartan Downs
+TOP
+Topsham
+TRR
+Thunder Ridge
+TGD
+Tioga Downs
+TRU
+Truro Raceway
+TRV
+Hippodrome de Trois Rivieres
+UNI
+Union
+VDX
+Vernon Downs
+WDB
+Woodbine
+WIN
+Windsor (ME) Fair Races
+WOD
+Woodstock Raceway
+WRX
+Windsor Raceway
+YRX
+Yonkers Raceway

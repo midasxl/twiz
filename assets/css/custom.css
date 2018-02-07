@@ -1,0 +1,354 @@
+/* Custom CSS styles go here */
+
+/* 
+Min-Width: Refers to everything greater than or equal to the amount given. 
+Max-Width: Refers to everything less than or equal to the amount given.
+*/
+
+.footer-related-links-list{
+		padding-left: 0px;	
+}
+
+/* custom media query rulesets */
+	
+@media (max-width: 450px) { /*smart phone portrait*/
+   
+   .mobile-sep{
+   		margin-bottom:30px;
+   }
+   
+   ul.loginbar {
+		 margin:0;padding:0;
+   }
+   
+   .pull-right{
+		float: left !important;
+   }
+
+}
+
+@media (max-width: 900px) { /*smart phone landscape*/
+ 
+   .mobile-sep{
+   		margin-bottom:30px;
+   }
+}
+
+@media (max-width: 991px) { /* this is the second breakpoint */
+
+	ul {
+		margin:0;
+		padding:0;
+	}
+	
+	.footer-related-links-list{
+		padding-left: 15px;	
+	}
+	
+   .sign-in-trouble-wrap.col-md-6{
+		float:left;
+		width:50%;  
+		text-align:left; 
+   }
+   
+   .log-in-wrap.col-md-6{
+	    width:50%; 
+		float:left;
+		text-align:right; 
+   }
+   
+   .loginbar.pull-right {
+		float:left;   
+   }
+
+}
+
+@media (max-width: 630px) {
+
+   .feature-list-wrap.col-xs-6 {
+		float:none;
+		width:100%;   
+   }
+
+}
+
+@media (min-width:992px) and (max-width: 1199px) {
+
+   .feature-list-wrap.col-xs-6 {
+		float:none;
+		width:100%;   
+   }
+   
+   .log-in-wrap.col-md-6{ /* figure out why I need !important statements here */
+		width:45% !important;
+		float:left !important;
+		text-align:right !important;
+   }
+   
+   .sign-in-trouble-wrap.col-md-6{
+	   	float:left;
+	    width:55%;
+		text-align:left;
+   }
+   
+}
+
+/* jquery ui theme stuff */
+
+.ui-widget-header,.ui-state-default, ui-button{
+	background:#b9cd6d;
+	border: 1px solid #b9cd6d;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
+.ui-button {outline: none;}
+
+.ui-dialog > .ui-widget-header {
+  background-color: #71bf2b;
+  background-image: none;
+  color: #000;
+  border-color: #fff;
+}
+
+/* miscellaneous */
+
+.navbar-nav>li>button#logOutButton{margin-top:12px;margin-bottom:12px;padding-top:3px;padding-bottom:3px;}
+
+ul {
+	list-style-type:none;
+}
+
+.form-error {
+	display:none;
+	position:absolute;
+	top:0;
+	right:0;
+	font-size:11px;
+	line-height:20px;
+	font-style:italic;
+	background:#9A2C2C;
+	color:#FFF;
+	padding:5px 10px;
+	-webkit-box-shadow:inset 0 -1px 3px rgba(0,0,0,0.3),inset 0 1px 3px rgba(0,0,0,0.3);
+	-moz-box-shadow:inset 0 -1px 3px rgba(0,0,0,0.3),inset 0 1px 3px rgba(0,0,0,0.3);
+	box-shadow:inset 0 -1px 3px rgba(0,0,0,0.3),inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.panel-heading .panel-title a.accordion-toggle {
+	color:#fff;
+	background-color:#585f69;
+}
+
+
+.feature-list-wrap.col-xs-6 {
+	margin:0;padding:0;
+}
+
+.sign-in-trouble-wrap.col-md-6{
+	text-align:left;
+}
+
+.log-in-wrap.col-md-6{
+	width:50%; 
+	float:left;
+	text-align:right;  
+}
+
+.title-box {
+
+	font-size: 16px;
+
+	text-align: center;
+
+	border-bottom: none;
+
+}
+
+.title-box .title-box-text {
+
+	color: #fff;
+
+	display: block;
+
+	font-size: 20px;
+
+	font-weight: 100;
+
+}
+
+.reg-page {
+
+	color: #555;
+
+	padding: 30px;
+
+	background: #fefefe;
+
+	border: solid 1px #eee;
+
+	box-shadow: 0 0 3px #eee;
+
+}
+
+.reg-header {
+
+	color: #555;
+
+	text-align: center;
+
+	margin-bottom: 35px;
+
+	border-bottom: solid 1px #eee;
+
+}
+
+.reg-header h2 {
+
+	font-size: 24px;
+
+	margin-bottom: 15px;
+
+}
+
+.reg-page label {
+
+	color: #777;
+
+}
+
+.panel-heading{
+	background:transparent url(../img/panel-header-bg.png) repeat-x top left !important;
+	font-weight:bold !important;
+}
+
+.credit-bg {
+	color:#333;
+	font-size:20px;	
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.credit-bg-a{
+	font-size:12px;
+	font-weight:bold;
+	position:relative;
+	top:5px;
+}
+
+.feature-list{
+	margin:10px 0px;
+}
+
+.feature-list li.feature-list-item{
+	color: #CCC;	
+}
+
+.homepage-alert{
+	margin-top:10px;	
+}
+
+.homepage-alert > p.homepage-alert-paragraph{
+	color:#333;
+	font-weight:bold;
+}
+
+form.sheet-form{
+    display:inline-block;
+}
+
+/*!------------------------ php filetree.css -------------------------------*/	
+
+.php-file-tree {
+	font-family: Georgia;
+	font-size: 12px;
+	letter-spacing: 1px;
+	line-height: 1.5;
+}
+
+	.php-file-tree A {
+		color: #000000;
+		text-decoration: none;
+	}
+	
+	.php-file-tree A:hover {
+		color: #666666;
+	}
+
+	.php-file-tree .open {
+		font-style: italic;
+	}
+	
+	.php-file-tree .closed {
+		font-style: normal;
+	}
+	
+	.php-file-tree .pft-directory {
+		list-style-image: url(../img/filetree_images/directory.png);
+	}
+	
+	/* Default file */
+	.php-file-tree LI.pft-file { list-style-image: url(../img/filetree_images/file.png); }
+	/* Additional file types */
+	.php-file-tree LI.ext-3gp { list-style-image: url(../img/filetree_images/film.png); }
+	.php-file-tree LI.ext-afp { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-afpa { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-asp { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-aspx { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-avi { list-style-image: url(../img/filetree_images/film.png); }
+	.php-file-tree LI.ext-bat { list-style-image: url(../img/filetree_images/application.png); }
+	.php-file-tree LI.ext-bmp { list-style-image: url(../img/filetree_images/picture.png); }
+	.php-file-tree LI.ext-c { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-cfm { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-cgi { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-com { list-style-image: url(../img/filetree_images/application.png); }
+	.php-file-tree LI.ext-cpp { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-css { list-style-image: url(../img/filetree_images/css.png); }
+	.php-file-tree LI.ext-doc { list-style-image: url(../img/filetree_images/doc.png); }
+	.php-file-tree LI.ext-exe { list-style-image: url(../img/filetree_images/application.png); }
+	.php-file-tree LI.ext-gif { list-style-image: url(../img/filetree_images/picture.png); }
+	.php-file-tree LI.ext-fla { list-style-image: url(../img/filetree_images/flash.png); }
+	.php-file-tree LI.ext-h { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-htm { list-style-image: url(../img/filetree_images/html.png); }
+	.php-file-tree LI.ext-html { list-style-image: url(../img/filetree_images/html.png); }
+	.php-file-tree LI.ext-jar { list-style-image: url(../img/filetree_images/java.png); }
+	.php-file-tree LI.ext-jpg { list-style-image: url(../img/filetree_images/picture.png); }
+	.php-file-tree LI.ext-jpeg { list-style-image: url(../img/filetree_images/picture.png); }
+	.php-file-tree LI.ext-js { list-style-image: url(../img/filetree_images/script.png); }
+	.php-file-tree LI.ext-lasso { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-log { list-style-image: url(../img/filetree_images/txt.png); }
+	.php-file-tree LI.ext-m4p { list-style-image: url(../img/filetree_images/music.png); }
+	.php-file-tree LI.ext-mov { list-style-image: url(../img/filetree_images/film.png); }
+	.php-file-tree LI.ext-mp3 { list-style-image: url(../img/filetree_images/music.png); }
+	.php-file-tree LI.ext-mp4 { list-style-image: url(../img/filetree_images/film.png); }
+	.php-file-tree LI.ext-mpg { list-style-image: url(../img/filetree_images/film.png); }
+	.php-file-tree LI.ext-mpeg { list-style-image: url(../img/filetree_images/film.png); }
+	.php-file-tree LI.ext-ogg { list-style-image: url(../img/filetree_images/music.png); }
+	.php-file-tree LI.ext-pcx { list-style-image: url(../img/filetree_images/picture.png); }
+	.php-file-tree LI.ext-pdf { list-style-image: url(../img/filetree_images/pdf.png); }
+	.php-file-tree LI.ext-php { list-style-image: url(../img/filetree_images/php.png); }
+	.php-file-tree LI.ext-png { list-style-image: url(../img/filetree_images/picture.png); }
+	.php-file-tree LI.ext-ppt { list-style-image: url(../img/filetree_images/ppt.png); }
+	.php-file-tree LI.ext-psd { list-style-image: url(../img/filetree_images/psd.png); }
+	.php-file-tree LI.ext-pl { list-style-image: url(../img/filetree_images/script.png); }
+	.php-file-tree LI.ext-py { list-style-image: url(../img/filetree_images/script.png); }
+	.php-file-tree LI.ext-rb { list-style-image: url(../img/filetree_images/ruby.png); }
+	.php-file-tree LI.ext-rbx { list-style-image: url(../img/filetree_images/ruby.png); }
+	.php-file-tree LI.ext-rhtml { list-style-image: url(../img/filetree_images/ruby.png); }
+	.php-file-tree LI.ext-rpm { list-style-image: url(../img/filetree_images/linux.png); }
+	.php-file-tree LI.ext-ruby { list-style-image: url(../img/filetree_images/ruby.png); }
+	.php-file-tree LI.ext-sql { list-style-image: url(../img/filetree_images/db.png); }
+	.php-file-tree LI.ext-swf { list-style-image: url(../img/filetree_images/flash.png); }
+	.php-file-tree LI.ext-tif { list-style-image: url(../img/filetree_images/picture.png); }
+	.php-file-tree LI.ext-tiff { list-style-image: url(../img/filetree_images/picture.png); }
+	.php-file-tree LI.ext-txt { list-style-image: url(../img/filetree_images/txt.png); }
+	.php-file-tree LI.ext-vb { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-wav { list-style-image: url(../img/filetree_images/music.png); }
+	.php-file-tree LI.ext-wmv { list-style-image: url(../img/filetree_images/film.png); }
+	.php-file-tree LI.ext-xls { list-style-image: url(../img/filetree_images/xls.png); }
+	.php-file-tree LI.ext-xml { list-style-image: url(../img/filetree_images/code.png); }
+	.php-file-tree LI.ext-zip { list-style-image: url(../img/filetree_images/zip.png); }
