@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Detailed HORSE Demo Twiz sheet</title>
+<title>HORSE Details Twiz sheet</title>
 <!--
 To have DataTables styled in the same manner as other jQuery UI widgets, all you need to do, as well as including the DataTables core Javascript file on your page, is include the DataTables / jQuery UI CSS and Javascript integration files.
 -->
@@ -85,8 +85,8 @@ tbody tr:hover {background: #fafafa;}
 <body>
 
 <?php
-$source = '../sample/'.$_POST["card"];
-
+$source = '../sample/latest.xml';
+//Last modified on 1/28/2018
 // load as file
 $xmldata = simplexml_load_file($source);
 
@@ -118,21 +118,57 @@ $numOfraces = $raceNum->length;
 foreach($xmldata->children() as $racedata) { // gets all <racedata> children of the root element <data>
 
 // get and format date for each race header
-$formatme1 			= $racedata->race_date;
-$date1				= date_create($formatme1);
-$race_date 			= date_format($date1,"m-d-y");
-$race_date_header 	= date_format($date1,"mdy");
-$anchorNum 			= $anchorNum + 1;
+	$formatme1 			= $racedata->race_date;
+	$date1				= date_create($formatme1);
+	$race_date 			= date_format($date1,"m-d-y");
+	$race_date_header 	= date_format($date1,"mdy");
+   $equilinkracedate2 	= date_format($date1,"m/d/y");
+	$anchorNum 			= $anchorNum + 1;
 
+$tsurf=$racedata->surface;
+
+if ($tsurf<> "T" AND $tsurf<>  "I" AND $tsurf<> "C" AND $tsurf<> "O" ){
+$tsurf="D";
+} ELSE {
+$tsurf="T";
+}
 // get and calculate dollar amount instead of odds
-$mornodds 		= (explode("/",$horsedata->morn_odds,2));
+$mornoddsd=$mornodds[1];
+if ($mornoddsd<=0){
+	$mornoddsd=1;
+}
+if($mornodds[1] <>0){
 $dollarvalue 	= $mornodds[0] / $mornodds[1];
+}else{
+	$dollarvalue 	= $mornodds[0] ;
+}
 
 $todaysclass=$racedata->todays_cls;		
 
 // Create each race header
-echo '<div class="title"><h3 class="r-data"><a name="'.$anchorNum.'" class="head-anchor" href="http://www.equibase.com/static/entry/'.$racedata->track.$race_date_header.'USA-EQB.html#RACE'.$racedata->race.'" target="_blank">Race '.$racedata->race.', Class of '.$racedata->todays_cls.' @ '.$racedata->track.' on '.$race_date.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Going '.$racedata->dist_disp.' over the '.$racedata->surface.'</a></h3><h3 class="p-time">Post Time: '.$racedata->post_time.'</h3></div><div class="clear"></div><div style="padding:5px;margin-bottom:3px"><p>Bet Opt: '.$racedata->bet_opt.'</p><p><strong>Race Information:</strong><br>'.$racedata->race_text.'</p></div>';
+echo '<div class="title">
+	<h3 class="r-data">
 
+	<a name="'.$anchorNum.'" class="head-anchor" href="http://www.equibase.com/static/entry/'.$racedata->track.$race_date_header.'USA-EQB.html#RACE'.$racedata->race.'" target="_blank">Race '.$racedata->race.', Class of '.$racedata->todays_cls.' @ '.$racedata->track.' on '.$race_date.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Going '.$racedata->dist_disp.' over the '.$tsurf.'</a>
+	</h3>
+
+	<h3 class="p-time">Post Time: '.$racedata->post_time.'</h3>
+	</div>
+	
+	<div class="clear"></div>
+	
+	<div>
+	<p>Bet Opt: '.$racedata->bet_opt.'</p>
+	<p><strong>Race Information:</strong><br>'.$racedata->race_text.'</p>
+	<p>
+	
+		
+	<a  class="r-data" href= "http://www.equibase.com/static/chart/summary/'.$racedata->track.$race_date_header.'USA'.$racedata->race.'-EQB.html " target="_blank">Results</a>:
+	<a  class="r-data" href= "http://www.equibase.com/premium/eqbPDFChartPlus.cfm?RACE='.$racedata->race.'&BorP=P&TID='.$racedata->track.'&CTRY=USA&DT='.$equilinkracedate2.'&DAY=D&STYLE=EQB" target="_blank">Charts</a>:
+	<a  class="r-data" href= "http://www.trackmaster.com/free/biasReports" target="_blank"> BIAS Reports </a> :
+
+	
+	</p>';
 
 	echo '<p>Jump to race:&nbsp;&nbsp;';
 	
@@ -140,14 +176,28 @@ echo '<div class="title"><h3 class="r-data"><a name="'.$anchorNum.'" class="head
     	echo "<a href='#".$x."'>".$x."</a>&nbsp;&nbsp;";
 	} 
 	
-	echo '</p>';
-
-// create table and thead tag and contents
-	
+	echo '</p></div>';
 	// Loop time
-
+$countthem=0;
+$countthem=0;
+$jockperc=0;
+$trainerperc=0;
+$horseperc=0;
+$raceperc=0;
+$workperc=0;
+$classratingavg=0;
+$speedfigureavg=0;
+$pacefigure2avg=0;
+$pacefigure2avg4=0;
+$pacefigureavg3=0;
+$pacefigureavg=0;
+$qdisp=0;
+$hdisp=0;
+$sdisp=0;
+$fdisp=0;
+$abytavg=0;
 	foreach($racedata->horsedata as $horsedata) { // gets each <horsedata> node
-	echo '<table class="display"><thead><th>Pr#</th><th>Horse</th><th>Date</th><th>Track</th><th>Dist</th><th>Surf</th><th>Cond</th><th>Class</th><th>EP</th><th>LP</th><th><img src="../img/e.jpg"/></th><th>1/4</th><th>1/2</th><th>Str</th><th>Fin</th><th>Odds</th><th>raw</th><th>Comment</th></thead>';	
+	echo '<table class="display"><thead><th>Pr#</th><th>Horse</th><th>Date</th><th>Track</th><th>Dist</th><th>Surf</th><th>Cond</th><th>Class</th><th>EP</th><th>LP</th><th><img src="../img/e.jpg"/></th><th>Odds</th><th>1c</th><th>2c</th><th>3c</th><th>4c</th><th>Fin</th><th>Comment</th></thead>';	
 	foreach($horsedata->ppdata as $ppdata) { // gets each <ppdata> node
 
 	    $formatme2			= $ppdata->racedate;
@@ -174,28 +224,27 @@ if ($foreign > 0){
 $speedfigurevalue=$foreign-20;
 }
 		$classratingavg		= $ppdata->classratin; // 95
- 
-if($pacefigureavg < $speedfigureavg/2){
-$pacefigureavg=$speedfigureavg;
-}
+ $pacefigureavg3=(($pacefigureavg*2)+$pacefigure2avg)/3;
+$pacefigure2avg4=(($pacefigure2avg*2)+$pacefigureavg)/3;
 
-if($pacefigure2avg < $speedfigureavg/2){
-$pacefigure2avg=$speedfigureavg;
-}
-		$averagepace 		= max($pacefigureavg,$pacefigure2avg); // 0
-		
+
+$averagepace = ($pacefigureavg+$pacefigure2avg)/2 ;
+$printpace=max($pacefigureavg,$pacefigure2avg);
 
 		
 
 		$sort				= max($averagepace,$speedfigureavg,$classratingavg); // 95
 
 		// get and calculate dollar amount instead of odds
+		$oddsd=$odds1[1];
+if($oddsd<=0){
+	$oddsd=1;
+}
+		// get and calculate dollar amount instead of odds
 		$odds1 				= (explode("/",$ppdata->posttimeod,2));
-		$dollarvalue1 		= $odds1[0] / $odds1[1];
+		$dollarvalue1 		= $odds1[0] / $oddsd;
 		$dollarvalue2 		= $ppdata->posttimeod;
  
-
-
 
 
 //$twiz_num 			= $sort - $dollarvalue2;
@@ -219,25 +268,13 @@ if (strcmp($ppdata->trackcode, $racedata->track) !== 0)  {
 	echo '<td><strong>'.$ppdata->trackcode.'</strong></td>';
 }
 
-$distof				=($ppdata->distance)/100;
+$distof				=($ppdata->distance);
 
 // distance
-if ($ppdata->distance <= 600){
-$dst="Sprt";
-}
-if ($ppdata->distance> 600 and $ppdata->distance < 800){
-$dst="Midl";
-}
-if ($ppdata->distance >= 800 and $ppdata->distance < 1000){
-$dst="Rout";
-}
-if ($ppdata->distance >= 1000 ){
-$dst="Mara";
-}
 
-$todaysdist			=(int)($racedata->distance)/100;
+$todaysdist			=(int)($racedata->distance);
 $distof				=(int)$distof;
-
+$dst=$distof;
 if ($todaysdist < ($distof-1) or $todaysdist > ($distof+1)) {
 	echo '<td>'.$dst.'</td>';
 } else {
@@ -287,158 +324,27 @@ $pacefigure2avg = '0';
 }	
 
 //Running Style
-$qlb=intval($ppdata->lenback1)/100;
-if ($qlb <=0){
-$qlb=0;
-}
-$hlb=intval($ppdata->lenback2)/100;
-if ($hlb <=0){
-$hlb=0;
-}
-$slb=intval($ppdata->lenbackstr)/100;
-if ($slb <=0){
-$slb=0;
-}
-$flb=intval($ppdata->lenbackfin)/100;
-if ($flb <=0){
-$flb=0;
-}
-
-$classratingavg=$classratingavg+10;
-// quarter
-$quarter = (($qlb+intval($ppdata->position1))/2);
-$qdisp=$classratingavg-((($qlb+intval($ppdata->position1))/2));
-
-// half
-$half = (($hlb+intval($ppdata->position2))/2);
-$hdisp=$classratingavg-((($hlb+intval($ppdata->position2))/2));
-
-// stretch
-$stretch = (($slb+intval($ppdata->positionst))/2);
-$sdisp=$classratingavg-((($slb+intval($ppdata->positionst))/2));
-
-// finish
-$finish1 = (($flb+intval($ppdata->positionfi))/2); 
-$fdisp=$classratingavg-((($flb+intval($ppdata->positionfi))/2));
-
-
-
-
+//$fs=$ppdata->fieldsize;
+//$c1=100-(($ppdata->position1)/$fs)*100;
+//$c2=100-(($ppdata->position2)/$fs)*100;
+//$c3=100-(($ppdata->positionst)/$fs)*100;
+//$c4=100-(($ppdata->positionfi)/$fs)*100;
+//$finish2=($ppdata->positionfi);
 
 
 	
+	//speed
+	
+	$printpace=max($pacefigureavg,$pacefigure2avg);
+if ($speedfigureavg == 0){
 
-
-
-// stretch
-$stretch = $ppdata->lenbackstr;
-
-if ($stretch <> "0"){
-	$stretch = ($ppdata->lenbackstr)/100;
-}else{
-	$stretch = "99";
+	$speedfigureavg=0;
+	goto c;
 }
 
-if ($stretch == "99.99"){
-	$stretch = "99";
-}
-
-if ($stretch == "-0.99"){
-	$stretch = "99";
-}
-
-// half
-$half = $ppdata->lenback2;
-
-if ($half <> "0"){
-	$half = ($ppdata->lenback2)/100;
-}else{
-	$half = "99";
-}
-
-if ($half == "99.99"){
-	$half = "99";
-}
-
-if ($half == "-0.99"){
-	$half = "99";
-}
-
-// quarter
-$quarter = $ppdata->lenback1;
-
-if ($quarter <> "0"){
-	$quarter = ($ppdata->lenback1)/100;
-}else{
-	$quarter = "99";
-}
-
-if ($quarter == "99.99"){
-	$quarter = "99";
-}
-
-if ($quarter == "-0.99"){
-	$quarter = "99";
-}
-
-
-//$quarter;$half;$stretch;$finish;
-
-
-if ($qdisp >= $classratingavg){
-$qdisp = 0;
-}
-if ($hdisp >= $classratingavg){
-$hdisp = 0;
-}
-if ($sdisp >= $classratingavg){
-$sdisp = 0;
-}
-if ($fdisp >= $classratingavg){
-$fdisp = 0;
-}
-
-if($ppdata->fieldsize<=0){
-	$ppdata->fieldsize=1;
-}
-$qdisp1=(((150-$classratingavg)/10)+((($ppdata->position1*100)/$ppdata->fieldsize)+$ppdata->lenback1)/100)/2;
-$hdisp1=(((150-$classratingavg)/10)+((($ppdata->position2*100)/$ppdata->fieldsize)+$ppdata->lenback2)/100)/2;
-$sdisp1=(((150-$classratingavg)/10)+((($ppdata->positionst*100)/$ppdata->fieldsize)+$ppdata->lenbackstr)/100)/2;
-
-if ($ppdata->positionfi==0){
-$ppdata->lenbackfin=0;
-}
-
-$fdisp1=(((150-$classratingavg)/10)+((($ppdata->positionfi*100)/$ppdata->fieldsize)+$ppdata->lenbackfin)/100)/2;
-if ($speedfigureavg <= 0){
-	$qdisp1=0;
-	$hdisp1=0;
-	$sdisp1=0;
-	$fdisp1=0;
-	$qdisp=0;
-	$hdisp=0;
-	$sdisp=0;
-	$fdisp=0;
-}
-$qdisp=$qdisp-$qdisp1;
-$hdisp=$hdisp-$hdisp1;
-$sdisp=$sdisp-$sdisp1;
-$fdisp=$fdisp-$fdisp1;
-
-$speedfigureavg=$fdisp;
-$pacefigureavg=$qdisp;
-if($qdisp<=$hdisp){
-	$pacefigureavg=$hdisp;
-}
-$pacefigure2avg=$hdisp;
-if($hdisp<=$sdisp){
-	$pacefigure2avg=$sdisp;
-}
-if($pacefigureavg <=0){
-	$pacefigureavg=0;
-	$pacefigure2avg=0;
-}
-
+$classratingavg		= (($classratingavg/130)*100)+(130/4) ;
+$speedfigureavg	= (($speedfigureavg/130)*100)+(130/4) ;
+c:
 
 	//pace
 	
@@ -446,63 +352,173 @@ if($pacefigureavg <=0){
 	
 	
 		echo '<td>'.round($pacefigure2avg).'</td>';
-	
-	//speed
 	echo '<td>'.round($speedfigureavg).'</td>';
-	$base=20;
-	if ($speedfigureavg==0){
-		$qdisp1=0;
-		$hdisp1=0;
-		$sdisp1=0;
-		$fdisp1=0;
-		$posttimeodds=99;
-		$base=0;
-	}
+$qlb=($ppdata->lenback1)/100;
 
-$clss=$classratingavg-10;
-$erly=$pacefigureavg;
-$ltte=$pacefigure2avg;
-$pce=max($erly,$ltte);
-$raceperc=50;
-$raceperc=(100-( ($horsedata->ppdata[0]->positionfi[0]/$horsedata->ppdata[0]->fieldsize[0])*100))+($horsedata->ppdata[0]->fieldsize[0]/10);	
-if($raceperc == 100){
-$raceperc=0;
+$hlb=($ppdata->lenback2)/100;
+
+$slb=($ppdata->lenbackstr)/100;
+
+$flb=($ppdata->lenbackfin)/100;
+
+
+$abyt=$ppdata->horsetime2-$ppdata->horsetime1;
+$abyt2=$ppdata->horsetimes-$ppdata->horsetime2;
+if($abyt2 <= $abyt And $abyt2 >=0){
+	$abyt=$abyt2;
 }
-$fit=$raceperc;
-
-
-$qdisp1=$base-$qdisp1;
-$hdisp1=$base-$hdisp1;
-$sdisp1=$base-$sdisp1;
-$fdisp1=$base-$fdisp1;
-
-$hdisp1=$hdisp1+($hdisp1-$qdisp1);
-$sdisp1=$sdisp1+($sdisp1-$hdisp1);
-$fdisp1=$fdisp1+($fdisp1-$sdisp1);
-
-if($pacefigureavg <=0){
-	$pacefigureavg=0;
-	$pacefigure2avg=0;
-	$qdisp1=0;
-		$hdisp1=0;
-		$sdisp1=0;
-		$pce=50;
+if ($abyt <=18){
+	$abyt=$abyt+$abyt;
 }
-	
-if ($finish > 0 and $finish < 5) { // this is only to determine if the font is bold or not
-  echo '<td><strong>'.round($qdisp1,1).'</strong></td><td><strong>'.round($hdisp1,1).'</strong></td><td><strong>'.round($sdisp1,1).'</strong></td><td><strong>'.round($fdisp1,1).'</strong></td>';
-} else {
-  echo '<td>'.round($qdisp1,1).'</td><td>'.round($hdisp1,1).'</td><td>'.round($sdisp1,1).'</td><td>'.round($fdisp1,1).'</td>';
+// quarter
+$quarter = ($qlb+$ppdata->position1)/2;
+
+// half
+$half = ($hlb+$ppdata->position2)/2;
+
+// stretch
+$stretch =($slb+$ppdata->positionst)/2;
+
+// finish
+$finish1 = ($flb+$ppdata->positionfi)/2; 
+$fs=$ppdata->fieldsize;
+if($fs<=0){
+	goto g;
+}
+$c1=100-(($quarter)/$fs)*100;
+$c2=100-(($half)/$fs)*100;
+$c3=100-(($stretch)/$fs)*100;
+$c4=100-(($finish1)/$fs)*100;
+$finish2=($ppdata->positionfi);
+if($lines2<=0){
+	goto g;
+}
+$qdisp=($pacefigureavg-(($quarter/2)/$lines2));
+$qperc=($quarter/2)*10;
+$hdisp=$pacefigureavg-(($half/2)/$lines2);
+$sdisp=$pacefigure2avg-(($stretch/2)/$lines2);
+$fdisp=$pacefigure2avg-(($finish1/2)/$lines2);
+
+
+
+g:
+if($lines2<=0){
+	$lines2=1;
+}
+if($fs<=0){
+	$fs=1;
+}
+
+if($speedfigureavg == 0 ){
+	$qdisp=0;
+	$hdisp=0;
+	$sdisp=0;
+	$fdisp=0;
+	$c1=0;
+$c2=0;
+$c3=0;
+$c4=0;
+$finish2=0;
+}
+
+$sty="n/a";
+$qperc=round($qperc);
+
+if($qperc <= 2 ){
+	$sty="E".round(100-$qperc);
+}
+
+if($qperc >=3 and $qperc <=6 ){
+	$sty="eP ".round(100-$qperc);
+}
+
+if($qperc >=7 and $qperc <=9 ){
+	$sty="P".round(100-$qperc);
+}
+if($qperc >=10 ){
+	$sty="S".round(100-$qperc);
+}
+
+
+if($speedfigureavg == 0){
+	$sty="na";
 }
 
 echo '<td>'.$posttimeodds.'</td>';
-$somefig1=($clss+$pce+$fit)/3;
+$cavg=6;
+$c1=(($c1)+(($speedfigureavg+$finish2)/10))/2;
+$c2=(($c2)+(($speedfigureavg+$finish2)/10))/2;
+$c3=(($c3)+(($speedfigureavg+$finish2)/10))/2;
+$c4=(($c4)+(($speedfigureavg+$finish2)/10))/2;
 
-$razzledazzle=$somefig1+(round($fdisp1,1)*1)-($posttimeodds*2);
-if ($speedfigureavg ==0){
-	 $razzledazzle=0;
+ echo '<td>'.number_format($c1, 0, '.', '').'</td>';
+ echo '<td>'.number_format($c2, 0, '.', '').'</td>';
+ echo '<td>'.number_format($c3, 0, '.', '').'</td>';
+ echo '<td>'.number_format($c4, 0, '.', '').'</td>';
+ echo '<td>'.$finish2.'</td>';
+	
+$avgme=1;
+$adjust=((($fdisp)+(($hdisp-$qdisp)+($sdisp-$hdisp)+($fdisp-$sdisp)))+$speedfigureavg)/2;
+
+if ($qdisp > 0){
+	$avgme=$avgme+1;
 }
-		   echo '<td>'.round($razzledazzle).'</td>';
+
+if ($hdisp > 0){
+	$avgme=$avgme+1;
+}
+
+if ($sdisp > 0){
+	$avgme=$avgme+1;
+}
+
+if ($fdisp > 0){
+	$avgme=$avgme+1;
+}
+
+if ($speedfigureavg > 0){
+	$avgme=$avgme+1;
+}
+
+if ($classratingavg  > 0){
+	$avgme=$avgme+1;
+}
+
+if ($pacefigure2avg > 0){
+	$avgme=$avgme+1;
+}
+
+if ($pacefigure2avg4 > 0){
+	$avgme=$avgme+1;
+}
+
+if ($pacefigureavg > 0){
+	$avgme=$avgme+1;
+}
+
+if ($pacefigureavg3 > 0){
+	$avgme=$avgme+1;
+}
+
+
+
+
+
+$somefig1=(($classratingavg+$speedfigureavg+$pacefigure2avg+$pacefigure2avg4+$pacefigureavg3+$pacefigureavg+$qdisp+$hdisp+$sdisp+$fdisp-$abytavg)/$avgme)-$dollarvalue1;
+
+
+if ($speedfigureavg == 0){
+
+	$somefig1=0;
+
+}
+$somefigadj=$adjust;
+
+if($abyt<=0){
+	$somefigadj=0;
+}
+
+		  // echo '<td>'.number_format($somefigadj, 1, '.', '').'</td>';
 
 echo '<td>'.$ppdata->shortcomme.'</td>';
 
@@ -528,7 +544,7 @@ $(document).ready(function(){
 		  $('table.display').dataTable({
 				"retrieve": true,
 				"paging": false,
-				//"ordering": false,
+				"ordering": false,
 				"info": false,
 				"bFilter": false,
 				"order": [[ 0, "asc" ]],
