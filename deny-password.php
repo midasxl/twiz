@@ -21,14 +21,14 @@ if(!empty($_GET["deny"]))
 		}
 			if(!flagPasswordReset($userdetails["id"],0))
 			{
-				$errors[] = lang("SQL_ERROR");	
+				$errors[] = lang("SQL_ERROR");
 			}
 		else {
 			$successes[] = lang("FORGOTPASS_REQUEST_CANNED");
 		}
 	}
 }else{
-header("Location: index.php"); die();	
+header("Location: index.php"); die();
 }
 ?>
 <!DOCTYPE html>

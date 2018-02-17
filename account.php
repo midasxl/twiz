@@ -43,6 +43,127 @@ require_once('scripts/stripe/stripe-config.php'); // fetches publishable key to 
     <?php
 if(isUserLoggedIn()) {
 
+  //********************************************************************************permission level 5 (Developer)
+	if ($loggedInUser->checkPermission(array(5))){
+
+        echo '<div class="col-md-6">
+	        <div class="panel panel-default" >
+            <div class="panel-heading">Available Race Sheets</div>
+                <div class="panel-body">
+                         <div class="table-responsive">
+
+                         <table width="98%" align="center" cellpadding="3" cellspacing="0"  class="table table-bordered">
+                            <tbody>
+                               <tr class="panel-heading">
+                                  <th style="color:#000;">Track and Date</th>
+                                  <th style="color:#000;">Sheet Expiration</th>
+                               </tr>';
+                                  $dbsheets = fetchAllSheets($loggedInUser->user_id);
+                								  if($dbsheets != NULL){
+                									  foreach ($dbsheets as $sheets){
+                                    $exp_date = date('m-d-Y H:i:s', strtotime($sheets['time'] . ' + 4 day'));
+                										// Returns the file name, less the extension.
+                										$sheet_id = $sheets['id'];
+                										$sheet_name = preg_replace('/.[^.]*$/', '', $sheets['sheet']);
+                										$sheet_name = substr($sheet_name, 0, -6);
+                										$sheet_track = $sheets['racetrack'];
+                										$sheet_date = date('m-d-Y', strtotime($sheets['racedate']));
+                										$date_now = new DateTime();
+                                    echo "<tr style='background-color:#72c02c;text-align:center;'>
+                                    <td><h4 style='margin;0;padding:0;'>".$sheet_track."</h4>".$sheet_date."</td>
+                                    <td width='150'>".$exp_date;
+
+                                    if ($date_now > $sheet_date) {
+                                          echo "<br><form action='user-delete-sheets.php' method='post' id='" .$sheet_track. "' class='deleteSheetSet'>
+                                          <button type='submit' class='btn btn-success pull-center btn-sm btn-block'>
+                                          <i class='fa fa-remove'></i>&nbsp;&nbsp;Delete This Set</button>
+                                          <input type='hidden' name='sheetId' value='".$sheet_id."' />
+                                          </form>";
+                                    }
+
+                                    echo "
+                                    </td>
+                                    </tr>
+
+                                    <tr>
+                                    <td colspan='2'>
+                                    <form style='display:inline' action='scripts/summary.php' method='post' enctype='multipart/form-data' target='_blank'>
+                                            <input type='hidden' name='card' value='" .$sheets['sheet']. "'>
+                                            <button type='submit' class='btn btn-primary btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Summary Sheet</button>
+                                    </form>&nbsp;&nbsp;
+
+                                    <a href='#' data-id='" .$sheets['sheet']. "' data-toggle='modal' data-target='#filters' class='runWithFilters'><i class='fa fa-filter'></i>&nbsp;Run With Filters</a>
+                                    <br><br>
+                                    <div class='form-group col-sm-8'>
+                                      <label for='sel1'><i class='fa fa-filter'></i>&nbsp;Your Saved Filters:</label>
+                                      <select class='form-control' id='sel1'>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                      </select>
+                                    </div>
+                                    <div class='col-sm-4'>
+                                      <button type='submit' class='btn btn-warning btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Submit</button>
+                                    </div>
+                                    <hr style='margin:5px 0 5px 0'>
+                                    <form action='scripts/details_horse.php' method='post' enctype='multipart/form-data' target='_blank'>
+                                          <input type='hidden' name='card' value='" .$sheets['sheet']. "'>
+                                          <button type='submit' class='btn btn-info btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Past Performances</button>
+                                    </form>
+                                    </td>
+              												</tr>";
+                                }
+            								  }
+
+                          echo '</tbody>
+                          </table>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="col-md-6">
+        <div class="panel panel-default" >
+            <div class="panel-heading">User Data</div>
+                <div class="panel-body">
+				<div>
+                    <form name="updateAccount" id="user-update-form" action="user-update-account.php" method="post">
+					<p>
+                    <label>User Role:</label>
+                    <input type="text" class="form-control" value="'.$loggedInUser->title.'" disabled/>
+                    </p>
+					<p>
+                    <label>Registered Email:</label>
+                    <input type="text" class="form-control" name="email" value="'.$loggedInUser->email.'" disabled/>
+                    </p>
+                    <p><a href="#" id="toggle-chg-pwd" style="font-weight:bold;">Change Password</a></p>
+
+					<div id="chg-pwd" style="display:none;">
+						<p>
+						<label>Current Password:</label>
+						<input type="password" class="form-control" name="password" required/>
+						</p>
+						<p>
+						<label>New Password (8 to 50 characters):</label>
+						<input type="password" class="form-control" name="passwordc" required/>
+						</p>
+						<p>
+						<label>Confirm New Password:</label>
+						<input type="password" class="form-control" name="passwordcheck" required/>
+						</p>
+						<p>
+						<label>&nbsp;</label>
+                        <button class="btn btn-success pull-right"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Change Password</button>
+						<button type="reset" id="cancel-pw" class="btn btn-danger pull-right" style="margin-right:5px;"><i class="fa fa-ban"></i>&nbsp;&nbsp;Cancel</button>
+						</p>
+					</div>
+                    </form>
+                 </div>
+			</div>
+		</div>
+	</div>';
+	}
+
 	//********************************************************************************permission level 1 (Administrator)
 	if ($loggedInUser->checkPermission(array(1))){
 
