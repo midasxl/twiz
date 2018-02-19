@@ -1,0 +1,100 @@
+
+::selection {
+	background: #72c02c;
+	color: #fff;
+}
+
+/**
+ * Tooltips
+ */
+
+.tooltip {
+	position: relative;
+}
+.tooltip:after {
+	position: absolute;
+	padding: 8px;
+	border: 2px solid #666;
+	border-radius: 8px;
+	background-color: #72c02c;
+	font-size: .9em;
+	font-weight: bold;
+	color: #fff;
+	content: attr(data-tooltip);
+	min-width: 80px;
+	// width: -moz-max-content;
+	// width: -webkit-max-content;
+	opacity: 0;
+	transition: all .2s ease-in-out .25s;
+	visibility: hidden;
+	z-index: 2;
+}
+.tooltip:hover:after {
+	opacity: 1;
+	visibility: visible;
+}
+
+/*Tooltip starting positions*/
+
+.tooltip-top:after {
+	bottom: 150%;
+	left: 0;
+}
+.tooltip-top-left:after {
+	bottom: 150%;
+	left: -100%;
+}
+/*Tooltip final positions*/
+
+.tooltip-top:hover:after {
+	bottom: 120%;
+}
+.tooltip-top-left:after {
+	bottom: 120%;
+}
+
+/**
+ * Triangles
+ */
+
+.tooltip-top:before,
+.tooltip-top-left:before {
+	content: "";
+	display: block;
+	position: absolute;
+	border-width: 7px;
+	border-style: solid;
+	border-color: rgba(0, 0, 0, 0);
+	opacity: 0;
+	transition: all .2s ease-in-out .25s;
+	visibility: hidden;
+}
+.tooltip-top:hover:before,
+.tooltip-top-left:hover:before {
+	opacity: 1;
+	visibility: visible;
+}
+
+/*Triangle starter positions*/
+
+.tooltip-top:before {
+	top: -51%;
+	left: 50%;
+	transform: translateX(-50%);
+	border-top-color: #fff;
+}
+.tooltip-top-left:before {
+	top: -51%;
+	left: 50%;
+	transform: translateX(-50%);
+	border-top-color: #fff;
+}
+
+/* Triangle final positions */
+
+.tooltip-top:hover:before {
+	top: -21%;
+}
+.tooltip-top-left:hover:before {
+	top: -21%;
+}
