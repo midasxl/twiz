@@ -86,27 +86,26 @@ if(isUserLoggedIn()) {
                                     </tr>
 
                                     <tr>
-                                    <td colspan='2'>
-                                    <form style='display:inline' action='scripts/summary.php' method='post' enctype='multipart/form-data' target='_blank'>
+                                    <td>
+                                    <form style='float:left;' action='scripts/summary.php' method='post' enctype='multipart/form-data' target='_blank'>
                                             <input type='hidden' name='card' value='" .$sheets['sheet']. "'>
                                             <button type='submit' class='btn btn-primary btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Summary Sheet</button>
-                                    </form>&nbsp;&nbsp;
-
-                                    <a href='#' data-id='" .$sheets['sheet']. "' data-toggle='modal' data-target='#filters' class='runWithFilters'><i class='fa fa-filter'></i>&nbsp;Run With Filters</a>
+                                    </form>";
+                                    //<a href='#' data-id='" .$sheets['sheet']. "' data-toggle='modal' data-target='#filters' class='runWithFilters'><i class='fa fa-filter'></i>&nbsp;Run With Filters</a>
+                                    echo "<div style='float:left;margin-left:10px;'>
+                                            <button type='submit' class='btn btn-primary btn-u-sm' data-id'" .$sheets['sheet']. "' data-toggle='modal' data-target='#filters' class='runWithFilters'>
+                                            <i class='fa fa-filter'></i>&nbsp;Run With Filters</button>
+                                    </div>
                                     <br><br>
-                                    <div class='form-group col-sm-8'>
-                                      <label for='sel1'><i class='fa fa-filter'></i>&nbsp;Your Saved Filters:</label>
+                                    <label for='sel1'><i class='fa fa-filter'></i>&nbsp;Your Saved Filters:</label>
                                       <select class='form-control' id='sel1'>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
+                                        <option>Name of Filter</option>
+                                        <option>Name of Filter</option>
+                                        <option>Name of Filter</option>
+                                        <option>Name of Filter</option>
                                       </select>
-                                    </div>
-                                    <div class='col-sm-4'>
-                                      <button type='submit' class='btn btn-warning btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Submit</button>
-                                    </div>
-                                    <hr style='margin:5px 0 5px 0'>
+                                      <button style='float:right;margin-top:5px;' type='submit' class='btn btn-warning btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Run Saved Filter</button>
+                                    </td><td>
                                     <form action='scripts/details_horse.php' method='post' enctype='multipart/form-data' target='_blank'>
                                           <input type='hidden' name='card' value='" .$sheets['sheet']. "'>
                                           <button type='submit' class='btn btn-info btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Past Performances</button>
