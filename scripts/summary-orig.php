@@ -61,17 +61,14 @@ include("switch.php"); // return $trackloc variable with full track name as valu
 echo '<div id="card-header" style="position:relative;">
 <img src="../assets/img/logo-twiz.png" />
 <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$trackloc.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$headerdate2.'</h1>
-<a style="float:right;color:#fff;padding:8px;" href="" id="printMe">Print This Card</a>';
-
-if (isset($_POST['maxRaces'])){
-    echo '<select style="position:absolute;right:5px;bottom:5px;">';
-    foreach ($_POST as $key => $value) {
-        echo "<option>$key&nbsp;&nbsp;$value</option>";
-    }
-    echo '</select>';
+<a style="float:right;color:#fff;padding:8px;" href="" id="printMe">Print This Card</a>
+<a href="" id="showlegend" style="float:right;color:#fff;padding:8px;">Show/Hide Legend</a>
+<select style="position:absolute;right:0;bottom:0;">';
+foreach ($_POST as $key => $value) {
+  echo "<option>$key&nbsp;&nbsp;$value</option>";
 }
-
-echo '</div>';
+echo '</select>
+</div>';
 
 
 
@@ -1921,21 +1918,13 @@ $combinedc=$combinedc+(($pureclass-100)/10)+$bonus+$combinedc;
 
 
 $somefig1=$add20;
-
 $somefig1=$somefig1+max($horseperc+100,$trainerperc+100,$jockperc+100);
-
 $somefig1=$somefig1+max($workperc,$raceperc);
-
-$somefig1=$somefig1+max($classratingavg,$speedfigureavg)*10;
-
+$somefig1=$somefig1+max($classratingavg,$speedfigureavg);
 $somefig1=$somefig1/4;
-
 $somefig1=$somefig1-$dollarvalue;
-
 $somefig1=$somefig1+$combinedc2;
-$somefig1=(($somefig1*10)-3000)/10;
-$somefig1=($somefig1+$racedata->todays_cls);
-        echo '<td><B>'.number_format($somefig1, 1, '.', '').'</b></td><td>'.$yes.'</td><td>'.round($combinedc2).'</td><td>'.$rsty.'</td></tr>';
+        echo '<td>'.number_format($somefig1, 1, '.', '').'</td><td>'.$yes.'</td><td>'.round($combinedc2).'</td><td>'.$rsty.'</td></tr>';
 
 $yes="";
 
@@ -2054,19 +2043,12 @@ if($speedfigure_flag==0){
 }
 
 $somefig1=0;
-
 $somefig1=$somefig1+max($horseperc+100,$trainerperc+100,$jockperc+100);
-
 $somefig1=$somefig1+$workperc;
-
 $somefig1=$somefig1/3;
+$somefig1=$somefig1-$dollarvalue;
 
-$somefig1=$somefig1-$dollarvalue+25;
-
-$somefig1=(($somefig1*10)-3000)/10;
-$somefig1=($somefig1+$racedata->todays_cls);
-
- echo '<td><B>'.number_format($somefig1, 1, '.', '').'</b></td><td> </td><td>'.round($combinedc2).'</td><td>'.$rsty.'</td></tr>';
+ echo '<td>'.number_format($somefig1+25, 1, '.', '').'</td><td> </td><td>'.round($combinedc2).'</td><td>'.$rsty.'</td></tr>';
 
 
 
@@ -2246,25 +2228,15 @@ $(document).ready(function(){
 
           stdDev = standardDeviation(arrayOfNumbers);//send array to standardDeviation function
 
-          //alert("Standard Deviation: " + stdDev);
+          stdDev = stdDev.toFixed(2);
 
           var classNum = $('#classNum' + i).html();
 
-          //alert("Class Number: " + classNum);
-
           var totalStdDev = parseFloat(stdDev) + parseFloat(classNum);
 
-          //alert("Total SD: " + totalStdDev);
+          //alert("Class Number: " + classNum +  ", Standard Deviation: " + stdDev + ", Total: " + totalStdDev);
 
-          fixedStdDev = totalStdDev.toFixed(2);
-
-          //alert("Total SD fixed 2: " + fixedStdDev);
-
-          roundedStdDev = Math.round(fixedStdDev);
-
-          //alert("Rounded SD: " + roundedStdDev);
-
-          $("#stdDevTotal" + i).text(roundedStdDev);//output sd to div on page
+          $("#stdDevTotal" + i).text(totalStdDev);//output sd to div on page
 
       }
 

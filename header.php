@@ -1,7 +1,5 @@
 <!--=== Header ===-->  
-    <?php
-        echo resultBlock($errors,$successes);
-    ?>
+
     <div class="header">
         <!-- Topbar -->
         <div class="topbar">

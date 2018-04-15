@@ -1,0 +1,77 @@
+twiz upgrade:
+*Current state of the site is alive and well on github
+*need to backup current database schema and archive with the site as it is 
+	right now before making it a free service
+-----
+
+index page
+	buy me a coffee tags, video, twitter, etc.
+	Check this out: http://eonythemes.com/themes/wb/boss/main/index3.html
+
+-----
+
+about us
+	mod the verbiage to advertise the free/donation-based biz model
+	buy me a coffee tag
+-----
+
+faq
+	scrub through and advertise the free/donation-based biz model
+	add the logic to move page to top of current accordion that is open
+
+-----
+
+registration
+	change "premium content at an affordable price"
+
+need to have description of why we still require users to register (to keep track of their sheets)
+
+-----
+
+account page
+	users must be able to run sheets at will, not dependent on credits
+	need to eliminate a few of the member levels (quickie, subscription, base, admin)
+	quickie and subscription member levels are no longer necessary.  Just base and admin level
+
+-----
+
+There is a lot of "behind-the-scenes" logic to clean up 
+	stripe transactions
+	twiz sheet credit checks
+	database tables (remove user_credits table, remove pay_status, trial, plan_id, stripe_id from users table)
+
+	pages that reference stripe and/or credits
+		account.php (credit check and stripe purchase options)
+		admin_user.php (credit check)
+		single-access.php (credit check and quick role check)
+		single-product.php (credit check for decrementing; checks for quickie role)
+		user-profile.php (credit check and stripe config)
+		user_cancel_subscription.php
+		user_charge.php
+		user_charge_package_10.php
+		user_charge_subscription.php
+		scripts/stripe/* (do not need)
+		scripts/user-login.php (looks for stripe id and stripe plan)
+		models/class.newuser.php (new user database insert includes stripe_id and plan_id (remove from db table as well), inserts default credit tally in the user_credits table)
+		models/class.user.php (stripe_id and plan_id are used; public function checkCredits() is in here)
+		models/funcs.php
+			line 430 deleteUsers references user_credits table
+			line 696 fetchUserDetails gets stripe_id and plan_id from the users table
+			line 1076 createCustomer creates a stripe_id in the users table
+			line 1106 addPlanId creates a stripe plan_id in the users table
+			line 1136 fetchStripeId gets stripe_id from users table
+			line 1174 fetchPlanId gets plan_id from users table
+			line 1418 validatePayStatus sets pay_status in users table (what is this?)
+			line 1679 addCredit adds a credit to the user_credits table
+			line 1709 removeCredit removes a credit from the user_credits table
+			line 1787 fetchAllCredits gets credit information from the user_credits table
+			
+		
+
+Member registration logic remains the same
+	confirmation email, etc.
+
+Misc:
+update copyright date
+sticky footer on pages that need it
+buy me a coffee target="_blank"
