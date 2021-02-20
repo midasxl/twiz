@@ -2,7 +2,7 @@
 require_once("models/config.php");
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 
-$pages = getPageFiles(); //Retrieve list of pages in root usercake folder
+$pages = getPageFiles(); //Retrieve list of pages in root folder
 $dbpages = fetchAllPages(); //Retrieve list of pages in pages table
 $creations = array();
 $deletions = array();

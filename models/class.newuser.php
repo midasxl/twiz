@@ -62,12 +62,12 @@ class User // this is the object that is created throughout the logic, and value
 	}
 	
 	// method declaration
-	public function userCakeAddUser()
+	public function twizAddUser()// called from user-register.php
 	{
 		global $mysqli,$emailActivation,$websiteUrl,$db_table_prefix;
 		
 		//Prevent this function being called if there were construction errors
-		if($this->status)
+		if($this->status)// if 'true' no problems have been found
 		{
 			//Construct a secure hash for the plain text password
 			$secure_pass = generateHash($this->clean_password);
@@ -76,12 +76,12 @@ class User // this is the object that is created throughout the logic, and value
 			$this->activation_token = generateActivationToken();
 			
 			//Do we need to send out an activation email?
-			if($emailActivation == "true")
+			if($emailActivation == "true")// determined from the global $emailActivation variable
 			{
 				//User must activate their account first
 				$this->user_active = 0;
 				
-				$mail = new userCakeMail();
+				$mail = new twizMail();// calls class.mail.php to build the class and to access the class functions
 				
 				//Build the activation message
 				$activation_message = lang("ACCOUNT_ACTIVATION_MESSAGE",array($websiteUrl,$this->activation_token));
@@ -96,7 +96,7 @@ class User // this is the object that is created throughout the logic, and value
 				/* Build the template - Optional, you can just use the sendMail function 
 				Instead to pass a message. */
 				
-				if(!$mail->newTemplateMsg("new-registration.txt",$hooks))
+				if(!$mail->newTemplateMsg("new-registration.txt",$hooks))// class.mail.php line 11 public function
 				{
 					$this->mail_failure = true;
 				}
@@ -105,7 +105,7 @@ class User // this is the object that is created throughout the logic, and value
 					//Send the mail. Specify users email here and subject. 
 					//SendMail can have a third parementer for message if you do not wish to build a template.
 					
-					if(!$mail->sendMail($this->clean_email,"New User"))
+					if(!$mail->sendMail($this->clean_email,"New User"))// class.mail.php line 49 public function
 					{
 						$this->mail_failure = true;
 					}
@@ -120,7 +120,7 @@ class User // this is the object that is created throughout the logic, and value
 			}	
 			
 			
-			if(!$this->mail_failure)
+			if(!$this->mail_failure)// if mail_failure is not 'true'
 			{
 				//Insert the user into the database providing no errors have been found.
 				$stmt = $mysqli->prepare("INSERT INTO ".$db_table_prefix."users (

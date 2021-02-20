@@ -1,16 +1,14 @@
 <?php
 
-class userCakeMail {
+class twizMail {
 
 	//UserCake uses a text based system with hooks to replace various strs in txt email templates
 
 	public $contents = NULL;
 
-	
-
 	//Function used for replacing hooks in our templates
 
-	public function newTemplateMsg($template,$additionalHooks)
+	public function newTemplateMsg($template,$additionalHooks)// "new-registration.txt",$hooks (array from class.newuser.php)
 
 	{
 

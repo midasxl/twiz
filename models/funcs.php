@@ -1,27 +1,24 @@
 <?php
 ob_start ();
-/*Think of ob_start() as saying 'Start remembering everything that would normally be outputted, but don't quite do anything with it yet.'
+/*
+Think of ob_start() as saying 'Start remembering everything that would normally be outputted, but don't quite do anything with it yet.'
 
 For example:
 
 ob_start();
-echo("Hello there!"); //would normally get printed to the screen/output to browser
-$output = ob_get_contents();
-ob_end_clean();
+echo("Hello there!"); //would normally get printed to the screen/output to browser, but in this case it is stored for later output
+$output = ob_get_contents(); // give me what has been saved to the buffer since it was turned on with ob_start();
+ob_end_clean(); // stops saving things and discards whatever was saved, or stops saving and outputs it all at once, respectively
 ob_flush();
+*/
 
-ob_get_contents(), basically gives you whatever has been "saved" to the buffer since it was turned on with ob_start().
-ob_end_clean() or ob_flush() stops saving things and discards whatever was saved, or stops saving and outputs it all at once, respectively.*/
+// --------------------------------------------------------------------------
 
-//Functions that do not interact with DB
-
-//------------------------------------------------------------------------------
-
-
+//Functions that DO NOT interact with database
 
 //Retrieve a list of all .php files in models/languages
 
-function getLanguageFiles()
+function getLanguageFiles() // used in admin_configuration.php
 
 {
 
@@ -39,7 +36,7 @@ function getLanguageFiles()
 
 //Retrieve a list of all .css files in models/site-templates 
 
-function getTemplateFiles()
+function getTemplateFiles() // used in admin_configuration.php
 
 {
 
@@ -57,7 +54,7 @@ function getTemplateFiles()
 
 //Retrieve a list of all .php files in root files folder
 
-function getPageFiles()
+function getPageFiles() // used in admin_pages.php
 
 {
 
@@ -81,7 +78,7 @@ function getPageFiles()
 
 //Destroys a session as part of logout
 
-function destroySession($name)
+function destroySession($name) // used in class.user.php, also called from isUserLogggedIn function around 900
 
 {
 
@@ -101,7 +98,7 @@ function destroySession($name)
 
 //Generate a unique code
 
-function getUniqueCode($length = "")
+function getUniqueCode($length = "") // used in confirm-password.php
 
 {	
 
@@ -117,7 +114,7 @@ function getUniqueCode($length = "")
 
 //Generate an activation key
 
-function generateActivationToken($gen = null)
+function generateActivationToken($gen = null) // used in: class.newuser.php, user-resend-activation.php
 
 {
 
@@ -129,7 +126,7 @@ function generateActivationToken($gen = null)
 
 	}
 
-	while(validateActivationToken($gen));
+	while(validateActivationToken($gen)); // this function is on line 1310, or close
 
 	return $gen;
 
@@ -139,7 +136,7 @@ function generateActivationToken($gen = null)
 
 // generate a salted hash
 
-function generateHash($plainText, $salt = null)
+function generateHash($plainText, $salt = null) // used in confirm-password.php, class.newuser.php, class.user.php, user-login.php, user-update-account.php
 
 {
 
@@ -169,7 +166,7 @@ function generateHash($plainText, $salt = null)
 
 //Checks if an email is valid
 
-function isValidEmail($email)
+function isValidEmail($email) // used in admin_configuration.php, contact-submit.php, user-forgot-password.php, user-register.php, user-resend-activation.php
 
 {
 
@@ -191,7 +188,7 @@ function isValidEmail($email)
 
 //Inputs language strings from selected language.
 
-function lang($key,$markers = NULL)
+function lang($key,$markers = NULL) // this is everywhere
 // key would be something like ACCOUNT_USER_OR_PASS_INVALID => Username or password is invalid
 { 
 
@@ -201,17 +198,17 @@ function lang($key,$markers = NULL)
 
 	{
 
-		$str = $lang[$key];
+		$str = $lang[$key]; // this would be something like "Permission level name changed to `%m1%`"
 
 	}
 
-	else
+	else // markers is not NULL
 
 	{
 
 		//Replace any dynamic markers
 
-		$str = $lang[$key];
+		$str = $lang[$key]; // this would be something like "Permission level name changed to `%m1%`"
 
 		$iteration = 1;
 
@@ -251,7 +248,7 @@ function lang($key,$markers = NULL)
 
 //Checks if a string is within a min and max length
 
-function minMaxRange($min, $max, $what) // 8,50,$password_new
+function minMaxRange($min, $max, $what) // used in admin_configuration.php, admin_permission.php, admin_permissions.php, user-register.php, user-update-account.php
 
 {
 
@@ -273,7 +270,7 @@ function minMaxRange($min, $max, $what) // 8,50,$password_new
 
 //Replaces hooks with specified text
 
-function replaceDefaultHook($str)
+function replaceDefaultHook($str) // used in class.mail.php
 
 {
 
@@ -285,7 +282,7 @@ function replaceDefaultHook($str)
 
 
 
-function resultBlock($errors,$successes){
+function resultBlock($errors,$successes){ // used in assets/snippets/left-nav.php, register.php
 
 	//Error block
 
@@ -322,94 +319,9 @@ function resultBlock($errors,$successes){
 }
 
 
-
-//Displays error and success messages
-
-/*function resultBlock($errors,$successes){
-
-	//Error block
-
-	if(count($errors) > 0)
-
-	{
-
-		echo "<div id='error' style='padding:3px;
-
-	text-align:center;
-
-	color:#4d4948;
-
-	background-color:#fffebe;
-
-	border: 1px solid #cbcbcb;
-
-	font-size:90%;
-
-	font-weight:bold;'>
-
-		<a style='float:right;position:relative;right:3px' href='#' onclick=\"showHide('error');\">[x]</a>
-
-		<ul style='clear:both'>";
-
-		foreach($errors as $error)
-
-		{
-
-			echo "<li>".$error."</li>";
-
-		}
-
-		echo "</ul>";
-
-		echo "</div>";
-
-	}
-
-	//Success block
-
-	if(count($successes) > 0)
-
-	{
-
-		echo "<div id='success' style='padding:3px;
-
-	text-align:center;
-
-	color:#4d4948;
-
-	background-color:#bce9b5;
-
-	border: 1px solid #7ace6c;
-
-	font-size:90%;
-
-	font-weight:bold;'>
-
-		<a style='float:right;position:relative;right:3px' href='#' onclick=\"showHide('success');\">[x]</a>
-
-		<ul style='clear:both'>";
-
-		foreach($successes as $success)
-
-		{
-
-			echo "<li>".$success."</li>";
-
-		}
-
-		echo "</ul>";
-
-		echo "</div>";
-
-	}
-
-}*/
-
-
-
 //Completely sanitizes text
 
-function sanitize($str)
+function sanitize($str) // used in class.newuser.php
 
 {
 
@@ -417,9 +329,9 @@ function sanitize($str)
 
 }
 
+// ****************** Function that interact with the database ************************
 
-
-//Functions that interact mainly with uc_users table
+//Functions that interact mainly with twiz_users table
 
 //------------------------------------------------------------------------------
 
@@ -427,7 +339,7 @@ function sanitize($str)
 
 //Delete a defined array of users
 
-function deleteUsers($users) {
+function deleteUsers($users) { // used in admin_user.php
 
 	global $mysqli,$db_table_prefix; 
 
@@ -487,9 +399,7 @@ function deleteUsers($users) {
 
 //Check if a display name exists in the DB
 
-function displayNameExists($displayname)
-
-{
+function displayNameExists($displayname) { // used in class.newuser.php
 
 	global $mysqli,$db_table_prefix;
 
@@ -537,9 +447,7 @@ function displayNameExists($displayname)
 
 //Check if an email exists in the DB
 
-function emailExists($email)
-
-{
+function emailExists($email) { // used in class.newuser.php, user-forgot-password.php, user-login.php, user-resend-activation.php
 
 	global $mysqli,$db_table_prefix;
 
@@ -587,9 +495,7 @@ function emailExists($email)
 
 //Check if a user name and email belong to the same user
 
-function emailUsernameLinked($email,$username)
-
-{
+function emailUsernameLinked($email,$username) { // used in user-forgot-password.php, user-resend-activation.php
 
 	global $mysqli,$db_table_prefix;
 
@@ -641,9 +547,7 @@ function emailUsernameLinked($email,$username)
 
 //Retrieve information for all users
 
-function fetchAllUsers()
-
-{
+function fetchAllUsers() { // used in admin_permission.php, admin_users.php
 
 	global $mysqli,$db_table_prefix; 
 
@@ -690,10 +594,10 @@ function fetchAllUsers()
 }
 
 
-
 //Retrieve complete user information by username, token or ID
 
-function fetchUserDetails($email=NULL,$token=NULL, $id=NULL)
+function fetchUserDetails($email=NULL,$token=NULL, $id=NULL) // used in many files
+/* account.php, admin_user.php, confirm-password.php, deny-password.php, user-forgot-password.php, user-login.php, user-profile.php, user-resend-activation.php */
 
 {
 
@@ -783,9 +687,7 @@ function fetchUserDetails($email=NULL,$token=NULL, $id=NULL)
 
 //Toggle if lost password request flag on or off
 
-function flagLostPasswordRequest($id,$value)
-
-{
+function flagLostPasswordRequest($id,$value) { // confirm-password.php, deny-password.php, user-forgot-password.php
 
 	global $mysqli,$db_table_prefix;
 
@@ -813,9 +715,7 @@ function flagLostPasswordRequest($id,$value)
 
 
 
-function flagPasswordReset($id,$value)
-
-{
+function flagPasswordReset($id,$value) { // deny-password.php, user-forgot-password.php, user-update-account.php
 
 	global $mysqli,$db_table_prefix;
 
@@ -845,9 +745,8 @@ function flagPasswordReset($id,$value)
 
 //Check if a user is logged in
 
-function isUserLoggedIn()
-
-{
+function isUserLoggedIn() { // use in many files
+/* account.php, activate-account.php, assets/snippets/left-nav.php, confirm-password.php, deny-password.php, forgot-password.php, login.php, logout.php, register.php, resend-activation.php */
 
 	global $loggedInUser,$mysqli,$db_table_prefix;
 
@@ -921,9 +820,9 @@ function isUserLoggedIn()
 
 
 
-//Change a user's display name
+//Change a user's display name (I don't currently use this because we don't offer the user the option to create a display name)
 
-function updateDisplayName($id, $display)
+/*function updateDisplayName($id, $display)
 
 {
 
@@ -947,13 +846,13 @@ function updateDisplayName($id, $display)
 
 	return $result;
 
-}
+}*/
 
 
 
 //Update a user's email
 
-function updateEmail($id, $email)
+function updateEmail($id, $email) // class.user.php
 
 {
 
@@ -983,7 +882,7 @@ function updateEmail($id, $email)
 
 //Input new activation token, and update the time of the most recent activation request
 
-function updateLastActivationRequest($new_activation_token,$email)
+function updateLastActivationRequest($new_activation_token,$email) // user-resend-activation.php
 
 {
 
@@ -1011,7 +910,7 @@ function updateLastActivationRequest($new_activation_token,$email)
 
 //Generate a random password, and new token
 
-function updatePasswordFromToken($pass,$token)
+function updatePasswordFromToken($pass,$token) // confirm-password.php
 
 {
 
@@ -1041,9 +940,9 @@ function updatePasswordFromToken($pass,$token)
 
 
 
-//Update a user's title
+//Update a user's title when starting/stopping subscription
 
-function updateTitle($id, $title)
+function updateTitle($id, $title) // user_cancel_subscription.php, user_charge_subscription.php
 
 {
 
@@ -1073,7 +972,7 @@ function updateTitle($id, $title)
 
 //Add customer id to tie in with Stripe
 
-function createCustomer($id, $stripeid)
+function createCustomer($id, $stripeid) // user_charge.php, user_charge_package_10.php, user_charge_subscription.php
 
 {
 
@@ -1103,7 +1002,7 @@ function createCustomer($id, $stripeid)
 
 //Add plan id to tie in with Stripe
 
-function addPlanId($id, $planid)
+function addPlanId($id, $planid) // user_cancel_subscription.php, user_charge_subscription.php
 
 {
 
@@ -1133,7 +1032,7 @@ function addPlanId($id, $planid)
 
 // see if the user has a stripe id
 
-function fetchStripeId($id)
+function fetchStripeId($id) // account.php, user_charge.php, user_charge_package_10.php, user_charge_subscription.php
 
 {
 
@@ -1171,7 +1070,7 @@ function fetchStripeId($id)
 
 // see if the user has a plan id
 
-function fetchPlanId($id)
+function fetchPlanId($id) // user-profile.php
 
 {
 
@@ -1209,7 +1108,7 @@ function fetchPlanId($id)
 
 //Check if a user ID exists in the DB
 
-function userIdExists($id)
+function userIdExists($id) // admin_user.php
 
 {
 
@@ -1257,7 +1156,7 @@ function userIdExists($id)
 
 //Checks if a username exists in the DB
 
-function usernameExists($username)
+/*function usernameExists($username) // class.newuser.php
 
 {
 
@@ -1301,13 +1200,13 @@ function usernameExists($username)
 
 	}
 
-}
+}*/
 
 
 
 //Check if activation token exists in DB; if calling function passes TRUE as second parameter, then $lostpass will be true not null
 // this is used by activate-account, confirm-password, deny-password
-function validateActivationToken($token,$lostpass=NULL)
+function validateActivationToken($token,$lostpass=NULL) // activate-account.php, confirm-password.php, deny-password.php
 
 {
 
@@ -1386,7 +1285,7 @@ function validateActivationToken($token,$lostpass=NULL)
 
 //Change a user from inactive to active after verifying their email via the account activation link
 
-function setUserActive($token)
+function setUserActive($token) // activate-account.php, admin_user.php
     
 {
     global $mysqli,$db_table_prefix;
@@ -1411,11 +1310,36 @@ function setUserActive($token)
 	
 }
 
+function setUserInActive($token) // admin_user.php
+    
+{
+    global $mysqli,$db_table_prefix;
+
+	$stmt = $mysqli->prepare("UPDATE ".$db_table_prefix."users
+
+		SET active = 0
+
+		WHERE
+
+		activation_token = ?
+
+		LIMIT 1");
+
+	$stmt->bind_param("s", $token);
+
+	$result = $stmt->execute();
+
+	$stmt->close();	
+
+	return $result;
+	
+}
 
 
-//If user exists and is active update to paid status
 
-function validatePayStatus($token)
+//If user exists and is active update to paid status - future feature
+
+/*function validatePayStatus($token)
 
 {
 
@@ -1465,11 +1389,240 @@ function validatePayStatus($token)
 
 	}
 
+}*/
+
+
+
+//------------------------------------------------------------------------------
+
+//Functions that interact mainly with twiz_user_sheets table
+
+//------------------------------------------------------------------------------
+
+
+
+//Create sheet access
+
+function createSheet($id, $sheet, $racetrack, $racedate) { // product.php, product_admin.php, product_admin_harness.php, promo-product.php, single-product.php
+
+	global $mysqli,$db_table_prefix; 
+
+	$stmt = $mysqli->prepare("INSERT INTO ".$db_table_prefix."user_sheets (
+
+		user_id,
+
+		sheet,
+		
+		race_track,
+		
+		race_date
+
+		)
+
+		VALUES (
+
+		?,
+
+		?,
+		
+		?,
+		
+		?
+
+		)");
+
+	$stmt->bind_param("isss", $id, $sheet, $racetrack, $racedate);
+
+	$result = $stmt->execute();
+
+	$stmt->close();	
+
+	return $result;
+
 }
 
 
 
-//Functions that interact mainly with uc_permissions table
+// delete sheet from uc_usersheets
+
+function destroySheet($sheetid) { // user-delete-sheets.php
+
+	global $mysqli,$db_table_prefix;
+
+	$stmt = $mysqli->prepare("DELETE FROM ".$db_table_prefix."user_sheets
+
+		WHERE id = ?");	
+
+	$stmt->bind_param("i", $sheetid);
+
+	$result = $stmt->execute();
+
+	$stmt->close();
+	
+	return $result;
+
+}
+
+
+//Retrieve saved sheet information for current user
+
+function fetchAllSheets($id) // account.php
+
+{
+
+	global $mysqli,$db_table_prefix; 
+
+	$stmt = $mysqli->prepare("SELECT 
+
+		id,
+
+		user_id,
+		
+		sheet,
+		
+		race_track,
+		
+		race_date,
+		
+		time
+
+		FROM ".$db_table_prefix."user_sheets
+		
+		WHERE
+		
+		user_id = ?");
+
+	$stmt->bind_param("i", $id);
+	
+	$stmt->execute();
+
+	$stmt->bind_result($id, $user, $sheet, $race_track, $race_date, $time);
+
+	while ($stmt->fetch()){
+
+		$row[] = array('id' => $id, 'user' => $user, 'sheet' => $sheet, 'racetrack' => $race_track, 'racedate' => $race_date, 'time' => $time);
+
+	}
+
+	$stmt->close();
+
+	return ($row);
+
+}
+
+
+
+
+//------------------------------------------------------------------------------
+
+//Functions that interact mainly with twiz_user_credits table
+
+//------------------------------------------------------------------------------
+
+
+
+//Add credit to user account
+
+//If user credit row does not exist for this user create it first, then UPDATE it
+
+function addCredit($credit, $id) { // user_charge.php, user_charge_package_10.php
+
+	global $mysqli,$db_table_prefix; 
+
+		$stmt = $mysqli->prepare("UPDATE ".$db_table_prefix."user_credits
+
+			SET
+
+			credits = credits + ?
+
+			WHERE
+
+			user_id = ?
+			
+			AND credits >= 0");
+
+	$stmt->bind_param("ii", $credit, $id);
+
+	$result = $stmt->execute();
+
+	$stmt->close();	
+
+	return $result;
+
+}
+
+
+
+// remove credit from user account
+
+function removeCredit($credit, $id) { // promo-product.php, single-product.php
+
+	global $mysqli,$db_table_prefix; 
+
+		$stmt = $mysqli->prepare("UPDATE ".$db_table_prefix."user_credits
+
+			SET
+
+			credits = credits - ?
+
+			WHERE
+
+			user_id = ?
+			
+			AND credits > 0");
+
+	$stmt->bind_param("ii", $credit, $id);
+
+	$result = $stmt->execute();
+
+	$stmt->close();	
+
+	return $result;
+
+}
+
+
+
+//Retrieve saved credit information for current user
+
+function fetchAllCredits($id) // account.php, admin_user.php, user-profile.php
+
+{
+
+	global $mysqli,$db_table_prefix; 
+
+	$stmt = $mysqli->prepare("SELECT 
+
+		credits
+
+		FROM ".$db_table_prefix."user_credits
+		
+		WHERE
+		
+		user_id = ?");
+
+	$stmt->bind_param("i", $id);
+	
+	$stmt->execute();
+
+	$stmt->bind_result($credits);
+	
+	while ($stmt->fetch()){
+
+		$row[] = array('credits' => $credits);
+
+	}
+
+	$stmt->close();
+	
+	return ($row);
+
+}
+
+
+//------------------------------------------------------------------------------
+
+//Functions that interact mainly with twiz_permissions table
 
 //------------------------------------------------------------------------------
 
@@ -1477,23 +1630,31 @@ function validatePayStatus($token)
 
 //Create a permission level in DB
 
-function createPermission($permission) {
+function createPermission($permission, $level, $descr) { // admin_permissions.php
 
 	global $mysqli,$db_table_prefix; 
 
 	$stmt = $mysqli->prepare("INSERT INTO ".$db_table_prefix."permissions (
 
-		name
+		name,
+		
+		access_level,
+		
+		description
 
 		)
 
 		VALUES (
 
+		?,
+		
+		?,
+		
 		?
 
 		)");
 
-	$stmt->bind_param("s", $permission);
+	$stmt->bind_param("sss", $permission, $level, $descr);
 
 	$result = $stmt->execute();
 
@@ -1507,7 +1668,7 @@ function createPermission($permission) {
 
 //Delete a permission level from the DB
 
-function deletePermission($permission) {
+function deletePermission($permission) { // admin_permission.php
 
 	global $mysqli,$db_table_prefix,$errors; 
 
@@ -1569,11 +1730,41 @@ function deletePermission($permission) {
 
 }
 
+//Change a permission level's name
 
+function updatePermissionGroup($id, $name, $level, $descr) // admin_permission.php
+
+{
+
+	global $mysqli,$db_table_prefix;
+
+	$stmt = $mysqli->prepare("UPDATE ".$db_table_prefix."permissions
+
+		SET name = ?, 
+		
+		access_level = ?, 
+		
+		description = ?
+
+		WHERE
+
+		id = ?
+
+		LIMIT 1");
+
+	$stmt->bind_param("sssi", $name, $level, $descr, $id);
+
+	$result = $stmt->execute();
+
+	$stmt->close();	
+
+	return $result;	
+
+}
 
 //Retrieve information for all permission levels
 
-function fetchAllPermissions()
+function fetchAllPermissions() // admin_configuration.php, admin_page.php, admin_permissions.php, admin_user.php, user-profile.php
 
 {
 
@@ -1607,222 +1798,9 @@ function fetchAllPermissions()
 
 }
 
-
-
-//Create sheet access
-
-function createSheet($id, $sheet, $racetrack, $racedate) {
-
-	global $mysqli,$db_table_prefix; 
-
-	$stmt = $mysqli->prepare("INSERT INTO ".$db_table_prefix."user_sheets (
-
-		user_id,
-
-		sheet,
-		
-		race_track,
-		
-		race_date
-
-		)
-
-		VALUES (
-
-		?,
-
-		?,
-		
-		?,
-		
-		?
-
-		)");
-
-	$stmt->bind_param("isss", $id, $sheet, $racetrack, $racedate);
-
-	$result = $stmt->execute();
-
-	$stmt->close();	
-
-	return $result;
-
-}
-
-
-
-// delete sheet from uc_usersheets
-
-function destroySheet($sheetid) {
-
-	global $mysqli,$db_table_prefix;
-
-	$stmt = $mysqli->prepare("DELETE FROM ".$db_table_prefix."user_sheets
-
-		WHERE id = ?");	
-
-	$stmt->bind_param("i", $sheetid);
-
-	$result = $stmt->execute();
-
-	$stmt->close();
-	
-	return $result;
-
-}
-
-
-
-//Add credit to user account
-//If user credit row does not exist for this user create it first, then UPDATE it
-
-function addCredit($credit, $id) {
-
-	global $mysqli,$db_table_prefix; 
-
-		$stmt = $mysqli->prepare("UPDATE ".$db_table_prefix."user_credits
-
-			SET
-
-			credits = credits + ?
-
-			WHERE
-
-			user_id = ?
-			
-			AND credits >= 0");
-
-	$stmt->bind_param("ii", $credit, $id);
-
-	$result = $stmt->execute();
-
-	$stmt->close();	
-
-	return $result;
-
-}
-
-
-
-// remove credit from user account
-
-function removeCredit($credit, $id) {
-
-	global $mysqli,$db_table_prefix; 
-
-		$stmt = $mysqli->prepare("UPDATE ".$db_table_prefix."user_credits
-
-			SET
-
-			credits = credits - ?
-
-			WHERE
-
-			user_id = ?
-			
-			AND credits > 0");
-
-	$stmt->bind_param("ii", $credit, $id);
-
-	$result = $stmt->execute();
-
-	$stmt->close();	
-
-	return $result;
-
-}
-
-
-
-//Retrieve saved sheet information for current user
-
-function fetchAllSheets($id)
-
-{
-
-	global $mysqli,$db_table_prefix; 
-
-	$stmt = $mysqli->prepare("SELECT 
-
-		id,
-
-		user_id,
-		
-		sheet,
-		
-		race_track,
-		
-		race_date,
-		
-		time
-
-		FROM ".$db_table_prefix."user_sheets
-		
-		WHERE
-		
-		user_id = ?");
-
-	$stmt->bind_param("i", $id);
-	
-	$stmt->execute();
-
-	$stmt->bind_result($id, $user, $sheet, $race_track, $race_date, $time);
-
-	while ($stmt->fetch()){
-
-		$row[] = array('id' => $id, 'user' => $user, 'sheet' => $sheet, 'racetrack' => $race_track, 'racedate' => $race_date, 'time' => $time);
-
-	}
-
-	$stmt->close();
-
-	return ($row);
-
-}
-
-
-
-//Retrieve saved credit information for current user
-
-function fetchAllCredits($id)
-
-{
-
-	global $mysqli,$db_table_prefix; 
-
-	$stmt = $mysqli->prepare("SELECT 
-
-		credits
-
-		FROM ".$db_table_prefix."user_credits
-		
-		WHERE
-		
-		user_id = ?");
-
-	$stmt->bind_param("i", $id);
-	
-	$stmt->execute();
-
-	$stmt->bind_result($credits);
-	
-	while ($stmt->fetch()){
-
-		$row[] = array('credits' => $credits);
-
-	}
-
-	$stmt->close();
-	
-	return ($row);
-
-}
-
-
-
 //Retrieve information for a single permission level
 
-function fetchPermissionDetails($id)
+function fetchPermissionDetails($id) // admin_permission.php
 
 {
 
@@ -1832,7 +1810,11 @@ function fetchPermissionDetails($id)
 
 		id,
 
-		name
+		name,
+		
+		access_level,
+		
+		description
 
 		FROM ".$db_table_prefix."permissions
 
@@ -1846,11 +1828,11 @@ function fetchPermissionDetails($id)
 
 	$stmt->execute();
 
-	$stmt->bind_result($id, $name);
+	$stmt->bind_result($id, $name, $access_level, $description);
 
 	while ($stmt->fetch()){
 
-		$row = array('id' => $id, 'name' => $name);
+		$row = array('id' => $id, 'name' => $name, 'access_level' => $access_level, 'description' => $description);
 
 	}
 
@@ -1864,7 +1846,7 @@ function fetchPermissionDetails($id)
 
 //Check if a permission level ID exists in the DB
 
-function permissionIdExists($id)
+function permissionIdExists($id) // admin_permission.php
 
 {
 
@@ -1914,7 +1896,7 @@ function permissionIdExists($id)
 
 //Check if a permission level name exists in the DB
 
-function permissionNameExists($permission)
+function permissionNameExists($permission) // admin_permissions.php
 
 {
 
@@ -1961,38 +1943,9 @@ function permissionNameExists($permission)
 }
 
 
+//------------------------------------------------------------------------------
 
-//Change a permission level's name
-
-function updatePermissionName($id, $name)
-
-{
-
-	global $mysqli,$db_table_prefix;
-
-	$stmt = $mysqli->prepare("UPDATE ".$db_table_prefix."permissions
-
-		SET name = ?
-
-		WHERE
-
-		id = ?
-
-		LIMIT 1");
-
-	$stmt->bind_param("si", $name, $id);
-
-	$result = $stmt->execute();
-
-	$stmt->close();	
-
-	return $result;	
-
-}
-
-
-
-//Functions that interact mainly with uc_user_permission_matches table
+//Functions that interact mainly with twiz_user_permission_matches table
 
 //------------------------------------------------------------------------------
 
@@ -2000,7 +1953,7 @@ function updatePermissionName($id, $name)
 
 //Match permission level(s) with user(s)
 
-function addPermission($permission, $user) {
+function addPermission($permission, $user) { // admin_page.php, admin_permission.php, admin_user.php, user_cancel_subscription.php, user_charge.php, user_charge_package_10.php, user_charge_subscription.php
 
 	global $mysqli,$db_table_prefix; 
 
@@ -2066,11 +2019,67 @@ function addPermission($permission, $user) {
 
 }
 
+//Unmatch permission level(s) from user(s)
 
+function removePermission($permission, $user) { // admin_page.php, admin_permission.php, admin_user.php, single-access.php, single-product.php, user_cancel_subscription.php, user_charge_subscription.php, 
+
+	global $mysqli,$db_table_prefix; 
+
+	$i = 0;
+
+	$stmt = $mysqli->prepare("DELETE FROM ".$db_table_prefix."user_permission_matches 
+
+		WHERE permission_id = ?
+
+		AND user_id =?");
+
+	if (is_array($permission)){
+
+		foreach($permission as $id){
+
+			$stmt->bind_param("ii", $id, $user);
+
+			$stmt->execute();
+
+			$i++;
+
+		}
+
+	}
+
+	elseif (is_array($user)){
+
+		foreach($user as $id){
+
+			$stmt->bind_param("ii", $permission, $id);
+
+			$stmt->execute();
+
+			$i++;
+
+		}
+
+	}
+
+	else {
+
+		$stmt->bind_param("ii", $permission, $user);
+
+		$stmt->execute();
+
+		$i++;
+
+	}
+
+	$stmt->close();
+
+	return $i;
+
+}
 
 //Retrieve information for all user/permission level matches
 
-function fetchAllMatches()
+/*function fetchAllMatches()
 
 {
 
@@ -2144,13 +2153,13 @@ function fetchUserPermissions($user_id)
 
 	}
 
-}
+}*/
 
 
 
 //Retrieve list of users who have a permission level
 
-function fetchPermissionUsers($permission_id)
+function fetchPermissionUsers($permission_id) // admin_permission.php
 
 {
 
@@ -2187,68 +2196,9 @@ function fetchPermissionUsers($permission_id)
 }
 
 
+//------------------------------------------------------------------------------
 
-//Unmatch permission level(s) from user(s)
-
-function removePermission($permission, $user) {
-
-	global $mysqli,$db_table_prefix; 
-
-	$i = 0;
-
-	$stmt = $mysqli->prepare("DELETE FROM ".$db_table_prefix."user_permission_matches 
-
-		WHERE permission_id = ?
-
-		AND user_id =?");
-
-	if (is_array($permission)){
-
-		foreach($permission as $id){
-
-			$stmt->bind_param("ii", $id, $user);
-
-			$stmt->execute();
-
-			$i++;
-
-		}
-
-	}
-
-	elseif (is_array($user)){
-
-		foreach($user as $id){
-
-			$stmt->bind_param("ii", $permission, $id);
-
-			$stmt->execute();
-
-			$i++;
-
-		}
-
-	}
-
-	else {
-
-		$stmt->bind_param("ii", $permission, $user);
-
-		$stmt->execute();
-
-		$i++;
-
-	}
-
-	$stmt->close();
-
-	return $i;
-
-}
-
-
-
-//Functions that interact mainly with uc_configuration table
+//Functions that interact mainly with twiz_configuration table
 
 //------------------------------------------------------------------------------
 
@@ -2256,7 +2206,7 @@ function removePermission($permission, $user) {
 
 //Update configuration table
 
-function updateConfig($id, $value)
+function updateConfig($id, $value) // admin_configuration.php
 
 {
 
@@ -2285,8 +2235,9 @@ function updateConfig($id, $value)
 }
 
 
+//------------------------------------------------------------------------------
 
-//Functions that interact mainly with uc_pages table
+//Functions that interact mainly with twiz_pages table
 
 //------------------------------------------------------------------------------
 
@@ -2294,7 +2245,7 @@ function updateConfig($id, $value)
 
 //Add a page to the DB
 
-function createPages($pages) {
+function createPages($pages) { // admin_pages.php
 
 	global $mysqli,$db_table_prefix; 
 
@@ -2326,7 +2277,7 @@ function createPages($pages) {
 
 //Delete a page from the DB
 
-function deletePages($pages) {
+function deletePages($pages) { // admin_pages.php
 
 	global $mysqli,$db_table_prefix; 
 
@@ -2360,7 +2311,7 @@ function deletePages($pages) {
 
 //Fetch information on all pages
 
-function fetchAllPages()
+function fetchAllPages() // admin_pages.php, admin_permission.php
 
 {
 
@@ -2400,7 +2351,7 @@ function fetchAllPages()
 
 //Fetch information for a specific page
 
-function fetchPageDetails($id)
+function fetchPageDetails($id) // admin_page.php
 
 {
 
@@ -2444,7 +2395,7 @@ function fetchPageDetails($id)
 
 //Check if a page ID exists
 
-function pageIdExists($id)
+function pageIdExists($id) // admin_page.php
 
 {
 
@@ -2494,7 +2445,7 @@ function pageIdExists($id)
 
 //Toggle private/public setting of a page
 
-function updatePrivate($id, $private)
+function updatePrivate($id, $private) // admin_page.php
 
 {
 
@@ -2521,8 +2472,9 @@ function updatePrivate($id, $private)
 }
 
 
+//------------------------------------------------------------------------------
 
-//Functions that interact mainly with uc_permission_page_matches table
+//Functions that interact mainly with twiz_permission_page_matches table
 
 //------------------------------------------------------------------------------
 
@@ -2530,7 +2482,7 @@ function updatePrivate($id, $private)
 
 //Match permission level(s) with page(s)
 
-function addPage($page, $permission) {
+function addPage($page, $permission) { // add_page.php, admin_permission.php
 
 	global $mysqli,$db_table_prefix; 
 
@@ -2600,7 +2552,7 @@ function addPage($page, $permission) {
 
 //Retrieve list of permission levels that can access a page
 
-function fetchPagePermissions($page_id)
+function fetchPagePermissions($page_id) // admin_page.php
 
 {
 
@@ -2644,7 +2596,7 @@ function fetchPagePermissions($page_id)
 
 //Retrieve list of pages that a permission level can access
 
-function fetchPermissionPages($permission_id)
+function fetchPermissionPages($permission_id) // admin_permission.php
 
 {
 
@@ -2688,7 +2640,7 @@ function fetchPermissionPages($permission_id)
 
 //Unmatched permission and page
 
-function removePage($page, $permission) {
+function removePage($page, $permission) { // admin_page.php, admin_permission.php
 
 	global $mysqli,$db_table_prefix; 
 
@@ -2748,7 +2700,7 @@ function removePage($page, $permission) {
 
 //Check if a user has access to a page
 
-function securePage($uri){
+function securePage($uri){ // every file in the framework uses this
 	//Separate document name from uri
 
 	$tokens = explode('/', $uri);

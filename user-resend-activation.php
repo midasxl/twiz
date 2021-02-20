@@ -65,7 +65,7 @@ if(!empty($_POST) && $emailActivation){// if form scope is not empty and emailAc
 					}
 					else
 					{
-						$mail = new userCakeMail();
+						$mail = new twizMail();
 						$activation_url = $websiteUrl."activate-account.php?token=".$new_activation_token;
 						//Setup our custom hooks
 						$hooks = array(

@@ -10,13 +10,74 @@ if(!userIdExists($userId)){
 //get all user details
 $userdetails = fetchUserDetails(NULL, NULL, $userId); //Fetch user details
 
-// if admin clicked delete user button
-if (!empty($_POST['user-delete'])) {
-	//Delete selected account
+$action = isset($_POST['action']) ? $_POST['action'] : null;
+
+switch($action){
+    case 'deactivateUser':
+		$displayname = trim($_POST['display']);
+			if (setUserInActive($userdetails['activation_token'])){
+				$successes[] = lang("ACCOUNT_MANUALLY_DEACTIVATED", array($displayname));
+			}
+			else {
+				$errors[] = lang("SQL_ERROR");
+			}
+	break;
+	case 'activateUser':
+		$displayname = trim($_POST['display']);
+			if (setUserActive($userdetails['activation_token'])){
+				$successes[] = lang("ACCOUNT_MANUALLY_ACTIVATED", array($displayname));
+			}
+			else {
+				$errors[] = lang("SQL_ERROR");
+			}
+	break;
+	case 'updatePerms':
+		if(!empty($_POST['removePermission'])){
+			$remove = $_POST['removePermission'];
+			if ($deletion_count = removePermission($remove, $userId)){
+				$successes[] = lang("ACCOUNT_PERMISSION_REMOVED", array ($deletion_count));
+			}
+			else {
+				$errors[] = lang("SQL_ERROR");
+			}
+		}
+		if(!empty($_POST['addPermission'])){
+			$add = $_POST['addPermission'];
+			if ($addition_count = addPermission($add, $userId)){
+				$successes[] = lang("ACCOUNT_PERMISSION_ADDED", array ($addition_count));
+			}
+			else {
+				$errors[] = lang("SQL_ERROR");
+			}
+		}
+    break;
+	case 'deleteUser':
+		$deletions = $_POST['delete'];
+		if ($deletion_count = deleteUsers($deletions)) {
+			$successes[] = lang("ACCOUNT_DELETIONS_SUCCESSFUL", array($deletion_count));
+			header("Location: https://thoroughwiz.com/sheets/admin_users.php"); /* Redirect browser */
+			exit();
+		}
+		else {
+			$errors[] = lang("SQL_ERROR");
+		}
+    break;
+    default:
+        //action not found
+        break;
+}
+
+
+
+/* old way, legacy code
+$deleteUser = isset($_POST['user-delete']);
+if ($deleteUser) {
 	if(!empty($_POST['delete'])){
 		$deletions = $_POST['delete'];
 		if ($deletion_count = deleteUsers($deletions)) {
 			$successes[] = lang("ACCOUNT_DELETIONS_SUCCESSFUL", array($deletion_count));
+			header("Location: https://thoroughwiz.com/sheets/admin_users.php");
+			exit();
 		}
 		else {
 			$errors[] = lang("SQL_ERROR");
@@ -24,8 +85,8 @@ if (!empty($_POST['user-delete'])) {
 	}
 }
 
-// if admin clicked update permissions button
-if (!empty($_POST['update-perms'])) {
+$updatePermissions = isset($_POST['update-perms']);
+if ($updatePermissions) {
 		if(!empty($_POST['removePermission'])){
 			$remove = $_POST['removePermission'];
 			if ($deletion_count = removePermission($remove, $userId)){
@@ -46,18 +107,31 @@ if (!empty($_POST['update-perms'])) {
 		}
 }
 
-// if admin is activating an inactive user
-if (!empty($_POST['activate-user'])) {
-		$displayname = trim($_POST['display']);
-		if(isset($_POST['activate']) && $_POST['activate'] == "activate"){
-			if (setUserActive($userdetails['activation_token'])){
-				$successes[] = lang("ACCOUNT_MANUALLY_ACTIVATED", array($displayname));
+$modActiveStatus = isset($_POST['userActiveStatus']);
+if ($modActiveStatus) {
+	if (!empty($_POST['activate'])) {
+			$displayname = trim($_POST['display']);
+			if(isset($_POST['activate']) && $_POST['activate'] == "activate"){
+				if (setUserActive($userdetails['activation_token'])){
+					$successes[] = lang("ACCOUNT_MANUALLY_ACTIVATED", array($displayname));
+				}
+				else {
+					$errors[] = lang("SQL_ERROR");
+				}
 			}
-			else {
-				$errors[] = lang("SQL_ERROR");
+	}
+	if (!empty($_POST['deactivate'])) {
+			$displayname = trim($_POST['display']);
+			if(isset($_POST['deactivate']) && $_POST['deactivate'] == "deactivate"){
+				if (setUserInActive($userdetails['activation_token'])){
+					$successes[] = lang("ACCOUNT_MANUALLY_DEACTIVATED", array($displayname));
+				}
+				else {
+					$errors[] = lang("SQL_ERROR");
+				}
 			}
-		}
-}
+	}
+}*/
 		
 $userdetails = fetchUserDetails(NULL, NULL, $userId);
 $userPermission = fetchUserPermissions($userId);
@@ -108,9 +182,6 @@ $permissionData = fetchAllPermissions();
                 ".$userdetails['email']."
                 </p>
                 <p>
-                <label>Active Status:&nbsp;&nbsp;</label>
-                </p>
-                <p>
                 <label>Member Level:&nbsp;&nbsp;</label>
                 ".$userdetails['title']."
                 </p>
@@ -133,7 +204,7 @@ $permissionData = fetchAllPermissions();
                 echo "</p>";
 				
 				// show number of credits user has if any
-				$dbcredits = fetchAllCredits($userId); //get all credits for this user funcs.php 1422
+				$dbcredits = fetchAllCredits($userId); //get all credits for this user
 					foreach ($dbcredits as $credits){
 							if($credits['credits'] > 0){
 							echo "<p><label>Sheet Credits:&nbsp;&nbsp;</label>
@@ -145,14 +216,19 @@ $permissionData = fetchAllPermissions();
                 //Display activation link, if account inactive
     
                 if ($userdetails['active'] == '1'){
-                    echo "<p><label>Active Status:&nbsp;&nbsp;&nbsp;</label>Active</p>";	
+                    echo "<p style='color:green;'><label>Active Status:&nbsp;&nbsp;&nbsp;</label>Active</p>
+                    <form name='adminUser' action='".$_SERVER['PHP_SELF']."?id=".$userId."' method='post'>
+					<input type='hidden' name='action' value='deactivateUser'>
+					<input type='hidden' name='display' value='".$userdetails['display_name']."' />
+                    <button type='submit' name='userActiveStatus' class='btn btn-success pull-right'><i class='fa fa-toggle-on'></i>&nbsp;&nbsp;Deactivate User</button>
+					</form>";
                 }
                 else{
-                    echo "<p><label>Active Status:&nbsp;&nbsp;&nbsp;</label>Inactive User!</p>
+                    echo "<p style='color:red;'><label>Active Status:&nbsp;&nbsp;&nbsp;</label>Inactive User!</p>
                     <form name='adminUser' action='".$_SERVER['PHP_SELF']."?id=".$userId."' method='post'>
+					<input type='hidden' name='action' value='activateUser'>
 					<input type='hidden' name='display' value='".$userdetails['display_name']."' />
-					<input type='checkbox' name='activate' id='activate' value='activate'>&nbsp;Activate User
-                    <button type='submit' name='activate-user' class='btn btn-success pull-right'><i class='fa fa-toggle-on'></i>&nbsp;&nbsp;Activate</button>
+                    <button type='submit' name='userActiveStatus' class='btn btn-success pull-right'><i class='fa fa-toggle-on'></i>&nbsp;&nbsp;Activate User</button>
 					</form>";
                 }
 			?>
@@ -166,6 +242,7 @@ $permissionData = fetchAllPermissions();
             <div class="panel-body">
                 <?php
                 echo "<form name='adminPerms' action='".$_SERVER['PHP_SELF']."?id=".$userId."' method='post'>
+				<input type='hidden' name='action' value='updatePerms'>
                 <p>Current Permission Levels (select to remove):&nbsp;&nbsp;";
                 
                 foreach ($permissionData as $v1) {
@@ -196,9 +273,10 @@ $permissionData = fetchAllPermissions();
                 <?php
                 echo "
                 <form name='adminDelete' action='".$_SERVER['PHP_SELF']."?id=".$userId."' method='post'>
+				<input type='hidden' name='action' value='deleteUser'>
                 <p>
-                <label>Select to Delete User:</label>
-                <br><input type='checkbox' name='delete[".$userdetails['id']."]' id='delete[".$userdetails['id']."]' value='".$userdetails['id']."'> Delete User
+                <label>Warning! This action cannot be reversed!</label>
+                <br><input type='hidden' name='delete[".$userdetails['id']."]' id='delete[".$userdetails['id']."]' value='".$userdetails['id']."'>
                 </p><hr>
                 <button type='submit' name='user-delete' class='btn btn-success pull-right'><i class='fa fa-trash-o'></i>&nbsp;&nbsp;Delete User</button>
                 </form>";
@@ -212,6 +290,5 @@ $permissionData = fetchAllPermissions();
     <?php include("footer.php"); ?>
     <?php include("modals.php"); ?>
 </div><!--/wrapper-->
-<!--<div id="form-messages" title="Throughwiz says..." style="text-align:center;padding:5px;"></div>-->
 </body>
 </html>

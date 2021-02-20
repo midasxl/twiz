@@ -225,7 +225,7 @@ if(isUserLoggedIn()) {
                                   <th colspan="2" style="background-color:#72c02c;">Current # of Banked Credits</th>
                                </tr>
 								  <?php
-                                  $dbcredits = fetchAllCredits($loggedInUser->user_id); //get all creditsw for this user funcs.php 1422
+                                  $dbcredits = fetchAllCredits($loggedInUser->user_id); //get all credits
                                         foreach ($dbcredits as $credits){
 												if($credits['credits'] > 0){
 												echo "<tr>

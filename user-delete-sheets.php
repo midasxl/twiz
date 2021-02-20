@@ -11,8 +11,8 @@ if(!empty($_POST)){
 		echo json_encode($errors);
 	}else{
 		if(count($errors) == 0){
-				if(!destroySheet($sheetId)){//funcs 1657
-					$errors[] = "funcs problem";
+				if(!destroySheet($sheetId)){
+					$errors[] = "problem destroying sheets";
 					echo json_encode($errors);
 				}else{
 					//$successes[0] = lang("ACCOUNT_PASSWORD_UPDATED");

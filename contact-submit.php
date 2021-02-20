@@ -65,7 +65,7 @@ if(!empty($_POST)){
 		
 		//put your email address here
 		mail("sparkhw@gmail.com", $subject, $body, $headers);
-		mail("support@thoroughwiz.com", $subject, $body, $headers);
+		//mail("support@thoroughwiz.com", $subject, $body, $headers);
 	}else{
 		echo json_encode($errors);
 	}

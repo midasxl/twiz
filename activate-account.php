@@ -11,7 +11,9 @@ if(isset($_GET["token"]))
 	{
 		$errors[] = lang("FORGOTPASS_INVALID_TOKEN");
     }
-	else if(!validateActivationToken($token)) //Check for a valid token. Must exist and active must be = 0. only passing one parameter here $token.  the function (in funcs.php) will therefore use the value of null for the $lostpass variable (this ties into a lost password request)
+	//Check for a valid token. Must exist and active must be = 0. only passing one parameter here $token.  
+	// the function will therefore use the value of null for the $lostpass variable (this ties into a lost password request)
+	else if(!validateActivationToken($token)) 
 	{
 		$errors[] = lang("ACCOUNT_TOKEN_NOT_FOUND");
 	}

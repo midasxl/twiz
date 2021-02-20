@@ -151,7 +151,7 @@ require_once("models/config.php"); // includes and evaluates the file as it exec
 				$this->clean_email = sanitize($email);
 				$this->clean_password = trim($pass);
 				
-				if(emailExists($this->clean_email))// in funcs.php 540
+				if(emailExists($this->clean_email))
 				{
 					$this->email_taken = true;
 				}

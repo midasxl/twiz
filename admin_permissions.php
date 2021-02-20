@@ -5,17 +5,11 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
 //Forms posted
 if(!empty($_POST))
 {
-	//Delete permission levels
-	if(!empty($_POST['delete'])){
-		$deletions = $_POST['delete'];
-		if ($deletion_count = deletePermission($deletions)){
-		$successes[] = lang("PERMISSION_DELETIONS_SUCCESSFUL", array($deletion_count));
-		}
-	}
-
 	//Create new permission level
 	if(!empty($_POST['newPermission'])) {
 		$permission = trim($_POST['newPermission']);
+		$level = trim($_POST['newLevel']);
+		$descr = trim($_POST['newDescr']);
 		//Validate request
 		if (permissionNameExists($permission)){
 			$errors[] = lang("PERMISSION_NAME_IN_USE", array($permission));
@@ -24,7 +18,7 @@ if(!empty($_POST))
 			$errors[] = lang("PERMISSION_CHAR_LIMIT", array(1, 50));	
 		}
 		else{
-			if (createPermission($permission)) {
+			if (createPermission($permission,$level,$descr)) {
 			$successes[] = lang("PERMISSION_CREATION_SUCCESSFUL", array($permission));
 		}
 			else {
@@ -103,7 +97,13 @@ $permissionData = fetchAllPermissions(); //Retrieve list of all permission level
                 <div class="panel-heading">Create New Group</div>
                 <div class="panel-body">
                     <form name='adminPermissions' <?php echo "action='".$_SERVER['PHP_SELF']."'"; ?> method='post'>
+					<label>Group Name:</label>
                     <input type='text' class='form-control' name='newPermission' required /><br />
+					<label>Access Level:</label>
+                    <input type='text' class='form-control' name='newLevel' required /><br />
+					<label>Description:</label>
+                    <input type='text' class='form-control' name='newDescr' required />
+					<hr>
                     <button type='submit' class='btn btn-success pull-right'><i class='fa fa-plus-square'></i>&nbsp;&nbsp;Create Group</button>
                     </form>
                 </div>

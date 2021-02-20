@@ -6,14 +6,13 @@ $permissionId = $_GET['id'];
 if(!permissionIdExists($permissionId)){
 	header("Location: admin_permissions.php"); die();	
 }
-
+// get all permission details
 $permissionDetails = fetchPermissionDetails($permissionId); //Fetch information specific to permission level
 
 $action = isset($_POST['action']) ? $_POST['action'] : null;
 
 switch($action){
-    case 'updateGroup':
-        if(!empty($_POST['delete'])){// if checkbox is checked, user wants to delete the group
+    case 'deleteGroup':
 		$deletions = $_POST['delete'];
 		if ($deletion_count = deletePermission($deletions)){
 		$successes[] = lang("PERMISSION_DELETIONS_SUCCESSFUL", array($deletion_count));
@@ -22,30 +21,34 @@ switch($action){
 		else {
 			$errors[] = lang("SQL_ERROR");	
 		}
-	}
-	else // user wants to update the name of the group
-	{
+	break;
+		
+	case 'updateGroup':
 		//Update permission level name
-		if($permissionDetails['name'] != $_POST['name']) {
+		if($permissionDetails['name'] != $_POST['name'] || $permissionDetails['access_level'] != $_POST['level'] || $permissionDetails['description'] != $_POST['descr']) {
 			$permission = trim($_POST['name']);
+			$level = trim($_POST['level']);
+			$descr = trim($_POST['descr']);
 			//Validate new name
-			if (permissionNameExists($permission)){
+			/*if (permissionNameExists($permission)){
+			echo "2";
 				$errors[] = lang("ACCOUNT_PERMISSIONNAME_IN_USE", array($permission));
-			}
-			elseif (minMaxRange(1, 50, $permission)){
+			}*/
+			if (minMaxRange(1, 50, $permission)){
 				$errors[] = lang("ACCOUNT_PERMISSION_CHAR_LIMIT", array(1, 50));	
 			}
 			else {
-				if (updatePermissionName($permissionId, $permission)){
-					$successes[] = lang("PERMISSION_NAME_UPDATE", array($permission));
+				if (updatePermissionGroup($permissionId, $permission, $level, $descr)){
+					//$successes[] = lang("PERMISSION_NAME_UPDATE", array($permission, $level, $descr));
+					$successes[] = lang("PERMISSION_GROUP_UPDATE");
 				}
 				else {
-					$errors[] = lang("SQL_ERROR");
+					//$errors[] = lang("SQL_ERROR");
 				}
 			}
 		}
-	}
-        break;
+    break;
+	
     case 'updateMembers':
         // Remove user from permission group
 		if(!empty($_POST['removePermission'])){
@@ -67,7 +70,8 @@ switch($action){
 				$errors[] = lang("SQL_ERROR");
 			}
 		}
-        break;
+    break;
+	
     case 'updatePages':
         //Remove access to pages
 		if(!empty($_POST['removePage'])){
@@ -89,10 +93,11 @@ switch($action){
 				$errors[] = lang("SQL_ERROR");
 			}
 		}
-        break;
+    break;
+	
     default:
         //action not found
-        break;
+    break;
 }
 
 $permissionDetails = fetchPermissionDetails($permissionId);	
@@ -134,36 +139,51 @@ $pageData = fetchAllPages(); //Fetch all pages
     
     <div class="col-md-4">
         <div class="panel panel-default" >
-            <div class="panel-heading">Permission Group</div>
+            <div class="panel-heading">Change Group Information</div>
             <div class="panel-body">
         <?php
             echo "
 			<form name='adminPermission' action='".$_SERVER['PHP_SELF']."?id=".$permissionId."' method='post'>
             <input type='hidden' name='action' value='updateGroup'>
-			<p>
-			<label>ID:</label>
-			".$permissionDetails['id']."
-			</p>			
-			<p>
-			<label>Name:</label>
-			<input type='text' class='form-control' name='name' value='".$permissionDetails['name']."' />
-			</p>
-			<input type='checkbox' name='delete[".$permissionDetails['id']."]' id='delete[".$permissionDetails['id']."]' value='".$permissionDetails['id']."'>&nbsp;Delete This Group
-			</p>
+			<label>Group Name:</label>
+			<input type='text' class='form-control' name='name' value='".$permissionDetails['name']."' /><br>
+			<label>Access Level:</label>
+			<input type='text' class='form-control' name='level' value='".$permissionDetails['access_level']."' /><br>
+			<label>Description:</label>
+			<input type='text' class='form-control' name='descr' value='".$permissionDetails['description']."' />
 			<hr>
-            <button type='submit' class='btn btn-success pull-right'><i class='fa fa-refresh'></i>&nbsp;&nbsp;Update Group</button>
-			</form>
+			<button type='submit' class='btn btn-success pull-right'><i class='fa fa-refresh'></i>&nbsp;&nbsp;Update Group Data</button>
+			</form>";
+		?>
             
 			</div>
+		</div>
+        <div class="panel panel-default" >
+            <div class="panel-heading">Delete Group</div>
+            <div class="panel-body">
+        <?php
+            echo "
+			<form name='adminDelete' action='".$_SERVER['PHP_SELF']."?id=".$permissionId."' method='post'>
+			<input type='hidden' name='action' value='deleteGroup'>
+			<p>
+			<label>Warning! This action cannot be reversed!</label>
+			<br><input type='hidden' name='delete[".$permissionDetails['id']."]' id='delete[".$permissionDetails['id']."]' value='".$permissionDetails['id']."'>
+			</p><hr>
+			<button type='submit' name='group-delete' class='btn btn-danger pull-right'><i class='fa fa-trash-o'></i>&nbsp;&nbsp;Delete Group</button>
+			</form>";
+		?>
+            
 			</div>
-			</div>
+		</div>
+	</div>
 			
 			<div class='col-md-4'>
         	<div class='panel panel-default' >
             <div class='panel-heading'>Group Membership</div>
             <div class='panel-body'>
-            
-			<form name='adminPermission' action='".$_SERVER['PHP_SELF']."?id=".$permissionId."' method='post'>
+        
+		<?php
+			echo "<form name='adminPermission' action='".$_SERVER['PHP_SELF']."?id=".$permissionId."' method='post'>
             <input type='hidden' name='action' value='updateMembers'>
 			<p><strong>Current Group Membership (select to remove):</strong>";
 			//List users with permission level
@@ -185,8 +205,8 @@ $pageData = fetchAllPages(); //Fetch all pages
 			</p>
 			<hr>
             <button type='submit' class='btn btn-success pull-right'><i class='fa fa-refresh'></i>&nbsp;&nbsp;Update Members</button>
-			</form>
-            
+			</form>";
+         ?>   
 			</div>
 			</div>
 			</div>			
@@ -195,8 +215,9 @@ $pageData = fetchAllPages(); //Fetch all pages
         	<div class='panel panel-default' >
             <div class='panel-heading'>Page Access</div>
             <div class='panel-body'>
-            
-			<form name='adminPermission' action='".$_SERVER['PHP_SELF']."?id=".$permissionId."' method='post'>
+          
+		<?php
+			echo "<form name='adminPermission' action='".$_SERVER['PHP_SELF']."?id=".$permissionId."' method='post'>
             <input type='hidden' name='action' value='updatePages'>
 			<p>
 			<strong>Allowed to Access:</strong>";

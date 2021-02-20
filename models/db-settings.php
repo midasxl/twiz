@@ -2,8 +2,8 @@
 
 //Database Information
 $db_host = "localhost"; //Host address (most likely localhost)
-$db_name = "sparky_cake"; //Name of Database
-$db_user = "sparky_admin"; //Name of database user
+$db_name = "thorough_gringotts"; //Name of Database
+$db_user = "thorough_admin"; //Name of database user
 $db_pass = "badhorsie5150"; //Password for database user
 $db_table_prefix = "twiz_";
 

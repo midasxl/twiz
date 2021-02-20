@@ -8,17 +8,12 @@ if(!empty($_POST))
 {
 
 	$cfgId = array();
-
 	$newSettings = $_POST['settings'];
 
-	
-
-	//Validate new site name
-
 	if ($newSettings[1] != $websiteName) {
-
-		$newWebsiteName = $newSettings[1];
-
+	    
+	    $newWebsiteName = $newSettings[1];
+		
 		if(minMaxRange(1,150,$newWebsiteName))
 
 		{
@@ -28,21 +23,17 @@ if(!empty($_POST))
 		}
 
 		else if (count($errors) == 0) {
-
-			$cfgId[] = 1;
+		    
+		    $cfgId[] = 1;
 
 			$cfgValue[1] = $newWebsiteName;
-
+			
 			$websiteName = $newWebsiteName;
 
 		}
 
 	}
-
 	
-
-	//Validate new URL
-
 	if ($newSettings[2] != $websiteUrl) {
 
 		$newWebsiteUrl = $newSettings[2];
@@ -73,7 +64,6 @@ if(!empty($_POST))
 
 	}
 
-	
 
 	//Validate new site email address
 
@@ -108,7 +98,6 @@ if(!empty($_POST))
 		}
 
 	}
-
 	
 
 	//Validate email activation selection
@@ -136,7 +125,6 @@ if(!empty($_POST))
 		}
 
 	}
-
 	
 
 	//Validate new email activation resend threshold
@@ -198,7 +186,6 @@ if(!empty($_POST))
 		}
 
 	}
-
 	
 
 	//Validate new template selection
@@ -232,13 +219,12 @@ if(!empty($_POST))
 		}
 
 	}
-
 	
 
 	//Update configuration table with new settings
 
 	if (count($errors) == 0 AND count($cfgId) > 0) {
-
+	    
 		updateConfig($cfgId, $cfgValue);
 
 		$successes[] = lang("CONFIG_UPDATE_SUCCESSFUL");

@@ -49,15 +49,15 @@ if(!empty($_POST)){
 	//End data validation
 	if(count($errors) == 0){	
 	
-		/* Our constructor method is in class.newuser.php.  We can provide a values for the properties when we create the User object.
-You ‘feed’ the constructor method by providing a list of arguments (like you do with a function) after the class name. */
+		/* Our constructor method is in class.newuser.php.  We can provide values for the properties when we create the User object.
+		You ‘feed’ the constructor method by providing a list of arguments (like you do with a function) after the class name. */
 		//$user = new User($firstname,$lastname,$username,$displayname,$password,$email);
 		$user = new User($email,$password);
 		
-		//Checking this flag tells us whether there were any errors such as possible data duplication
-		if(!$user->status) // is status != 'true'
+		//Checking this flag tells us whether there were any errors such as email duplication
+		if(!$user->status) // is status != 'true' then it's set to false; we have a duplicate email
 		{
-			if($user->email_taken){ 	  
+			if($user->email_taken){// if email_taken = 'true'  
 				$errors[] = lang("ACCOUNT_EMAIL_IN_USE",array($email));
 				echo json_encode($errors);
 			}
@@ -65,7 +65,7 @@ You ‘feed’ the constructor method by providing a list of arguments (like you
 		else // no problems during user creation
 		{
 			//Attempt to add the user to the database, carry out finishing tasks like emailing the user (if required)
-			if(!$user->userCakeAddUser())
+			if(!$user->twizAddUser())// if this does not return 'true' we have a problem
 			{
 				if($user->mail_failure) $errors[] = lang("MAIL_ERROR");
 				if($user->sql_failure)  $errors[] = lang("SQL_ERROR");

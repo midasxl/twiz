@@ -26,7 +26,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
     		<li><a href='page_admin_harness.php'>Process Harness Sheet</a></li>
 			<li><a href='admin_configuration.php'>Configuration</a></li>
 			<li><a href='admin_users.php'>Users</a></li>
-			<li><a href='admin_permissions.php'>Permissions</a></li>
+			<li><a href='admin_permissions.php'>Permission Groups</a></li>
 			<li><a href='admin_pages.php'>Pages</a></li>
 			<li><a id='logOutButton' href='logout.php'>Logout</a></li>";
             //<li><button type='button' id='logOutButton' class='btn btn-warning btn-xs'>Log Out</button></li>";

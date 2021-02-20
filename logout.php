@@ -12,9 +12,9 @@ if(isUserLoggedIn())
 
 if(!empty($websiteUrl)) 
 {
-	$add_http = "";
-	
-	if(strpos($websiteUrl,"https://") === false)
+	$add_http = ""; // why add http? If in the congiguration admin adds website url simply as thoroughwiz.com/sheets this will add the protocol
+	// strpos returns the position of first occurrence of a string inside another string or else false if string is not found
+	if(strpos($websiteUrl,"https://") === false)// if not found
 	{
 		$add_http = "https://";
 	}
