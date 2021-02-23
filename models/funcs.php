@@ -2109,7 +2109,7 @@ function removePermission($permission, $user) { // admin_page.php, admin_permiss
 
 	return ($row);	
 
-}
+}*/
 
 
 
@@ -2153,7 +2153,7 @@ function fetchUserPermissions($user_id)
 
 	}
 
-}*/
+}
 
 
 

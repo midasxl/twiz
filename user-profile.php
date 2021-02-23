@@ -18,9 +18,6 @@ $usercredits = fetchAllCredits($userid); //fetch user credits
 <?php include("style_block.php"); ?>
 </head>
 <body>
-<?php 
-    echo $userid;
-    ?>
 <div class="wrapper">
 	<?php include("header.php"); ?>
     <!--=== Breadcrumbs ===-->

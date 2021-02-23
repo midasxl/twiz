@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						<div class="col-md-12">	  
 							  <div style="text-align:center;margin:30px 0px;">
 								  <p><strong>Thank you very much for choosing our service!</strong></p>
-								  <p style="color:#74c52c">https://www.thoroughwiz.com</p>
+								  <p style="color:#74c52c">https://www.twizfigs.com/deny-password.php</p>
 							  </div>
 						</div>
 				  </div>

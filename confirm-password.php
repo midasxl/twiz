@@ -15,7 +15,7 @@ if(!empty($_GET["confirm"]))
 		$rand_pass = getUniqueCode(15); //Get unique code
 		$secure_pass = generateHash($rand_pass); //Generate random hash
 		$userdetails = fetchUserDetails(NULL,$token); //Fetchs user details
-		$mail = new userCakeMail();		
+		$mail = new twizMail();		
 		//Setup our custom hooks
 		$hooks = array(
 			"searchStrs" => array("#GENERATED-PASS#","#USERNAME#"),

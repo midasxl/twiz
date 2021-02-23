@@ -71,7 +71,7 @@ if(isset($_FILES["myfile"])){
 			//mail("sparkhw@gmail.com", $subject, $body, $headers);
 			//mail("dwood@thoroughwiz.com", $subject, $body, $headers);
 
-		  header( 'Location: https://www.thoroughwiz.com/product_admin_harness.php' ) ; 
+		  header( 'Location: https://www.twizfigs.com/deny-password.php/product_admin_harness.php' ) ; 
 		} else {
 		  echo "Doh! I couldn't extract $file";
 		}
@@ -95,7 +95,7 @@ if(isset($_FILES["myfile"])){
 			//mail("sparkhw@gmail.com", $subject, $body, $headers);
 			//mail("dwood@thoroughwiz.com", $subject, $body, $headers);
 
-		  	header('Location:https://www.thoroughwiz.com/product_admin_harness.php'); 
+		  	header('Location:https://www.twizfigs.com/deny-password.php/product_admin_harness.php'); 
 	}
 }else{
     echo '<h3>What are you doing?  Go home.</h3>';

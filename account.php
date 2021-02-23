@@ -463,8 +463,12 @@ if(isUserLoggedIn()) {
           this.submit();
         });
       
-      $("#logOutButton").click(function(){
+      $("#logOutButton").click(function(e){
+		  	e.preventDefault();
 			$("#logOutDiv").dialog("open");
+			setTimeout(function(){
+				window.location.href = "logout.php";
+			}, 3000);
 		});
 	  
       $("#logOutDiv").dialog({

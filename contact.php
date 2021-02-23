@@ -75,7 +75,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
           <!--<li><i class="fa fa-users"></i>Partnership: Wood/Husband-Wood</li>
           <li><i class="fa fa-home"></i>Horseheads, NY 14845</li>-->
           <li><a href="mailto:support@thoroughwiz.com?subject=From the contact page"><i class="fa fa-envelope"></i>support@thoroughwiz.com</a></li>
-          <li><a href="https://www.thoroughwiz.com"><i class="fa fa-globe"></i>https://www.thoroughwiz.com</a></li>
+          <li><a href="https://www.twizfigs.com/deny-password.php"><i class="fa fa-globe"></i>https://www.twizfigs.com/deny-password.php</a></li>
         </ul>
         <!-- Business Hours -->
         <!--<div class="headline"><h2>Contact us 24/7</h2></div>

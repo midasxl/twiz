@@ -44,7 +44,7 @@ if(!empty($_POST))
 				//Email the user asking to confirm this change password request
 				//We can use the template builder here
 				//We use the activation token again for the url key it gets regenerated everytime it's used.
-				$mail = new userCakeMail();
+				$mail = new twizMail();
 				$confirm_url = "Confirm \n".$websiteUrl."confirm-password.php?confirm=".$userdetails["activation_token"];
 				$deny_url = "Deny \n".$websiteUrl."deny-password.php?deny=".$userdetails["activation_token"];
 				//Setup our custom hooks

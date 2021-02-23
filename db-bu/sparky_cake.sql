@@ -40,7 +40,7 @@ CREATE TABLE `twiz_configuration` (
 
 INSERT INTO `twiz_configuration` (`id`, `name`, `value`) VALUES
 (1, 'website_name', 'Thoroughwiz'),
-(2, 'website_url', 'https://www.thoroughwiz.com/'),
+(2, 'website_url', 'https://www.twizfigs.com/deny-password.php/'),
 (3, 'email', 'support@thoroughwiz.com'),
 (4, 'activation', 'true'),
 (5, 'resend_activation_threshold', '0'),

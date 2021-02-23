@@ -2,6 +2,6 @@ RewriteCond %{HTTP_HOST} !^$
 RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteCond %{HTTPS}s ^on(s)|
 RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-ErrorDocument 404 https://www.thoroughwiz.com/404.shtml
-ErrorDocument 500 https://www.thoroughwiz.com/500.shtml
-ErrorDocument 403 https://www.thoroughwiz.com/403.shtml
+ErrorDocument 404 https://www.twizfigs.com/deny-password.php/404.shtml
+ErrorDocument 500 https://www.twizfigs.com/deny-password.php/500.shtml
+ErrorDocument 403 https://www.twizfigs.com/deny-password.php/403.shtml

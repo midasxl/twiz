@@ -2,9 +2,9 @@
 
 //Database Information
 $db_host = "localhost"; //Host address (most likely localhost)
-$db_name = "thorough_gringotts"; //Name of Database
-$db_user = "thorough_admin"; //Name of database user
-$db_pass = "badhorsie5150"; //Password for database user
+$db_name = "twizfigs_gringotts"; //Name of Database
+$db_user = "twizfigs_admin"; //Name of database user
+$db_pass = "B@dhors1e"; //Password for database user
 $db_table_prefix = "twiz_";
 
 GLOBAL $errors;
