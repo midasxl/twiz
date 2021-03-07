@@ -32,7 +32,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
             <div class="row">        
                 <div class="col-md-4 animated fadeInLeft">
 				    <p id="opener"><span id="trigger">Member Login</span></p>
-                    <form id="homepage-login-form" name="login" action="user-login.php" method="post"> 
+                    <form id="login-form" name="login" action="user-login.php" method="post"> 
                         <label>Email Address:</label>
                         <div class="input-group margin-bottom-20">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -43,13 +43,19 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                             <input type="password" id="password" name="password" class="form-control" required/>
                         </div>
-                        <div class="row">                            
+                        <div class="row margin-bottom-50"> 
                             <div class="sign-in-trouble-wrap col-md-6">
                                 <a href="forgot-password.php">Forgot Password?</a><br>
-                                <a href="resend-activation.php">Resend Activation Email</a><br>
+                                <a href="resend-activation.php">Resend Activation Email</a>
                             </div>
                             <div class="log-in-wrap col-md-6">
-                            <button type="submit" class="btn btn-success pull-center"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Log In</button>
+                                <button type="submit" class="btn btn-success pull-right"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Log In</button>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="log-in-wrap col-md-12">
+                                <a href='register.php' class='btn btn-success'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;Register Now!</a>
                             </div>
                         </div>
                         <br>
@@ -61,8 +67,9 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
                 </div>
             
                 <div class="col-md-7 animated fadeInRight">
-                    <p id="opener"><span>THOROUGHWIZ *Now with the ability to filter/customize the PP'lines that make-up the Summary Sheet!</span> A unique algorithm designed over years of observation and testing to produce a special ranking called the <strong>TWIZrank</strong>.  Based on several highly proficient handicappers' precise methodologies, this unique algorithm was developed and refined through computer programming to form a unique way of predicting and quantifying the results of a horse race.</p>
-                    
+                    <p id="opener"><span>Welcome to Thoroughwiz!</span> A unique algorithm designed over years of observation and testing to produce a special ranking called the <strong>TWIZ rank</strong>. Based on several highly proficient handicappers' precise methodologies, this unique algorithm was developed and refined through computer programming to form a unique way of predicting and quantifying the results of a horse race.<br><br>
+                    We are your thoroughbred racing wizard!</p>
+                    <hr>
                         <div class="feature-list-wrap col-xs-6">
                                 <ul class="feature-list">
                                     <li class="feature-list-item"><i class="fa fa-star color-green"></i>&nbsp;&nbsp;Sortable categories</li>
@@ -70,15 +77,14 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
                                     <li class="feature-list-item"><i class="fa fa-star color-green"></i>&nbsp;&nbsp;Proprietary trainer, Jockey and horse ratings</li>
                           
  <li class="feature-list-item"><i class="fa fa-star color-green"></i>&nbsp;&nbsp;Equibase 'E' average speed figures</li>
-                                    <li class="feature-list-item"><i class="fa fa-star color-green"></i>&nbsp;&nbsp;Summary and detailed sheets</li>
-<li class="feature-list-item"><i class="fa fa-star color-green"></i>&nbsp;&nbsp;Customize with your own 'recipe' of filters.</li>
+                                    
                                 </ul>
                         </div>
                            
-                       <div class="feature-list-wrap col-xs-6">
+                       <div class="feature-list-wrap col-xs-6 text-center">
                             	<ul class="feature-list">
                                 <br><br>   
-								 <a href="https://youtu.be/naMjj5oJOGk" target="_blank" class="btn btn-success"><i class="fa fa-video-camera"></i>&nbsp;&nbsp;Video (Uploading your TRACKMASTER FILE)</a>
+                                <button type="submit" class='btn btn-success'><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;Check Out Our Free Sample!</button>
                                 </ul>
                         </div>
                     
@@ -100,7 +106,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
                 <i class="service-icon"><img src="img/step1.png" alt="Step One" /></i>
                 <div class="desc">
                     <h4>Create Account</h4>
-                    <p><a href="register.php">Register for free</a> to purchase our credit package option, or take it slow and use our <strong>$2.50</strong> per credit option.  That's about the cost of a cup of coffee, which quite honestly is probably what we will use it for.  Thanks for the buzz!</p>
+                    <p><a href="register.php">Register for free</a> to purchase one of our package options, or take it slow and use our <strong>$5.00</strong> per credit/track option.  That's about the cost of a cup of coffee, which quite honestly is probably what we will use it for.  Thanks for the buzz!</p>
                     <p><a href='register.php' class='btn btn-success'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;Register Now!</a></p>
                
 			   </div>
@@ -126,9 +132,9 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
                 <i class="service-icon"><img src="img/step3.png" alt="Step Three" /></i>
                 <div class="desc">
                     <h4>Process Data File</h4>
-                    <p>Purchase single credits or our credit package, and then simply browse, select, and upload your Trackmaster data file to process your custom Thoroughwiz strategy sheets. Check out our sample sheets below!</p>
+                    <p>Purchase single credits or one of our credit packages, and then simply browse, select, and upload your Trackmaster data file to process your custom Thoroughwiz strategy sheets. Check out our sample sheets below!</p>
                     <form action='product_free_sample.php' method='post' enctype='multipart/form-data'>
-                    <button type="submit" class='btn btn-success'><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;View Free Samples!</button>
+                    <button type="submit" class='btn btn-success'><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;View A Free Sample!</button>
                     </form>          
                 </div>
             </div>
@@ -136,7 +142,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
         
         </div><!-- /row -->
     </div><!-- /container -->
-
+    <hr>
     <!--=== Free Demo ===-->
     <!--<div class="purchase">
         <div class="container">
@@ -158,7 +164,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
         <p><img alt="stripe payments" border="0" src="img/stripe-payments.png" class="img-responsive pp" /></p>
         <p><a href="https://stripe.com/" target="_blank" class="btn btn-info"><span class="glyphicon glyphicon-new-window"></span>&nbsp;&nbsp;What is Stripe?</a></p>
     </div>
-    
+
     <!--<center>
     
         <a class="twitter-timeline" href="https://twitter.com/ThoroughWiz" data-widget-id="605769625473654785">Tweets by @ThoroughWiz</a>
@@ -168,100 +174,12 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
     
     </center>-->
     
-    
-    <!-- End Like Block -->
-    
-    <hr>
-    <?php include("footer.php"); ?>
     <?php include("modals.php"); ?>
+    <?php include("footer.php"); ?>
   
 </div><!--/wrapper-->
 
-<script>
-$(document).ready(function(){
-    
-    $("#logInDiv").dialog({
-        modal: true,
-        draggable: false,
-        autoOpen: false,
-        closeOnEscape: false,
-        dialogClass: "no-close",
-        height: 100
-    });
 
-    $(document).ajaxStart(function(){ 
-        $("#logInDiv").dialog("open"); 
-    });
-
-    $(document).ajaxStop(function(){ 
-        $("#logInDiv").dialog("close");
-    });
-
-    // submit the form
-    $("#homepage-login-form").on("submit", function (e) {
-
-        // Stop the browser from submitting the form.
-        e.preventDefault();
-
-        // Get the form.
-        var form = $("#homepage-login-form");
-
-        // Get the messages div.
-        var formMessages = $("#form-messages");
-        var logInGood = $("#logInGood");
-
-        // Serialize the form data.
-        var formData = $(form).serialize();
-
-        $.ajax({
-          url: $(form).attr("action"),
-          type: "POST",
-          data: formData,
-          dataType: "json",
-          success: function(data) {
-              if(data[0] == "match"){
-                  $(logInGood).html("Retrieving Membership Data...");
-                  $(logInGood).dialog({
-                    modal: true,
-                    draggable: false,
-                    autoOpen: false,
-                    closeOnEscape: false,
-                    dialogClass: "no-close",
-                    height: 100
-                });
-                $(logInGood).dialog("open");
-                setTimeout(function(){ document.location.href = "account.php"; }, 3000);
-              }else{
-                $(formMessages).html(data[0]);
-                $(formMessages).dialog({
-                    autoOpen: false,
-                    modal: true,
-                    buttons: [{ 
-                         text: "Ok", click: function() { 
-                            $( this ).dialog( "close" );
-                         } 
-                    }]
-                });
-                $(formMessages).dialog("open");
-              }
-          },
-          error: function(xhr, desc, err) {
-                $(formMessages).html("The system has encountered an error");
-                $(formMessages).dialog({
-                    autoOpen: false,
-                    modal: true,
-                    buttons: [{ 
-                         text: "Ok", click: function() { 
-                            $( this ).dialog( "close" );
-                         } 
-                    }]
-                });
-                $(formMessages).dialog("open");
-          }
-        });
-    })    
-});    
-</script>
     
 </body>
 </html>

@@ -49,7 +49,7 @@ if(isset($_FILES["myfile"])){
 		  $_SESSION['racedate'] = (string)$xmldata->racedata[0]->race_date[0];
 		  $_SESSION['racetrack'] = (string)$xmldata->racedata[0]->track[0];
 		  
-		  header( 'Location: https://www.twizfigs.com/deny-password.php/promo-product.php' ) ; 
+		  header( 'Location: https://www.twizfigs.com/promo-product.php' ) ; 
 		} else {
 		  echo "Our apologies! Our logic couldn't extract $file.  Please contact Thoroughwiz support for further assistance.";
 		}
@@ -64,7 +64,7 @@ if(isset($_FILES["myfile"])){
 		$_SESSION['racedate'] = (string)$xmldata->racedata[0]->race_date[0];
 		$_SESSION['racetrack'] = (string)$xmldata->racedata[0]->track[0];
 		$_SESSION['data'] = $_FILES["myfile"]["name"];
-		  	header('Location:https://www.twizfigs.com/deny-password.php/promo-product.php'); 
+		  	header('Location:https://www.twizfigs.com/promo-product.php'); 
 	}
 }else{
     echo '<h3>What are you doing?  Go home.</h3>';

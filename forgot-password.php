@@ -49,7 +49,6 @@ if(isUserLoggedIn()) { header("Location: account.php"); die(); }
             </div>
         </div>
         </form>
-        <!--<div id="form-messages" title="Thoroughwiz says..." style="text-align:center;padding:5px;"></div>-->
     </div>
       <!--/col-md-4-->
     </div>
@@ -57,8 +56,8 @@ if(isUserLoggedIn()) { header("Location: account.php"); die(); }
   </div>
   <!--/container-->
   <!--=== End Content Part ===-->
-  <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
+  	<?php include("modals.php"); ?>
+	<?php include("footer.php"); ?>
 </div><!--/wrapper-->
 <script>
 $(document).ready(function(){

@@ -40,26 +40,6 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
           </div>
           <p>Thank you for being a subscribing member!</p>
         </div>
-        <!-- Contact Us -->
-        <!--<div class="who margin-bottom-30">
-
-                    <div class="headline"><h2>Contact Us</h2></div>
-
-                    <p>Vero facilis est etenim a feugiat cupiditate non quos etrerum facilis.</p>
-
-                    <ul class="list-unstyled">
-
-                        <li><a href="#"><i class="fa fa-home"></i>5B amus ED554, New York, US</a></li>
-
-                        <li><a href="#"><i class="fa fa-envelope"></i>infp@example.com</a></li>
-
-                        <li><a href="#"><i class="fa fa-phone"></i>1(222) 5x86 x97x</a></li>
-
-                        <li><a href="#"><i class="fa fa-globe"></i>http://www.example.com</a></li>
-
-                    </ul>
-
-                </div>-->
       </div>
       <!--/col-md-3-->
       <div class="col-md-9">
@@ -98,8 +78,8 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
   </div>
   <!--/container-->
   <!--=== End Content Part ===-->
+  <?php include("modals.php"); ?>  
   <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
 </div><!--/wrapper-->
 </body>
 </html>

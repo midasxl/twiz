@@ -9,8 +9,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
 <!-- Meta Data -->
 <?php include("meta.php"); ?>
 <!-- CSS Import -->
-<?php include("style_block.php"); ?>
-    
+<?php include("style_block.php"); ?>    
 </head>
 <body>
 <div class="wrapper">
@@ -35,16 +34,6 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
         <div class="headline">
           <h2>Archives</h2>
         </div>
-        <div>
-<?php
-
-// Main function file
-include("models/php_file_tree.php");
-            
-echo php_file_tree("/home/sparky/archives/", "javascript:alert('You clicked on [link]');");
-
-?>
-        </div>
         <!-- End Other Questions -->
       </div>
       <!--/col-md-9-->
@@ -57,7 +46,7 @@ echo php_file_tree("/home/sparky/archives/", "javascript:alert('You clicked on [
           <!--<li><i class="fa fa-users"></i>Partnership: Wood/Husband-Wood</li>
           <li><i class="fa fa-home"></i>Horseheads, NY 14845</li>-->
           <li><a href="mailto:support@thoroughwiz.com?subject=From the contact page"><i class="fa fa-envelope"></i>support@thoroughwiz.com</a></li>
-          <li><a href="https://www.twizfigs.com/deny-password.php"><i class="fa fa-globe"></i>https://www.twizfigs.com/deny-password.php</a></li>
+          <li><a href="https://www.twizfigs.com"><i class="fa fa-globe"></i>https://www.twizfigs.com</a></li>
         </ul>
         <!-- Why we do this? -->
         <div class="headline">

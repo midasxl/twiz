@@ -1,0 +1,40 @@
+Remove all the stuff , being able to filter etc.
+The table is just Program number, Morning Line Odds, Horses name, TWIZ figure (see below)
+
+No need to loop etc, we only want the last race.
+
+Jockey = average of current year+previous year, Jockey Win%+# of wins + Place%+# of places + Show %+# of shows. (percent as a whole number so .50 is 50)
+Trainer = average of current year+previous year, Trainer Win%+# of wins + Place%+# of places + Show %+# of shows.
+Horse = average  Horses lifetime win%+# of wins,Place%+number of place+Show%+# of shows.
+
+twiz = TODAY's WEIGHT + Number of runners last race - Finish position last race - Odds last race + (average Jockey+trainer+horse / 10)- Morning Line Odds
+
+This should be the areas to compute the above figure.
+
+FROM JUST THE LAST RACE
+
+horsedata
+		->weight
+		->morn_odss
+->statsdata
+		->this_year
+		->last_year
+jockey
+trainer
+	All Stats Data
+			->starts
+			->wins
+			->places
+			->shows
+
+	
+ppdata
+		->fieldsize
+		->posttimeod
+		->positionfi
+
+Still in the original format broken by race in tables etc.
+predictability score of race can stay, but no need for all the rest.
+
+This should be much eesier to program/manage and it is all I use now, and works very very well compared to other things on the market.
+(I enter free contests online) lol

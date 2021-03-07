@@ -351,8 +351,9 @@ $permissionData = fetchAllPermissions(); //Retrieve list of all permission level
   </div>
   <!--/container-->
   <!--=== End Content Part ===-->
-  <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
+  <?php include("modals.php"); ?>
+<?php include("footer.php"); ?>
 </div><!--/wrapper-->
+
 </body>
 </html>

@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						<div class="col-md-12">	  
 							  <div style="text-align:center;margin:30px 0px;">
 								  <p><strong>Thank you very much for choosing our service!</strong></p>
-								  <p style="color:#74c52c">https://www.twizfigs.com/deny-password.php</p>
+								  <p style="color:#74c52c">https://www.twizfigs.com</p>
 							  </div>
 						</div>
 				  </div>
@@ -168,9 +168,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </div>
   <!--/container-->
   <!--=== End Content Part ===-->
-  <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
+  	<?php include("modals.php"); ?>
+	<?php include("footer.php"); ?>
 </div><!--/wrapper-->
+
 </body>
 </html>
 

@@ -1,12 +1,12 @@
 <?php
-require_once("models/config.php");
-if (!securePage($_SERVER['PHP_SELF'])){die();}
-$userid = $loggedInUser->user_id;
-$userdetails = fetchUserDetails(NULL, NULL, $userid); //Fetch user details
-/*
-First, it calls the 'models/config.php' file. This file connects to the database and initiates all of our functions. Second, run the securePage() function. This function checks if the page we're on is public or private, and (if it's private) checks to see if we're logged in as a user who has access to the page. If it's private and we don't have access, we'll get sent to a page we do have access to. Third is our include for the Stripe configuration files so we can communicate with the Stripe servers.  
-*/
-require_once('scripts/stripe/stripe-config.php'); // fetches publishable key to identify twiz site to Stripe for communication
+	require_once("models/config.php");
+	if (!securePage($_SERVER['PHP_SELF'])){die();}
+	$userid = $loggedInUser->user_id;
+	$userdetails = fetchUserDetails(NULL, NULL, $userid); //Fetch user details
+	/*
+	First, it calls the 'models/config.php' file. This file connects to the database and initiates all of our functions. Second, run the securePage() function. This function checks if the page we're on is public or private, and (if it's private) checks to see if we're logged in as a user who has access to the page. If it's private and we don't have access, we'll get sent to a page we do have access to. Third is our include for the Stripe configuration files so we can communicate with the Stripe servers.  
+	*/
+	require_once('scripts/stripe/stripe-config.php'); // fetches publishable key to identify twiz site to Stripe for communication
 ?>
 
 <!DOCTYPE html>
@@ -399,21 +399,10 @@ if(isUserLoggedIn()) {
 	?>
     
     </div><!--/container-->
-                    
-  <?php include("footer.php"); ?>
-  <?php include("modals.php"); ?>
+<?php include("modals.php"); ?>
+<?php include("footer.php"); ?>
                     
 </div><!--/wrapper-->
-            
-<!--<div id="form-messages" title="Thoroughwiz says..." style="text-align:center;padding:5px;"></div>
-<div id="passChangeDiv" title="Thoroughwiz says..." style="text-align:center;padding:5px;"></div>
-<div id="dialog-confirm" title="Delete this set of race sheets?"></div>
-<div id="logOutDiv" title="Logging Out" style="display:none;text-align:center;padding:5px;">
-    <img src="img/loading11.gif" alt="loading" />
-</div>
-<div id="delSheetDiv" title="Deleting Sheet Set" style="display:none;text-align:center;padding:5px;">
-    <img src="img/loading11.gif" alt="loading" />
-</div>-->
             
 <?php
 	// conditional logic here to check if user needs to update from a temporary password

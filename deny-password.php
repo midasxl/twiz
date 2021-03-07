@@ -69,8 +69,8 @@ header("Location: index.php"); die();
   </div>
   <!--/container-->
   <!--=== End Content Part ===-->
+  <?php include("modals.php"); ?>
   <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
 </div><!--/wrapper-->
 </body>
 </html>

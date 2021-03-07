@@ -127,8 +127,8 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
     <!-- End Like Block -->
     
     <hr>
-    <?php include("footer.php"); ?>
     <?php include("modals.php"); ?>
+<?php include("footer.php"); ?>
   
 </div><!--/wrapper-->
 

@@ -49,9 +49,9 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
         <div class="row portfolio-item1">
           <div class="col-xs-10">
             <h2>Thoroughwiz Product Pricing</h2>
-        		<p>$2.50 per credit (one credit buys one track sheet)</p>
-        		<p>$12.50 for a 10 credit package (half price of 10 single purchases)</p>
-        		<p>*Coming Soon: Unlimited daily access*</p>
+        		<p>$5.00 per credit/track (one credit buys one track sheet)</p>
+        		<p>$25.00 for a 10 credit package (half price of 10 single credit/track purchases)</p>
+        		<p>$50.00 per month gets you unlimited access to all tracks all the time!</p>
           </div>
         </div>
         
@@ -97,8 +97,8 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
   </div>
   <!--/container-->
   <!--=== End Content Part ===-->
+  <?php include("modals.php"); ?>
   <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
 </div><!--/wrapper-->
 </body>
 </html>

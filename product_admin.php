@@ -53,8 +53,9 @@ createSheet($loggedInUser->user_id, $_SESSION['data'], $trackloc, $_SESSION['rac
   </div><!--/container-->
   <!--=== End Content Part ===-->
     
+  <?php include("modals.php"); ?>
   <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
 </div><!--/wrapper-->
+
 </body>
 </html>

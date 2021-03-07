@@ -1,0 +1,38 @@
+tried to simplify what I needed.
+
+
+Jockey=average of current year+previous year, Jockey Win%+# of wins + Place%+# of places + Show %+# of shows. (percent as a whole number so .50 is 50)
+Trainer=average of current year+previous year, Trainer Win%+# of wins + Place%+# of places + Show %+# of shows.
+Horse=average  Horses lifetime win%+# of wins,Place%+number of place+Show%+# of shows.
+
+
+FROM JUST THE LAST RACE
+
+horsedata
+        ->weight
+        ->morn_odss
+->statsdata
+        ->this_year
+        ->last_year
+jockey
+trainer
+    All Stats Data
+            ->starts
+            ->wins
+            ->places
+            ->shows
+
+    
+ppdata
+        ->fieldsize
+        ->posttimeod
+        ->positionfi
+
+        ->pacefigure
+        ->pacefigur2  (compare these two and only use best one)
+
+        -> speedfigur  (loop to pull best of last 3)
+
+
+twiz  =( (TODAY's WEIGHT + Number of runners last race - Finish position last race - Odds last race)
++ average (Jockey+trainer+horse) + best of last 3 speed figures, best of early or late pace from last race))/4,  minus - Morning Line Odds.

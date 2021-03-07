@@ -111,12 +111,13 @@ $permissionData = fetchAllPermissions(); //Retrieve list of all permission level
         </div><!--/col-md-4-->
     </div><!--/row-->
     </div><!--/container-->
-    <?php include("footer.php"); ?>
     <?php include("modals.php"); ?>
+<?php include("footer.php"); ?>
 </div><!--/wrapper-->
 <script src="assets/js/stacktable.js"></script>
 <script>
     $('#stacktable').stacktable();
 </script>
+
 </body>
 </html>

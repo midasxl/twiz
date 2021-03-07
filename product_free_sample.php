@@ -38,12 +38,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
              
             <form class="sheet-form" action='scripts/summary_free.php' method='post' enctype='multipart/form-data' target='_blank'>
                 <button type='submit' class='btn btn-success btn-u-md'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Summary Sheet</button>
-            </form>&nbsp;&nbsp;<a href='#' data-toggle='modal' data-target='#sampleFilters' class='runWithFilters'><i class='fa fa-filter'></i>&nbsp;Run With Filters</a><br>
-            
-            <form class="sheet-form" action='scripts/details_horse_free.php' method='post' enctype='multipart/form-data' target='_blank'>
-              <?php echo "<input type='hidden' name='card' value='" .$_SESSION['data']. "'><br>"; ?>
-              <button type="submit" class="btn btn-info btn-u-md"><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;Past Performances</button>
-            </form>
+            </form><!--<a href='#' data-toggle='modal' data-target='#sampleFilters' class='runWithFilters'><i class='fa fa-filter'></i>&nbsp;Run With Filters</a>-->
             
         </div>
       </div>
@@ -55,11 +50,10 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
         </div>     
         <div>
                           <p>If you are impressed with our service, consider a Thoroughwiz membership.</p>
-                          <p>Registration is free and required for access.  Once you have activated your account you will have pay-as-you-go, and multi-credit package purchase options.  Daily subscription option coming soon!</p>
-                          <p><a href="register.php" class='btn btn-success btn-lg'>BECOME A MEMBER!</a><!--<a href="register.php"><img src="img/membership-green.png" alt="Become a member" style="margin-top:10px;" /></a>--></p>
+                          <p>Registration is free and required for access. Once you have activated your account you will have single-credit, multi-credit, and monthly purchase options.</p>
+                          <p><a href="register.php" class='btn btn-success btn-md'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;BECOME A MEMBER!</a></p>
                           <span style="color:#959595;">Registration with Thoroughwiz is free!</span><br>
-                          <span style="color:#959595;">Single purchase sheets are $2.50 || 10 Credit packages are $12.50</span><br>
-                          <span><a href="faq.php">FAQ</a>&nbsp;|&nbsp;<a href="terms.php">TERMS</a></span> 
+                          <span><a href="faq.php"><strong>FAQ</strong></a>&nbsp;|&nbsp;<a href="terms.php"><strong>TERMS</strong></a>&nbsp;|&nbsp;<a href="privacy.php"><strong>PRIVACY</strong></a></span> 
                       </div> 
       </div><!--/col-md-9-->
     </div><!--/row-->
@@ -67,8 +61,8 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
   
   <!--=== End Content Part ===-->
   
-  <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
+  <?php include("modals.php"); ?>
+<?php include("footer.php"); ?>
   
 </div><!--/wrapper-->
 <script>

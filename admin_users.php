@@ -88,12 +88,13 @@ $userData = fetchAllUsers(); //Fetch information for all users
   </div>
   <!--/container-->
   <!--=== End Content Part ===-->
-  <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
+  <?php include("modals.php"); ?>
+<?php include("footer.php"); ?>
 </div><!--/wrapper-->
 <script src="assets/js/stacktable.js"></script>
 <script>
 $('#stacktable').stacktable();
 </script>
+
 </body>
 </html>

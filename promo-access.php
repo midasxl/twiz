@@ -78,8 +78,8 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
     </div><!--/row-->
   </div><!--/container-->
   <!--=== End Content Part ===-->
+  <?php include("modals.php"); ?>
   <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
 </div><!--/wrapper-->
 </body>
 </html>

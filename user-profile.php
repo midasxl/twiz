@@ -178,8 +178,8 @@ $usercredits = fetchAllCredits($userid); //fetch user credits
     </div><!--/row-->
   </div><!--/container-->
   <!--=== End Content Part ===-->
-  <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
+  	<?php include("modals.php"); ?>
+	<?php include("footer.php"); ?>
 </div><!--/wrapper-->
 <!--<div id="form-messages" title="Throughwiz says..." style="text-align:center;padding:5px;"></div>-->
 <script>
@@ -380,5 +380,6 @@ $(document).ready(function(){
 		
 });
 </script>
+
 </body>
 </html>

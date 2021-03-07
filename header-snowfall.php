@@ -52,7 +52,7 @@
                     </button>
                     
                     <a class="navbar-brand" href="index.php">
-                        <img id="logo-header" class="collectOnMe" src="assets/img/logo-twiz.png" alt="Logo">
+                        <img id="logo-header" class="collectOnMe" src="assets/img/logo-twiz-xmas.png" alt="Logo">
                     </a>
                     
                 </div>

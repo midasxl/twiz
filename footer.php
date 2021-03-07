@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="col-md-6">                     
                     <p>
-                        &copy; 2017 | ALL Rights Reserved<br />
+                        &copy; 2021 | ALL Rights Reserved<br />
                         <a href="privacy.php">Privacy Policy</a>&nbsp;|&nbsp;<a href="terms.php">Terms of Service</a><br />
 Your Thoroughbred Racing Wizard!
                     </p>  
@@ -70,6 +70,8 @@ Your Thoroughbred Racing Wizard!
 <script type="text/javascript" src="assets/js/active-nav.js"></script>
 <!-- php file tree -->
 <script type="text/javascript" src="assets/js/php_file_tree_jquery.js"></script>
+<!-- login and logout scripts -->
+<script type="text/javascript" src="assets/js/login-logout.js"></script>
 <!-- jquery range slider -->
 <script type="text/javascript" src="assets/js/rangeslider.min.js"></script>
 

@@ -30,7 +30,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
   <div class="container content">
     <div class="row-fluid privacy">
       <h2>Purpose</h2>
-      <p>This privacy policy is for this website <a href="https://www.twizfigs.com/deny-password.php" target="_blank">www.thoroughwiz.com</a> and serves to govern the privacy of those who choose to use it. </p>
+      <p>This privacy policy is for this website <a href="https://www.twizfigs.com" target="_blank">www.thoroughwiz.com</a> and serves to govern the privacy of those who choose to use it. </p>
       <p>This policy sets out the different areas where user privacy is concerned.  It outlines the obligations &amp; requirements of the users, the website and website owners, and the way this website processes, stores and protects user data and information.</p>
       <h2>The Website</h2>
       <p>This website and its owners take a proactive approach to user privacy and ensure the necessary steps are taken to protect the privacy of its users  throughout their visiting experience. This website complies to all US National Laws and requirements for user privacy.</p>
@@ -86,8 +86,8 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
   </div>
   <!--/container-->
   <!--=== End Content Part ===-->
-  <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
+  <?php include("modals.php"); ?>
+<?php include("footer.php"); ?>
 </div><!--/wrapper-->
 </body>
 </html>

@@ -40,9 +40,9 @@ if(isUserLoggedIn()) { header("Location: account.php"); die(); }
           <div class="col-md-12"><p>A Thoroughwiz membership brings top-notch service from one of the handicapping world's leading minds, and boasts a rich user experience from start to finish.</p>
           </div>
           <span style="color:#959595;">Registration with Thoroughwiz is free!</span><br>
-          <span style="color:#959595;">Single credit purchase is $2.50</span><br>
-          <span style="color:#959595;">10 Credit Package is $12.50</span><br>
-          <span style="color:#959595;">*Coming Soon: Unlimited daily access*</span>
+          <span style="color:#959595;">Single credit/track purchase is $5.00</span><br>
+          <span style="color:#959595;">10 Credit Package is $25.00</span><br>
+          <span style="color:#959595;">$50.00 monthly unlimited access!</span>
           <!--<span><a href="faq.php">FAQ</a>&nbsp;|&nbsp;<a href="terms.php">TERMS</a></span>--> 
           </div>
           <?php echo resultBlock($errors,$successes); ?>
@@ -110,8 +110,8 @@ if(isUserLoggedIn()) { header("Location: account.php"); die(); }
     </div>
     </div><!--/container-->
   <!--=== End Content Part ===-->
-  <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
+  	<?php include("modals.php"); ?>
+	<?php include("footer.php"); ?>
 </div><!--/wrapper-->
 <script>
 $(document).ready(function(){

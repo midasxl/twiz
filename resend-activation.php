@@ -62,8 +62,8 @@ if(isUserLoggedIn()) { header("Location: account.php"); die(); }
   </div>
   <!--/container-->
   <!--=== End Content Part ===-->
-  <?php include("footer.php"); ?>
-    <?php include("modals.php"); ?>
+  	<?php include("modals.php"); ?>
+	<?php include("footer.php"); ?>
 </div><!--/wrapper-->
 <script>
 $(document).ready(function(){

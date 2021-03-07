@@ -287,8 +287,9 @@ $permissionData = fetchAllPermissions();
     </div><!--/row-->
   </div><!--/container-->
   <!--=== End Content Part ===-->
-    <?php include("footer.php"); ?>
     <?php include("modals.php"); ?>
+<?php include("footer.php"); ?>
 </div><!--/wrapper-->
+
 </body>
 </html>
