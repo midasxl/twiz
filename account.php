@@ -39,8 +39,8 @@
   <div class="container content">
   
 	<?php include("assets/snippets/left-nav.php"); ?>
-    
-    <?php
+	
+	<?php
 if(isUserLoggedIn()) {
 
 	//********************************************************************************permission level 1 (Administrator)
@@ -90,9 +90,7 @@ if(isUserLoggedIn()) {
                                                 <form style='display:inline' action='scripts/summary.php' method='post' enctype='multipart/form-data' target='_blank'>
                                                             <input type='hidden' name='card' value='" .$sheets['sheet']. "'>
                                                             <button type='submit' class='btn btn-primary btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Summary Sheet</button>
-                                                </form>&nbsp;&nbsp;
-                                                
-                                                        <a href='#' data-id='" .$sheets['sheet']. "' data-toggle='modal' data-target='#filters' class='runWithFilters'><i class='fa fa-filter'></i>&nbsp;Run With Filters</a>                                           
+                                                </form>                                
                                                 </td>
                                                 </tr>
                                                 <tr>                                                
@@ -289,10 +287,8 @@ if(isUserLoggedIn()) {
                                                 <form style='display:inline' action='scripts/summary.php' method='post' enctype='multipart/form-data' target='_blank'>
                                                             <input type='hidden' name='card' value='" .$sheets['sheet']. "'>
                                                             <button type='submit' class='btn btn-primary btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Summary Sheet</button>
-                                                </form>&nbsp;&nbsp;
-                                                
-                                                        <a href='#' data-id='" .$sheets['sheet']. "' data-toggle='modal' data-target='#filters' class='runWithFilters'><i class='fa fa-filter'></i>&nbsp;Run With Filters</a>                                           
-                                                </td>
+                                                </form>
+												</td>
                                                 </tr>
                                                 <tr>                                                
                                                 <td>												
@@ -362,10 +358,8 @@ if(isUserLoggedIn()) {
                                                 <form style='display:inline' action='scripts/summary.php' method='post' enctype='multipart/form-data' target='_blank'>
                                                             <input type='hidden' name='card' value='" .$sheets['sheet']. "'>
                                                             <button type='submit' class='btn btn-primary btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Summary Sheet</button>
-                                                </form>&nbsp;&nbsp;
-                                                
-                                                        <a href='#' data-id='" .$sheets['sheet']. "' data-toggle='modal' data-target='#filters' class='runWithFilters'><i class='fa fa-filter'></i>&nbsp;Run With Filters</a>                                           
-                                                </td>
+                                                </form>
+												</td>
                                                 </tr>
                                                 <tr>                                                
                                                 <td>												
@@ -431,315 +425,6 @@ if(isUserLoggedIn()) {
     . '</script>';
 	}							  
 ?>
-<script>
-  $(document).ready(function(){
-		
-      //pass sheet id to modal so it knows what sheet to fetch in summary.php
-      $(".runWithFilters").click(function(){
-            var passSheetId = $(this).data('id');// this is the value of bootstraps data-id
-            $(".modal-body #sheetId").val(passSheetId);
-      });
-      
-      //var queryString = $('#mainFilterForm').serialize();
-      //alert(queryString);
-      
-      //submit filters form and reload account page at the same time to reset the form
-      $('#mainFilterForm').on('submit', function(e) {
-          e.preventDefault();
-          setTimeout(function() {
-               window.location.reload();
-          },0);
-          this.submit();
-        });
-      
-      $("#logOutButton").click(function(e){
-		  	e.preventDefault();
-			$("#logOutDiv").dialog("open");
-			setTimeout(function(){
-				window.location.href = "logout.php";
-			}, 3000);
-		});
-	  
-      $("#logOutDiv").dialog({
-            modal: true,
-            draggable: false,
-            autoOpen: false,
-            closeOnEscape: false,
-            dialogClass: "no-close",
-            height: 100
-		});
-      
-      $("#delSheetDiv").dialog({
-            modal: true,
-            draggable: false,
-            autoOpen: false,
-            closeOnEscape: false,
-            dialogClass: "no-close",
-            height: 100
-		});
-		
-	  //function to manually delete user sheets	
-      $(".deleteSheetSet").submit(function(e){	
-			e.preventDefault();
-			var killForm = $(this);
-			var formData = $(killForm).serialize();
-            var sheetSet = $(this).attr('id');
-			var formMessages = $('#form-messages');
-			$("#dialog-confirm").html("You are about to delete the " + sheetSet + " sheet set.  Are you sure?");
-					$("#dialog-confirm").dialog({
-						autoOpen: false,
-						modal: true,
-						buttons : {
-					        "Delete" : function() {
-					        	killSheetSet(formData, formMessages);// call to function below
-					        	$(this).dialog("close");                                
-					        },
-					        "Cancel" : function() {
-					        	$(this).dialog("close");
-					        }
-					      }
-					});
-			$("#dialog-confirm").dialog("open");
-		});
 
-      //function to delete sheet from database (but not the uploads folder!! The folder is cleaned via cron job)
-      function killSheetSet(formData, formMessages){
-        $("#delSheetDiv").dialog("open");
-	  	$.ajax({
-			  url: 'user-delete-sheets.php',
-			  type: 'POST',
-			  data: formData,
-			  dataType: 'json',
-			  	success: function(data) {
-                    $("#delSheetDiv").dialog("close");
-					$("#dialog-confirm").html(data[0]);
-                    $('#dialog-confirm').dialog('option', 'title', 'Sheet Deletion Confirmation');
-					$("#dialog-confirm").dialog({
-						autoOpen: false,
-						modal: true,
-						buttons: [ { 
-							text: "Ok", click: function() { 
-								location.reload(true);
-								$(this).dialog("close");
-							} 
-						}]
-					});
-					$("#dialog-confirm").dialog("open");
-				},
-			  	error: function(response, xhr) {
-                    $("#delSheetDiv").dialog("close");
-				  	console.log(response);
-			  		$(formMessages).html(xhr.responseText);
-					$(formMessages).dialog({
-						autoOpen: false,
-						modal: true,
-						buttons: [ { 
-							text: "Ok", click: function() { 
-								$(this).dialog("close");
-							} 
-						}]
-					});
-					$(formMessages).dialog("open");
-			  	}
-			}); // end ajax call
-		} // end killSheetSet function
-
-	$(function () {
-		
-		// feature detection for required attribute
-		var supportsRequired = 'required' in document.createElement('input')
-		
-			// if 'required' isn't supported
-			if (!supportsRequired) {
-	
-				// loop through each element with a 'required' attribute
-				$('[required]').each(function () {
-	
-					// this
-					var self = $(this)
-	
-					// swap attribute for class
-					self.removeAttr('required').addClass('required');
-	
-					// append an error message
-					self.parent().append('<span class="form-error">Required</span>')
-	
-				}); //end each loop
-		
-			}; // end if supportsrequired
-			
-			
-	
-		// submit the form
-		$('#user-update-form').on('submit', function (e) {
-			
-			// if 'required' isn't supported
-			if (!supportsRequired) {
-			
-				// loop through class name required
-				$('.required').each(function () {
-		
-					// this
-					var self = $(this)
-		
-					// check shorthand if statement for input[type] detection
-					var checked = (self.is(':checkbox') || self.is(':radio')) 
-					? self.is(':not(:checked)') && $('input[name=' + self.attr('name') + ']:checked').length === 0 
-					: false
-		
-					// run the empty/not:checked test
-					if (self.val() === '' || checked) {
-		
-						// show error if the values are empty still (or re-emptied)
-						// this will fire after it's already been checked once
-						self.siblings('.form-error').show()
-		
-						// stop form submitting
-						e.preventDefault()
-		
-					} 
-					
-				}) // close each loop
-			
-				if ($("#password").val().length !==0 && $("#passwordc").val().length !==0 && $("#passwordcheck").val().length !==0){	
-					// Get the form.
-					var form = $('#user-update-form');
-				
-					// Get the messages div.
-					var formMessages = $('#form-messages');
-					
-					// Stop the browser from submitting the form.
-					e.preventDefault();
-					
-					// Serialize the form data.
-					var formData = $(form).serialize();
-					
-					$.ajax({
-					  url: $(form).attr('action'),
-					  type: 'POST',
-					  data: formData,
-					  dataType: 'json',
-					  success: function(data) {
-							$(formMessages).html(data[0]);
-							$(formMessages).dialog({
-						autoOpen: false,
-						modal: true,
-						buttons: [ { 
-							text: "Ok", click: function() { 
-							$( this ).dialog( "close" );
-						} 
-						} ]
-					});
-							$(formMessages).dialog("open");
-							if(data[1] == "match"){
-								$("#chg-pwd").hide();
-							}
-					  },
-					  error: function(xhr, desc, err) {
-						  //$(formMessages).html("Details: " + desc + "\nError:" + err + "\nError:" + eval(xhr));
-							$(formMessages).html("The system has encountered an error");
-							$(formMessages).dialog({
-						autoOpen: false,
-						modal: true,
-						buttons: [ { 
-							text: "Ok", click: function() { 
-							$( this ).dialog( "close" );
-						} 
-						} ]
-					});
-							$(formMessages).dialog("open");
-					  }
-					}); // end ajax call
-	
-				} // close if/else
-	
-			} else { // if required attribute IS supported, we can let HTML 5 handle the validation and jump right to the ajax
-			
-					// Get the form.
-					var form = $('#user-update-form');
-				
-					// Get the messages div.
-					var formMessages = $('#form-messages');
-					
-					// Stop the browser from submitting the form.
-					e.preventDefault();
-					
-					// Serialize the form data.
-					var formData = $(form).serialize();
-					
-					$.ajax({
-					  url: $(form).attr('action'),
-					  type: 'POST',
-					  data: formData,
-					  dataType: 'json',
-					  success: function(data) {
-							$(formMessages).html(data[0]);
-							$(formMessages).dialog({
-						autoOpen: false,
-						modal: true,
-						buttons: [ { 
-							text: "Ok", click: function() { 
-							$( this ).dialog( "close" );
-						} 
-						} ]
-					});
-							$(formMessages).dialog("open");
-							if(data[1] == "match"){
-								$("#chg-pwd").hide();
-							}
-					  },
-					  error: function(xhr, desc, err) {
-							//$(formMessages).html("Details: " + desc + "\nError:" + err + "\nError:" + eval(xhr));
-							$(formMessages).html("The system has encountered an error");
-							$(formMessages).dialog({
-						autoOpen: false,
-						modal: true,
-						buttons: [ { 
-							text: "Ok", click: function() { 
-							$( this ).dialog( "close" );
-						} 
-						} ]
-					});
-							$(formMessages).dialog("open");
-					  }
-					}); // end ajax call
-					
-			}
-	
-		}) // close submit function
-	
-		// key change on all form inputs i.e user enters and exits a form field
-		$('input').on('blur change', function () {
-	
-			// this
-			var self = $(this)
-	
-			// check shorthand if statement for input[type] detection
-			var checked = (self.is(':checkbox') || self.is(':radio')) 
-			? self.is(':not(:checked)') && $('input[name=' + self.attr('name') + ']:checked').length === 0 
-			: false
-	
-			// if empty on change, i.e. if data is removed
-			if (self.val() === '' || checked) {
-	
-				// show/keep the error in view
-				self.siblings('.form-error').show()
-	
-			// if there's a value or checked
-			} else {
-	
-				// hide the error
-				self.siblings('.form-error').hide()
-	
-			}
-	
-		}) // close input blur/change
-	
-	}) // close main function
-		
-});
-
-//$(document).ajaxStop(function() { location.reload(true); });
-</script>
 </body>
 </html>

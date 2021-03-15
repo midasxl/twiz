@@ -38,7 +38,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
              
             <form class="sheet-form" action='scripts/summary_free.php' method='post' enctype='multipart/form-data' target='_blank'>
                 <button type='submit' class='btn btn-success btn-u-md'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Summary Sheet</button>
-            </form><!--<a href='#' data-toggle='modal' data-target='#sampleFilters' class='runWithFilters'><i class='fa fa-filter'></i>&nbsp;Run With Filters</a>-->
+            </form>
             
         </div>
       </div>
@@ -62,7 +62,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
   <!--=== End Content Part ===-->
   
   <?php include("modals.php"); ?>
-<?php include("footer.php"); ?>
+  <?php include("footer.php"); ?>
   
 </div><!--/wrapper-->
 <script>

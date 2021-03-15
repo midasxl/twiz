@@ -44,9 +44,7 @@
                                                 <form style='display:inline' action='scripts/summary.php' method='post' enctype='multipart/form-data' target='_blank'>
                                                             <input type='hidden' name='card' value='" .$sheets['sheet']. "'>
                                                             <button type='submit' class='btn btn-success btn-u-sm'><i class='fa fa-file-text-o'></i>&nbsp;&nbsp;Summary Sheet</button>
-                                                </form>&nbsp;&nbsp;
-                                                
-                                                        <a href='#' data-id='" .$sheets['sheet']. "' data-toggle='modal' data-target='#filters' class='runWithFilters'><i class='fa fa-filter'></i>&nbsp;Run With Filters</a>                                           
+                                                </form>
                                                 </td>
                                                 </tr>
                                                 <tr>                                                

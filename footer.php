@@ -70,35 +70,9 @@ Your Thoroughbred Racing Wizard!
 <script type="text/javascript" src="assets/js/active-nav.js"></script>
 <!-- php file tree -->
 <script type="text/javascript" src="assets/js/php_file_tree_jquery.js"></script>
-<!-- login and logout scripts -->
-<script type="text/javascript" src="assets/js/login-logout.js"></script>
-<!-- jquery range slider -->
-<script type="text/javascript" src="assets/js/rangeslider.min.js"></script>
+<!-- custom js functions login, logout, account updates, password change, sheet deletions, etc. -->
+<script type="text/javascript" src="assets/js/custom.js"></script>
 
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-      	App.init();
-        
-        var $element = $('input[type="range"]');
-
-        $element
-          .rangeslider({
-            polyfill: false,
-            onInit: function() {
-              var $handle = $('.rangeslider__handle', this.$range);
-              updateHandle($handle[0], this.value);
-            }
-          })
-          .on('input', function(e) {
-            var $handle = $('.rangeslider__handle', e.target.nextSibling);
-            updateHandle($handle[0], this.value);
-          });
-
-        function updateHandle(el, val) {
-          el.textContent = val;
-        }
-    });
-</script>
 <!--[if lt IE 9]>
 
     <script src="assets/plugins/respond.js"></script>

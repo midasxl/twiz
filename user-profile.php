@@ -133,7 +133,7 @@ $usercredits = fetchAllCredits($userid); //fetch user credits
         <div class="panel panel-default" >
             <div class="panel-heading">Change Password</div>
             <div class="panel-body">
-<form name="updateAccount" id="user-update-form" action="user-update-account.php" method="post">
+                <form name="updateAccount" id="user-update-form" action="user-update-account.php" method="post">
 					<div>
 						<p>
 						<label>Current Password:</label>
@@ -153,8 +153,8 @@ $usercredits = fetchAllCredits($userid); //fetch user credits
 						<button type="reset" id="cancel-pw" class="btn btn-danger pull-right" style="margin-right:5px;"><i class="fa fa-ban"></i>&nbsp;&nbsp;Cancel</button>
 						</p>
 					</div>
-                    </form>            
-                    </div>
+                </form>            
+            </div>
         </div>
     </div>
             
@@ -181,205 +181,6 @@ $usercredits = fetchAllCredits($userid); //fetch user credits
   	<?php include("modals.php"); ?>
 	<?php include("footer.php"); ?>
 </div><!--/wrapper-->
-<!--<div id="form-messages" title="Throughwiz says..." style="text-align:center;padding:5px;"></div>-->
-<script>
-$(document).ready(function(){
-	
-	$(function () {
-		
-		// feature detection for required attribute
-		var supportsRequired = 'required' in document.createElement('input')
-		
-			// if 'required' isn't supported
-			if (!supportsRequired) {
-	
-				// loop through each element with a 'required' attribute
-				$('[required]').each(function () {
-	
-					// this
-					var self = $(this)
-	
-					// swap attribute for class
-					self.removeAttr('required').addClass('required');
-	
-					// append an error message
-					self.parent().append('<span class="form-error">Required</span>')
-	
-				}); //end each loop
-		
-			}; // end if supportsrequired
-			
-			
-	
-		// submit the form
-		$('#user-update-form').on('submit', function (e) {
-			
-			// if 'required' isn't supported
-			if (!supportsRequired) {
-			
-				// loop through class name required
-				$('.required').each(function () {
-		
-					// this
-					var self = $(this)
-		
-					// check shorthand if statement for input[type] detection
-					var checked = (self.is(':checkbox') || self.is(':radio')) 
-					? self.is(':not(:checked)') && $('input[name=' + self.attr('name') + ']:checked').length === 0 
-					: false
-		
-					// run the empty/not:checked test
-					if (self.val() === '' || checked) {
-		
-						// show error if the values are empty still (or re-emptied)
-						// this will fire after it's already been checked once
-						self.siblings('.form-error').show()
-		
-						// stop form submitting
-						e.preventDefault()
-		
-					} 
-					
-				}) // close each loop
-			
-				if ($("#password").val().length !==0 && $("#passwordc").val().length !==0 && $("#passwordcheck").val().length !==0){	
-					// Get the form.
-					var form = $('#user-update-form');
-				
-					// Get the messages div.
-					var formMessages = $('#form-messages');
-					
-					// Stop the browser from submitting the form.
-					e.preventDefault();
-					
-					// Serialize the form data.
-					var formData = $(form).serialize();
-					
-					$.ajax({
-					  url: $(form).attr('action'),
-					  type: 'POST',
-					  data: formData,
-					  dataType: 'json',
-					  success: function(data) {
-							$(formMessages).html(data[0]);
-							$(formMessages).dialog({
-						autoOpen: false,
-						modal: true,
-						buttons: [ { 
-							text: "Ok", click: function() { 
-							$( this ).dialog( "close" );
-						} 
-						} ]
-					});
-							$(formMessages).dialog("open");
-							if(data[1] == "match"){
-								$("#chg-pwd").hide();
-							}
-					  },
-					  error: function(xhr, desc, err) {
-						  //$(formMessages).html("Details: " + desc + "\nError:" + err + "\nError:" + eval(xhr));
-							$(formMessages).html("The system has encountered an error");
-							$(formMessages).dialog({
-						autoOpen: false,
-						modal: true,
-						buttons: [ { 
-							text: "Ok", click: function() { 
-							$( this ).dialog( "close" );
-						} 
-						} ]
-					});
-							$(formMessages).dialog("open");
-					  }
-					}); // end ajax call
-	
-				} // close if/else
-	
-			} else { // if required attribute IS supported, we can let HTML 5 handle the validation and jump right to the ajax
-			
-					// Get the form.
-					var form = $('#user-update-form');
-				
-					// Get the messages div.
-					var formMessages = $('#form-messages');
-					
-					// Stop the browser from submitting the form.
-					e.preventDefault();
-					
-					// Serialize the form data.
-					var formData = $(form).serialize();
-					
-					$.ajax({
-					  url: $(form).attr('action'),
-					  type: 'POST',
-					  data: formData,
-					  dataType: 'json',
-					  success: function(data) {
-							$(formMessages).html(data[0]);
-							$(formMessages).dialog({
-						autoOpen: false,
-						modal: true,
-						buttons: [ { 
-							text: "Ok", click: function() { 
-							$( this ).dialog( "close" );
-						} 
-						} ]
-					});
-							$(formMessages).dialog("open");
-							if(data[1] == "match"){
-								$("#chg-pwd").hide();
-							}
-					  },
-					  error: function(xhr, desc, err) {
-							//$(formMessages).html("Details: " + desc + "\nError:" + err + "\nError:" + eval(xhr));
-							$(formMessages).html("The system has encountered an error");
-							$(formMessages).dialog({
-						autoOpen: false,
-						modal: true,
-						buttons: [ { 
-							text: "Ok", click: function() { 
-							$( this ).dialog( "close" );
-						} 
-						} ]
-					});
-							$(formMessages).dialog("open");
-					  }
-					}); // end ajax call
-					
-			}
-	
-		}) // close submit function
-	
-		// key change on all form inputs i.e user enters and exits a form field
-		$('input').on('blur change', function () {
-	
-			// this
-			var self = $(this)
-	
-			// check shorthand if statement for input[type] detection
-			var checked = (self.is(':checkbox') || self.is(':radio')) 
-			? self.is(':not(:checked)') && $('input[name=' + self.attr('name') + ']:checked').length === 0 
-			: false
-	
-			// if empty on change, i.e. if data is removed
-			if (self.val() === '' || checked) {
-	
-				// show/keep the error in view
-				self.siblings('.form-error').show()
-	
-			// if there's a value or checked
-			} else {
-	
-				// hide the error
-				self.siblings('.form-error').hide()
-	
-			}
-	
-		}) // close input blur/change
-	
-	}) // close main function
-		
-});
-</script>
 
 </body>
 </html>

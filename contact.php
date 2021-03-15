@@ -56,7 +56,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
         </form>
           
         <!--<div id="form-messages" title="Thoroughwiz says..." style="text-align:center;padding:5px;"></div>-->
-        <p class="success" style="display:none;color:#090"><i class="fa fa-check-square-o"></i>Thank you for your correspondence. Your message has been sent successfully.</p>
+        <p class="success" style="display:none;color:#090"><i class="fa fa-check-square-o"></i>Thank you for your correspondence.  Your message has been sent successfully.</p>
         <p class="error" style="display:none;"><i class="fa fa-frown-o"></i>Our email agent has experienced errors. Please notify Thoroughwiz <a href="mailto:support@thoroughwiz.com" class="">Administrators.</a>&nbsp;&nbsp;We sincerely apologize for this inconvenience.</p>
         
       </div>
@@ -70,13 +70,13 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
           <!--<li><i class="fa fa-users"></i>Partnership: Wood/Husband-Wood</li>
           <li><i class="fa fa-home"></i>Horseheads, NY 14845</li>-->
           <li><a href="mailto:support@thoroughwiz.com?subject=From the contact page"><i class="fa fa-envelope"></i>support@thoroughwiz.com</a></li>
-          <li><a href="https://www.twizfigs.com"><i class="fa fa-globe"></i>https://www.twizfigs.com</a></li>
+          <li><a href="https://www.twizfigs.com/deny-password.php"><i class="fa fa-globe"></i>https://www.twizfigs.com/deny-password.php</a></li>
         </ul>
         <!-- Why we are? -->
         <div class="headline">
           <h2>Why do we do this?</h2>
         </div>
-        <p>Simple. We have an obsession with the horse racing industry. We also really dig complicated algorithms. And we need some kind of justification for consuming massive amounts of coffee. So, that's it. Horses and coffee. And math.</p>
+        <p>Simple.  We have an obsession with the horse racing industry.  We also really dig complicated algorithms.  And we need some kind of justification for consuming massive amounts of coffee.  So, that's it.  Horses and coffee.  And math.</p>
         <!-- Social -->
         <div class="magazine-sb-social margin-bottom-20">
           <div class="headline headline-md">
