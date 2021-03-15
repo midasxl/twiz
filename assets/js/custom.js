@@ -85,6 +85,75 @@ $(document).ready(function(){
 		height: 100
 	});
 
+	// ***************************** Contact form
+		
+    // submit the form
+    $('#contact-form').on('submit', function (e) {
+		
+		// Get the form.
+		var form = $('#contact-form');
+	
+		// Get the messages div.
+		var formMessages = $('#form-messages');
+		
+		// Stop the browser from submitting the form.
+		e.preventDefault();
+		
+		// Serialize the form data.
+		var formData = $(form).serialize();
+		
+		$.ajax({
+		  url: $(form).attr('action'),
+		  type: 'POST',
+		  data: formData,
+		  dataType: 'json',
+		  success: function(data) {
+			  if(data[0] == "match"){
+				$(formMessages).html(data[1]);
+				$(formMessages).dialog({
+					autoOpen: false,
+					modal: true,
+					buttons: [ { 
+						text: "Ok", click: function() { 
+							$( this ).dialog( "close" );
+							$('form').find("input[type=text], textarea").val("");
+							$('.success').show();
+						} 
+					} ]
+				});
+				$(formMessages).dialog("open");
+			  }else{
+				$(formMessages).html(data[0]);
+				$(formMessages).dialog({
+					autoOpen: false,
+					modal: true,
+					buttons: [ { 
+						text: "Ok", click: function() { 
+							$( this ).dialog( "close" );
+						} 
+					} ]
+				});
+				$(formMessages).dialog("open");
+			  }
+		  },
+		  error: function(xhr, desc, err) {
+				$(formMessages).html("Details: " + desc + "\nError:" + err + "\nError:" + eval(xhr));
+				//$(formMessages).html("The system has encountered an error");
+				$(formMessages).dialog({
+					autoOpen: false,
+					modal: true,
+					buttons: [ { 
+						text: "Ok", click: function() { 
+							$( this ).dialog( "close" );
+						} 
+					} ]
+				});
+				$(formMessages).dialog("open");
+		  }
+		}); // end ajax call
+
+}); // close submit function
+
 // ***************************** delete race sheets from account
 
 	$("#delSheetDiv").dialog({
@@ -288,7 +357,7 @@ $('#lost-pass-form').on('submit', function (e) {
 
     // submit the form
     $('#resend-activation-form').on('submit', function (e) {
-		
+
 		// Get the form.
 		var form = $('#resend-activation-form');
 	
@@ -300,7 +369,7 @@ $('#lost-pass-form').on('submit', function (e) {
 		
 		// Serialize the form data.
 		var formData = $(form).serialize();
-		
+
 		$.ajax({
 			url: $(form).attr('action'),
 			type: 'POST',

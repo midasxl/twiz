@@ -2,7 +2,7 @@
 require_once("models/config.php");
 
 //Forms posted
-if(!empty($_POST) && $emailActivation){// if form scope is not empty and emailActivation is TRUE
+if(!empty($_POST) && $emailActivation){ // if form scope is not empty and emailActivation is TRUE
 	
 	$email = trim($_POST["email"]);
 
