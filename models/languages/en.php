@@ -35,7 +35,7 @@ $lang = array_merge($lang,array(
 	"ACCOUNT_DETAILS_UPDATED"		=> "Account details updated",
 	"ACCOUNT_ACTIVATION_MESSAGE"		=> "Please follow the link below to activate your account. \n\n
 	%m1%activate-account.php?token=%m2%",							
-	"ACCOUNT_ACTIVATION_COMPLETE"		=> "Congratulations! You have successfully activated your account.  You can now log in with your username and password.",
+	"ACCOUNT_ACTIVATION_COMPLETE"		=> "Congratulations! You have successfully activated your account.  You can now log in with your username and password",
 	"ACCOUNT_REGISTRATION_COMPLETE_TYPE1"	=> "You have successfully registered. You can now login <a href=\"login.php\">here</a>.",
 	"ACCOUNT_REGISTRATION_COMPLETE_TYPE2"	=> "Congratulations!  You have successfully registered.  You will soon receive an activation email at the address you provided.  You must follow the instructions in the email to activate your account before you can log in.  Thank you!",
 	"ACCOUNT_PASSWORD_NOTHING_TO_UPDATE"	=> "You cannot update with the same password",
@@ -68,7 +68,7 @@ $lang = array_merge($lang,array(
 	"CONFIG_TEMPLATE_INVALID"		=> "There is no file for the template key `%m1%`",
 	"CONFIG_EMAIL_INVALID"			=> "The email you have entered is not valid",
 	"CONFIG_INVALID_URL_END"		=> "Please include the ending / in your site's URL",
-	"CONFIG_UPDATE_SUCCESSFUL"		=> "Your site's configuration has been updated. You may need to load a new page for all the settings to take effect",
+	"CONFIG_UPDATE_SUCCESSFUL"		=> "Your site's configuration has been updated",
 	));
 
 //Forgot Password
@@ -76,7 +76,7 @@ $lang = array_merge($lang,array(
 	"FORGOTPASS_INVALID_TOKEN"		=> "Your activation token is not valid",
 	"FORGOTPASS_NEW_PASS_EMAIL"		=> "We have emailed you a new password",
 	"FORGOTPASS_REQUEST_CANNED"		=> "Lost password request cancelled",
-	"FORGOTPASS_REQUEST_EXISTS"		=> "You have already requested a password reset. Please check your registered email for instructions.",
+	"FORGOTPASS_REQUEST_EXISTS"		=> "You have already requested a password reset. Please check your registered email for instructions",
 	"FORGOTPASS_REQUEST_SUCCESS"	=> "We have emailed you instructions on how to regain access to your account",
 	));
 
@@ -90,7 +90,7 @@ $lang = array_merge($lang,array(
 
 //Miscellaneous
 $lang = array_merge($lang,array(
-	"CAPTCHA_FAIL"			=> "Failed security question",
+	"CAPTCHA_FAIL"			=> "Security Code provided does not match request",
 	"CONFIRM"				=> "Confirm",
 	"DENY"					=> "Deny",
 	"SUCCESS"				=> "Success",

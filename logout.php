@@ -14,9 +14,9 @@ if(!empty($websiteUrl))
 {
 	$add_http = ""; // why add http? If in the configuration admin adds website url simply as twizfigs.com this will add the protocol
 	// strpos returns the position of first occurrence of a string inside another string or else false if string is not found
-	if(strpos($websiteUrl,"http://") === false)// if not found
+	if(strpos($websiteUrl,"https://") === false)// if not found
 	{
-		$add_http = "http://";
+		$add_http = "https://";
 	}
 	
 	header("Location: ".$add_http.$websiteUrl);
@@ -24,7 +24,7 @@ if(!empty($websiteUrl))
 }
 else
 {
-	header("Location: http://".$_SERVER['HTTP_HOST']);
+	header("Location: https://".$_SERVER['HTTP_HOST']);
 	die();
 }	
 ob_end_flush(); /* stops saving and outputs it all at once */

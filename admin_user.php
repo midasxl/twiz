@@ -55,7 +55,7 @@ switch($action){
 		$deletions = $_POST['delete'];
 		if ($deletion_count = deleteUsers($deletions)) {
 			$successes[] = lang("ACCOUNT_DELETIONS_SUCCESSFUL", array($deletion_count));
-			header("Location: https://thoroughwiz.com/sheets/admin_users.php"); /* Redirect browser */
+			header("Location: https://twizfigs.com/admin_users.php"); /* Redirect browser */
 			exit();
 		}
 		else {
@@ -65,74 +65,7 @@ switch($action){
     default:
         //action not found
         break;
-}
-
-
-
-/* old way, legacy code
-$deleteUser = isset($_POST['user-delete']);
-if ($deleteUser) {
-	if(!empty($_POST['delete'])){
-		$deletions = $_POST['delete'];
-		if ($deletion_count = deleteUsers($deletions)) {
-			$successes[] = lang("ACCOUNT_DELETIONS_SUCCESSFUL", array($deletion_count));
-			header("Location: https://thoroughwiz.com/sheets/admin_users.php");
-			exit();
-		}
-		else {
-			$errors[] = lang("SQL_ERROR");
-		}
-	}
-}
-
-$updatePermissions = isset($_POST['update-perms']);
-if ($updatePermissions) {
-		if(!empty($_POST['removePermission'])){
-			$remove = $_POST['removePermission'];
-			if ($deletion_count = removePermission($remove, $userId)){
-				$successes[] = lang("ACCOUNT_PERMISSION_REMOVED", array ($deletion_count));
-			}
-			else {
-				$errors[] = lang("SQL_ERROR");
-			}
-		}
-		if(!empty($_POST['addPermission'])){
-			$add = $_POST['addPermission'];
-			if ($addition_count = addPermission($add, $userId)){
-				$successes[] = lang("ACCOUNT_PERMISSION_ADDED", array ($addition_count));
-			}
-			else {
-				$errors[] = lang("SQL_ERROR");
-			}
-		}
-}
-
-$modActiveStatus = isset($_POST['userActiveStatus']);
-if ($modActiveStatus) {
-	if (!empty($_POST['activate'])) {
-			$displayname = trim($_POST['display']);
-			if(isset($_POST['activate']) && $_POST['activate'] == "activate"){
-				if (setUserActive($userdetails['activation_token'])){
-					$successes[] = lang("ACCOUNT_MANUALLY_ACTIVATED", array($displayname));
-				}
-				else {
-					$errors[] = lang("SQL_ERROR");
-				}
-			}
-	}
-	if (!empty($_POST['deactivate'])) {
-			$displayname = trim($_POST['display']);
-			if(isset($_POST['deactivate']) && $_POST['deactivate'] == "deactivate"){
-				if (setUserInActive($userdetails['activation_token'])){
-					$successes[] = lang("ACCOUNT_MANUALLY_DEACTIVATED", array($displayname));
-				}
-				else {
-					$errors[] = lang("SQL_ERROR");
-				}
-			}
-	}
-}*/
-		
+}		
 $userdetails = fetchUserDetails(NULL, NULL, $userId);
 $userPermission = fetchUserPermissions($userId);
 $permissionData = fetchAllPermissions();
@@ -287,8 +220,8 @@ $permissionData = fetchAllPermissions();
     </div><!--/row-->
   </div><!--/container-->
   <!--=== End Content Part ===-->
-    <?php include("modals.php"); ?>
-<?php include("footer.php"); ?>
+	<?php include("modals.php"); ?>
+	<?php include("footer.php"); ?>
 </div><!--/wrapper-->
 
 </body>

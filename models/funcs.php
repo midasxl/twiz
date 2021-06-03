@@ -2204,7 +2204,7 @@ function fetchPermissionUsers($permission_id) // admin_permission.php
 
 
 
-//Update configuration table
+//Update the configuration table
 
 function updateConfig($id, $value) // admin_configuration.php
 

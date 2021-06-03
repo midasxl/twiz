@@ -317,6 +317,7 @@ $('#lost-pass-form').on('submit', function (e) {
 						buttons: [ { 
 							text: "Ok", click: function() { 
 								$( this ).dialog( "close" );
+								location.href = "index.php";
 							} 
 						} ]
 					});
@@ -384,6 +385,7 @@ $('#lost-pass-form').on('submit', function (e) {
 						buttons: [ { 
 							text: "Ok", click: function() { 
 								$( this ).dialog( "close" );
+								location.href = "index.php";
 							} 
 						} ]
 					});

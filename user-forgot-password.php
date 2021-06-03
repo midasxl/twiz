@@ -34,6 +34,7 @@ if(!empty($_POST))
 		{ */
 			//Check if the user has any outstanding lost password requests
 			$userdetails = fetchUserDetails($email);
+
 			if($userdetails["lost_password_request"] == 1)
 			{
 				$errors[] = lang("FORGOTPASS_REQUEST_EXISTS");

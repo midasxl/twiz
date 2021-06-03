@@ -1,42 +1,39 @@
 <?php
-$msg="";
-if(isset($_POST['submit']))
+/* Namespace alias. */
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+/* Include the Composer generated autoload.php file. */
+require './vendor/autoload.php';
+
+/* Create a new PHPMailer object. Passing TRUE to the constructor enables exceptions. */
+$mail = new PHPMailer(TRUE);
+
+/* Open the try/catch block. */
+try {
+   /* Set the mail sender. */
+   $mail->setFrom('midasxl@twizfigs.com', 'Darth Vader');
+
+   /* Add a recipient. */
+   $mail->addAddress('sparkhw@gmail.com', 'Emperor');
+
+   /* Set the subject. */
+   $mail->Subject = 'Force';
+
+   /* Set the mail message body. */
+   $mail->Body = 'There is a great disturbance in the Force.';
+
+   /* Finally send the mail. */
+   $mail->send();
+}
+catch (Exception $e)
 {
-	$from_add = "support@thoroughwiz.com"; 
-	$to_add = "docstyles69@gmail.com";
-	$subject = "Test Subject";
-	$message = "Test Message";
-	$headers = "From: $from_add \r\n";
-	$headers .= "Reply-To: $from_add \r\n";
-	$headers .= "Return-Path: $from_add\r\n";
-	$headers .= "X-Mailer: PHP \r\n";
-	
-	
-	if(mail($to_add,$subject,$message,$headers)) 
-	{
-		$msg = "Mail sent OK";
-	} 
-	else 
-	{
- 	   $msg = "Error sending email!";
-	}
+   /* PHPMailer exception. */
+   echo $e->errorMessage();
+}
+catch (\Exception $e)
+{
+   /* PHP exception (note the backslash to select the global namespace Exception class). */
+   echo $e->getMessage();
 }
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
-<html>
-<head>
-	<title>Test form to email</title>
-</head>
-
-<body>
-<?php echo $msg ?>
-<p>
-<form action='<?php echo htmlentities($_SERVER['PHP_SELF']); ?>' method='post'>
-<input type='submit' name='submit' value='Submit'>
-</form>
-</p>
-
-<?php phpinfo(); ?>
-
-</body>
-</html>

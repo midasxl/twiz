@@ -64,8 +64,7 @@ if(!empty($_POST)){
 		$body = " From: $name  \r \n Email: $email \r \n Message: $message \r \n Date: $todayis";
 		
 		//put your email address here
-		mail("sparkhw@gmail.com", $subject, $body, $headers);
-		//mail("support@thoroughwiz.com", $subject, $body, $headers);
+		mail("midasxl@twizfigs.com", $subject, $body, $headers);
 	}else{
 		echo json_encode($errors);
 	}

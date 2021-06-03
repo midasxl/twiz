@@ -84,7 +84,9 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
                        <div class="feature-list-wrap col-xs-6 text-center">
                             	<ul class="feature-list">
                                 <br><br>   
-                                <button type="submit" class='btn btn-success'><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;Check Out Our Free Sample!</button>
+                                <form action='product_free_sample.php' method='post' enctype='multipart/form-data'>
+                                    <button type="submit" class='btn btn-success'><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;View A Free Sample!</button>
+                                </form>
                                 </ul>
                         </div>
                     
@@ -134,7 +136,7 @@ if (!securePage($_SERVER['PHP_SELF'])){die();}
                     <h4>Process Data File</h4>
                     <p>Purchase single credits or one of our credit packages, and then simply browse, select, and upload your Trackmaster data file to process your custom Thoroughwiz strategy sheets. Check out our sample sheets below!</p>
                     <form action='product_free_sample.php' method='post' enctype='multipart/form-data'>
-                    <button type="submit" class='btn btn-success'><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;View A Free Sample!</button>
+                        <button type="submit" class='btn btn-success'><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;View A Free Sample!</button>
                     </form>          
                 </div>
             </div>
